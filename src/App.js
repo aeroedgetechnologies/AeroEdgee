@@ -44,9 +44,9 @@ const App = () => {
     <div className="text-center">
       <h2 style={{ fontSize: '29px', fontWeight: 'bold' }}>Contact Us</h2> {/* Font size in pixels */}
       <a href="mailto:sales@cdspace.in" style={{ color: '#4B5563', fontSize: '18px' }}>
-        sales@cdspace.in
+      aeroedgetechnologies@gmail.com
       </a>
-      <p style={{ color: '#4B5563', fontSize: '28px' }}>+91-8088188974</p>
+      {/* <p style={{ color: '#4B5563', fontSize: '28px' }}>+91-8088188974</p> */}
     </div>
   </div>
 

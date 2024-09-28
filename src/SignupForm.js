@@ -9,7 +9,7 @@ const SignupForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/signup', {
+      const response = await axios.post('https://aeroedgee.onrender.com/api/signup', {
         username,
         email,
         password,
@@ -22,6 +22,7 @@ const SignupForm = () => {
       alert('Error creating user: ' + error.message);
     }
   };
+  
 
   return (
     <div style={{

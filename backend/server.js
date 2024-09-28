@@ -11,10 +11,12 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/mern-crud', {
+mongoose.connect('mongodb+srv://aeroedgetechnologies:3p2zsj2gF9TWc4DU@aeroedge.k7so6.mongodb.net/mern-crud?retryWrites=true&w=majority&appName=Aeroedge', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-});
+})
+.then(() => console.log("MongoDB connected"))
+.catch(err => console.error("MongoDB connection error:", err));
 
 // Item Schema
 const itemSchema = new mongoose.Schema({
@@ -31,6 +33,7 @@ const userSchema = new mongoose.Schema({
 });
 
 const User = mongoose.model('User', userSchema);
+
 // Contact Schema
 const contactSchema = new mongoose.Schema({
   name: { type: String, required: true },

@@ -1,0 +1,30 @@
+/* homepage.css */
+
+@keyframes dropAndBounce {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    60% {
+      transform: translateY(-10px); /* First bounce */
+    }
+    80% {
+      transform: translateY(5px);   /* Second bounce */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-drop-and-bounce {
+    animation: dropAndBounce 0.8s ease forwards; /* Adjust duration */
+  }
+  /* In your CSS file */
+.placeholder-custom::placeholder {
+    color: white; /* Change to desired color */
+  }
+  

@@ -45,6 +45,11 @@ const contactSchema = new mongoose.Schema({
 
 const Contact = mongoose.model('Contact', contactSchema);
 
+
+app.get('/', (req, res) => {
+  res.send('Welcome to the AeroEdge API!');
+});
+
 // Contact Form Submission Route
 app.post('/api/contact', async (req, res) => {
   const { name, organization, email, phone, message } = req.body;

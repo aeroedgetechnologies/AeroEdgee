@@ -6,6 +6,9 @@ import pdflogos from '../../Images/pdf logos.jpg'
 import applications from '../../Images/Site Vectors_page-0001.jpg'
 import dronesimages from '../../Images/drone-with-camera-is-flying-iceberg.jpg'
 import battlefields from '../../Images/battlefields.jpg'
+import eyessdrones from '../../Images/eyessdrones.jpg'
+import medicaldroness from '../../Images/medicaldroness.jpg'
+import nightvision from '../../Images/nightvision.jpg'
 import abovearrowicons from '../../Images/arrow imagee.png'
 import pdf from '../../components/pdf/specifications.pdf';
 import { FaAngleUp } from 'react-icons/fa'; // Import the up arrow icon
@@ -21,7 +24,7 @@ const HomePage = () => {
       if (window.scrollY > 1000) {
         setShowScroll(true);
       } else {
-        setShowScroll(false);
+        setShowScroll(false); 
       }
     };
   
@@ -170,21 +173,49 @@ const scrollToTop = () => {
  {/* Campaign Section */}
  <section className="flex flex-col bg-white py-10">
   {/* Battlefield Surveillance System Section */}
-  <div className="flex flex-col justify-center items-center mb-10">
-    <div className="p-8 rounded-lg mx-4 text-left w-full max-w-2xl">
-      <h2 className="text-4xl font-bold text-grey-700 mb-4 ml-4">
-    Battlefield Surveillance System
-      </h2>
+  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginBottom: '10px' }}>
+  <div style={{ padding: '32px', borderRadius: '8px', margin: '0 16px', textAlign: 'left', width: '100%', maxWidth: '640px' }}>
+    <h2 style={{ fontSize: '2.25rem', fontWeight: 'bold', color: '#4B5563', marginBottom: '16px', marginLeft: '16px' }}>
+      Battlefield Surveillance System
+    </h2>
+    <div style={{ display: 'flex', flexDirection: 'col', flexWrap: 'wrap', justifyContent: 'center' }}> 
       <img
-        width="1024"
-        height="291"
+        width="350"
+        height="350"
         src={battlefields}
         alt="Battlefield Surveillance"
-        className="w-full h-auto mb-4"
+        style={{ width: '350px', height: '350px', margin: '8px' }}
         loading="lazy"
       />
+      {/* <img
+        width="350"
+        height="350"
+        src={eyessdrones}
+        alt="Battlefield Surveillance"
+        style={{ width: '350px', height: '350px', margin: '8px' }}
+        loading="lazy"
+      />
+      <img
+        width="350"
+        height="350"
+        src={medicaldroness}
+        alt="Battlefield Surveillance"
+        style={{ width: '350px', height: '350px', margin: '8px' }}
+        loading="lazy"
+      />
+      <img
+        width="350"
+        height="350"
+        src={nightvision}
+        alt="Battlefield Surveillance"
+        style={{ width: '350px', height: '350px', margin: '8px' }}
+        loading="lazy"
+      /> */}
     </div>
   </div>
+</div>
+
+
 
   {/* Advanced Features Section */}
   <div className="flex flex-col justify-center items-center">

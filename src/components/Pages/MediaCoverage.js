@@ -46,7 +46,7 @@ const MediaCoverage = () => {
           <img
             src={mediaCoverageData[currentIndex].image}
             alt={mediaCoverageData[currentIndex].title}
-            className="w-[1000px] h-[400px] rounded-lg mb-4"
+            className="w-[1200px] h-[500px] rounded-lg mb-2" // Increased width and height
           />
           <h3 className="text-xl font-semibold">
             {mediaCoverageData[currentIndex].title}
@@ -57,13 +57,13 @@ const MediaCoverage = () => {
         </div>
         <button
           onClick={prevSlide}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-600"
+          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full shadow-lg hover:bg-gray-600" // Adjusted position
         >
           <FaChevronLeft size={24} />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-3 rounded-full shadow-lg hover:bg-gray-600"
+          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full shadow-lg hover:bg-gray-600" // Adjusted position
         >
           <FaChevronRight size={24} />
         </button>

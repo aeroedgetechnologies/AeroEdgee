@@ -1,32 +1,41 @@
 .about-us-section {
-    background-color: #f9f9f9; /* Light background for contrast */
-    padding: 40px 20px; /* Padding for the section */
-  }
-  
-  .container {
-    max-width: 1200px; /* Max width for the container */
-    margin: 0 auto; /* Center align */
-  }
-  
+  background-image: url(https://example.com/your-background-image.jpg); /* Replace with your background image URL */
+  background-size: cover; /* Cover the entire section */
+  background-position: center; /* Center the background image */
+  height: 70vh; /* Full viewport height */
+  padding: 40px 20px; /* Padding for the section */
+  color: white; /* Set text color for visibility */
+  display: flex; /* Use flexbox to layout items */
+  align-items: center; /* Center items vertically */
+  justify-content: center; /* Center items horizontally */
+}
+
+.container {
+  max-width: 1200px; /* Max width for the container */
+  margin: 0 auto; /* Center align */
+  display: flex; /* Enable flexbox for the container */
+  justify-content: center; /* Center content */
+  text-align: left; /* Align text to the left */
+}
+
+.about-us-logo {
+  width: 100%; /* Make the logo responsive */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 10px; /* Optional: rounded corners */
+}
+
+@media (min-width: 768px) {
   .about-us-logo {
-    width: 100%; /* Make the logo responsive */
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px; /* Optional: rounded corners */
+    max-width: 300px; /* Constrain size on larger screens */
+    margin-right: 40px; /* Space between image and text */
   }
-  
-  @media (min-width: 768px) {
-    .about-us-logo {
-      max-width: 80%; /* Constrain size on larger screens */
-      margin: 0 auto; /* Center the logo */
-    }
-  }
-  
-  h2 {
-    color: #333; /* Dark text color */
-  }
-  
-  p {
-    color: #555; /* Slightly lighter text for paragraphs */
-    line-height: 1.6; /* Improve readability */
-  }
-  
+}
+
+h2 {
+  color: white; /* Dark text color for contrast */
+}
+
+p {
+  color: #ddd; /* Slightly lighter text for paragraphs */
+  line-height: 1.6; /* Improve readability */
+}

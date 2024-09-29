@@ -2,40 +2,45 @@ import React from 'react';
 import '../css/Product.css'; // Ensure you have the necessary CSS for styling
 import ReactPlayer from 'react-player';
 import MediaCoverage from './MediaCoverage';
+import products1 from '../../Images/products1.jpg';
+import products2 from '../../Images/products2.jpg';
+import products3 from '../../Images/products3.jpg';
+import products4 from '../../Images/products4.jpg';
+import products5 from '../../Images/products5.jpg'; // Keep this as products5
+import products6 from '../../Images/photo_2024-09-29_13-14-49.jpg'; // Rename this import
 
 const products = [
   {
     title: 'Surveillance Systems',
     description: 'Advanced systems for monitoring and security applications.',
-    image: 'https://picsum.photos/240/240?random=1',
+    image: products1, // Use the variable directly
   },
   {
     title: 'Drones',
     description: 'Versatile drones designed for various industries.',
-    image: 'https://picsum.photos/240/240?random=2',
+    image: products2,
   },
   {
     title: 'Optics and Lenses',
     description: 'High-performance optics for enhanced visibility and precision.',
-    image: 'https://picsum.photos/240/240?random=3',
+    image: products3,
   },
   {
     title: 'Drones Integrated Equipment',
     description: 'Comprehensive solutions that optimize drone functionality.',
-    image: 'https://picsum.photos/240/240?random=4',
+    image: products4,
   },
   {
     title: 'Anti-Drone Systems',
     description: 'Effective technologies to ensure security against unauthorized drones.',
-    image: 'https://picsum.photos/240/240?random=5',
+    image: products5,
   },
   {
     title: 'Radio Equipment',
     description: 'Reliable communication tools for seamless operations.',
-    image: 'https://picsum.photos/240/240?random=6',
+    image: products6, // Use the renamed variable here
   },
 ];
-
 const Product = () => {
   return (
     <div>

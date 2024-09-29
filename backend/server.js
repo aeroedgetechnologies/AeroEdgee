@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-Connect to MongoDB
+// Connect to MongoDB
 mongoose.connect('mongodb+srv://aeroedgetechnologies:3p2zsj2gF9TWc4DU@aeroedge.k7so6.mongodb.net/mern-crud?retryWrites=true&w=majority&appName=Aeroedge', {
   useNewUrlParser: true,
   useUnifiedTopology: true,

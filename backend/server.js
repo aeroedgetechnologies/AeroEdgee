@@ -11,7 +11,12 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://aeroedgetechnologies:3p2zsj2gF9TWc4DU@aeroedge.k7so6.mongodb.net/mern-crud?retryWrites=true&w=majority&appName=Aeroedge', {
+// mongoose.connect('mongodb+srv://aeroedgetechnologies:3p2zsj2gF9TWc4DU@aeroedge.k7so6.mongodb.net/mern-crud?retryWrites=true&w=majority&appName=Aeroedge', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// })
+
+mongoose.connect('mongodb://localhost:27017/mern-crud', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

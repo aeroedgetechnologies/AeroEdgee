@@ -5,8 +5,12 @@ import logos from '../../Images/drones withh white background heree it is.jpg'
 import pdflogos from '../../Images/pdf logos.jpg'
 import applications from '../../Images/Site Vectors_page-0001.jpg'
 import dronesimages from '../../Images/drone-with-camera-is-flying-iceberg.jpg'
-import abovearrowicons from '../../Images/abovearrowicons.jpeg'
+import battlefields from '../../Images/battlefields.jpg'
+import abovearrowicons from '../../Images/arrow imagee.png'
 import pdf from '../../components/pdf/specifications.pdf';
+import { FaAngleUp } from 'react-icons/fa'; // Import the up arrow icon
+import { BiBorderRadius } from 'react-icons/bi';
+
 
 const HomePage = () => {
   const [animate, setAnimate] = useState(false);
@@ -14,7 +18,7 @@ const HomePage = () => {
   useEffect(() => {
     setAnimate(true);
     const handleScroll = () => {
-      if (window.scrollY > 300) {
+      if (window.scrollY > 1000) {
         setShowScroll(true);
       } else {
         setShowScroll(false);
@@ -86,7 +90,9 @@ const scrollToTop = () => {
     const data = Object.fromEntries(formData.entries());
   
     try {
-      const response = await fetch('https://aeroedgee.onrender.com/api/contact', {
+      // server
+      // const response = await fetch('https://aeroedgee.onrender.com/api/contact', {
+      const response = await fetch('http://localhost:5000/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -162,36 +168,40 @@ const scrollToTop = () => {
 
 
  {/* Campaign Section */}
-<section className="flex flex-col bg-white py-10">
-  {/* First Section */}
+ <section className="flex flex-col bg-white py-10">
+  {/* Battlefield Surveillance System Section */}
   <div className="flex flex-col justify-center items-center mb-10">
-    <div className="p-8 rounded-lg mx-4">
-      <h2 className="text-4xl font-bold text-grey-700 mb-2">How It Works</h2>
+    <div className="p-8 rounded-lg mx-4 text-left w-full max-w-2xl">
+      <h2 className="text-4xl font-bold text-grey-700 mb-4 ml-4">
+    Battlefield Surveillance System
+      </h2>
       <img
         width="1024"
         height="291"
-        src="https://cdspace.in/wp-content/uploads/2021/03/Snap_execution-1024x291.png"
-        alt="SNAP_Execution"
+        src={battlefields}
+        alt="Battlefield Surveillance"
         className="w-full h-auto mb-4"
         loading="lazy"
       />
-      <p className="text-xl text-gray-900">Join our latest campaign.</p>
     </div>
   </div>
-  
-  {/* Second Section */}
+
+  {/* Advanced Features Section */}
   <div className="flex flex-col justify-center items-center">
-    <div className=" p-8 rounded-lg mx-4">
-      <h2 className="text-4xl font-bold text-grey-700 mb-4">Advanced Features</h2>
+    <div className="p-8 rounded-lg mx-4 text-left"> {/* Use text-left for consistency */}
+      <h2 className="text-4xl font-bold text-grey-700 mb-4 ml-4"> {/* ml-4 for left margin */}
+        Advanced Features
+      </h2>
       <img
-        className="w-[900px] h-[700] mb-4"
+        className="w-[900px] h-auto mb-4" // Change height to auto for proper aspect ratio
         src={applications}
-        alt="SNAP_Features"
+        alt="Advanced Features"
         loading="lazy"
       />
     </div>
   </div>
 </section>
+
 
 
 
@@ -210,6 +220,7 @@ const scrollToTop = () => {
             alt="Mining Maps"
             className="w-full h-auto"
             loading="lazy"
+            style={{ borderRadius: "15px" }}
           />
           <figcaption className="text-center mt-2 font-bold">Mine Planning</figcaption>
         </figure>
@@ -224,7 +235,8 @@ const scrollToTop = () => {
             alt="Construction Management"
             className="w-full h-auto"
             loading="lazy"
-          />
+            style={{ borderRadius: "15px" }}
+            />
           <figcaption className="text-center mt-2 font-bold">Construction Management</figcaption>
         </figure>
       </div>
@@ -238,6 +250,7 @@ const scrollToTop = () => {
             alt="Railway Inspection"
             className="w-full h-auto"
             loading="lazy"
+            style={{ borderRadius: "15px" }}
           />
           <figcaption className="text-center mt-2 font-bold">Railway Inspection</figcaption>
         </figure>
@@ -252,6 +265,7 @@ const scrollToTop = () => {
             alt="Town Planning"
             className="w-full h-auto"
             loading="lazy"
+            style={{ borderRadius: "15px" }}
           />
           <figcaption className="text-center mt-2 font-bold">Smart City Planning</figcaption>
         </figure>
@@ -267,6 +281,7 @@ const scrollToTop = () => {
             alt="Disaster Management"
             className="w-full h-auto"
             loading="lazy"
+            style={{ borderRadius: "15px" }}
           />
           <figcaption className="text-center mt-2 font-bold">Disaster Assistance</figcaption>
         </figure>
@@ -281,6 +296,7 @@ const scrollToTop = () => {
             alt="Terrain Mapping"
             className="w-full h-auto"
             loading="lazy"
+            style={{ borderRadius: "15px" }}
           />
           <figcaption className="text-center mt-2 font-bold">Terrain Mapping</figcaption>
         </figure>
@@ -295,6 +311,7 @@ const scrollToTop = () => {
             alt="Irrigation Survey"
             className="w-full h-auto"
             loading="lazy"
+            style={{ borderRadius: "15px" }}
           />
           <figcaption className="text-center mt-2 font-bold">Irrigation Survey</figcaption>
         </figure>
@@ -309,6 +326,7 @@ const scrollToTop = () => {
             alt="Forest Monitoring"
             className="w-full h-auto"
             loading="lazy"
+            style={{ borderRadius: "15px" }}
           />
           <figcaption className="text-center mt-2 font-bold">Forest Monitoring</figcaption>
         </figure>
@@ -399,18 +417,12 @@ const scrollToTop = () => {
 {showScroll && (
   <button
     onClick={scrollToTop}
-    className="fixed bottom-5 right-5 bg-transparent rounded-full shadow-lg"
+    className="fixed bottom-5 right-5 bg-transparent rounded-full shadow-lg hover:bg-gray-300 transition duration-300"
     aria-label="Scroll to Top"
   >
-    <img
-      src={abovearrowicons} // Replace with the path to your vector icon
-      alt="Scroll to Top"
-      className="h-6 w-6" // Adjust size as needed
-    />
+    <FaAngleUp className="h-8 w-8" />
   </button>
 )}
-
-
     </>
   );
 };

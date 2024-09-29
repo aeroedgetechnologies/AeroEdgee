@@ -10,6 +10,11 @@ import Navbar from './components/Navbar';
 import ItemForm from './ItemForm';
 import SignupForm from './SignupForm';
 import HomePage from './components/Pages/Homepage';
+import Product from './components/Pages/Product';
+import Services from './components/Pages/Services';
+import Contact from './components/Pages/Contact';
+import AboutUs from './components/Pages/AboutUs';
+import Campaign from './components/Pages/Campaign';
 
 const App = () => {
   return (
@@ -18,12 +23,12 @@ const App = () => {
         <Navbar />
         <main className="scrollable">
           <Routes>
-            <Route path="/" element={<HomePage />} /> {/* HomePage as the home route */}
-            {/* <Route path="/products" element={<Products />} /> */}
-            {/* <Route path="/services" element={<Services />} /> */}
-            {/* <Route path="/item-for" element={<Campaign />} /> */}
-            {/* <Route path="/contact" element={<ContactUs />} /> */}
-            {/* <Route path="/about" element={<AboutUs />} /> */}
+            <Route path="/" element={<HomePage />} />
+            <Route path="/products" element={<Product />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/campaign" element={<Campaign />} />
+            <Route path="/contact-us" element={<Contact />} />
+            <Route path="/about-us" element={<AboutUs />} />
             <Route path="/item-form" element={<ItemForm />} />
             <Route path="/signup" element={<SignupForm />} />
           </Routes>

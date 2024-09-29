@@ -1,0 +1,29 @@
+.media-coverage {
+    background-color: #ffffff;
+    padding: 2rem 0;
+  }
+  
+  .slide {
+    max-width: 400px; /* Optional: Set a max width for the slide */
+  }
+  
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .mySwiper {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mySwiper .swiper-button-next,
+  .mySwiper .swiper-button-prev {
+    color: #000; /* Custom color for navigation buttons */
+  }
+  
+  .mySwiper .swiper-pagination-bullet {
+    background: #000; /* Custom color for pagination bullets */
+  }
+  

@@ -1,0 +1,32 @@
+.about-us-section {
+    background-color: #f9f9f9; /* Light background for contrast */
+    padding: 40px 20px; /* Padding for the section */
+  }
+  
+  .container {
+    max-width: 1200px; /* Max width for the container */
+    margin: 0 auto; /* Center align */
+  }
+  
+  .about-us-logo {
+    width: 100%; /* Make the logo responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: rounded corners */
+  }
+  
+  @media (min-width: 768px) {
+    .about-us-logo {
+      max-width: 80%; /* Constrain size on larger screens */
+      margin: 0 auto; /* Center the logo */
+    }
+  }
+  
+  h2 {
+    color: #333; /* Dark text color */
+  }
+  
+  p {
+    color: #555; /* Slightly lighter text for paragraphs */
+    line-height: 1.6; /* Improve readability */
+  }
+  

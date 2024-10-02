@@ -28,3 +28,73 @@
     color: white; /* Change to desired color */
   }
   
+
+  .applications-container {
+    max-height: 500px; /* Adjust this value as needed */
+    overflow-y: auto;  /* Enable vertical scrolling */
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to 1 column */
+    gap: 16px; /* Adjust the gap as needed */
+  }
+  
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens and up */
+    }
+  }
+  
+
+  @media (max-width: 767px) {
+    .form-class {
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%; /* Set width to a percentage for better responsiveness */
+      padding: 16px; /* Add padding for mobile spacing */
+      font-size: 1rem; /* Adjust font size for better readability */
+      box-sizing: border-box; /* Ensure padding doesn't affect width */
+    }
+  
+    .form-class h1 {
+      font-size: 1.5rem; /* Smaller heading size for mobile */
+    }
+  
+    .form-class p {
+      font-size: 0.9rem; /* Smaller paragraph text */
+    }
+  
+    .form-class input,
+    .form-class textarea {
+      padding: 12px; /* Adjust input padding for mobile */
+      font-size: 0.9rem; /* Adjust input font size */
+      width: calc(100% - 24px); /* Adjust width to account for padding */
+      margin: 0 auto; /* Center inputs */
+    }
+  
+    .form-class button {
+      padding: 10px 20px; /* Adjust button padding */
+      font-size: 1rem; /* Adjust button text size */
+    }
+  }
+  
+
+  .image-item {
+    width: 350px; /* Set a specific width */
+    height: 203px; /* Set a specific height */
+    border-radius: 15px; /* Optional for aesthetics */
+    object-fit: cover; /* Maintain aspect ratio */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .image-item:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .custom-applications {
+    max-width: 941px; /* Set a maximum width for the container */
+    margin: 0 auto; /* Center the container */
+    padding: 16px; /* Optional padding around the container */
+  }

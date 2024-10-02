@@ -8,6 +8,7 @@ import products3 from '../../Images/products3.jpg';
 import products4 from '../../Images/products4.jpg';
 import products5 from '../../Images/products5.jpg'; // Keep this as products5
 import products6 from '../../Images/photo_2024-09-29_13-14-49.jpg'; // Rename this import
+import ScrollToTopButton from '../ScrollToTopButton';
 
 const products = [
   {
@@ -39,6 +40,16 @@ const products = [
     title: 'Radio Equipment',
     description: 'Reliable communication tools for seamless operations.',
     image: products6, // Use the renamed variable here
+  },
+  {
+    title: 'Information Technologies',
+    description: 'Reliable communication tools for seamless operations.',
+    image: 'https://images.unsplash.com/photo-1723987135977-ae935608939e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Use the renamed variable here
+  },
+  {
+    title: 'Microbiology Equipments',
+    description: 'Reliable communication tools for seamless operations.',
+    image: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Use the renamed variable here
   },
 ];
 const Product = () => {
@@ -108,6 +119,7 @@ const Product = () => {
       </div>
     </section>
     <MediaCoverage />
+    <ScrollToTopButton />
     </div>
   );
 };

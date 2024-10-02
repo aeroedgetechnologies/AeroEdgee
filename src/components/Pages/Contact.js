@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../css/Contact.css'; // Import your CSS file for styling
 import dronesimages from '../../Images/drone-with-camera-is-flying-iceberg.jpg'; // Replace with the appropriate image path
+import ScrollToTopButton from '../ScrollToTopButton';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -125,6 +126,7 @@ const Contact = () => {
         </form>
       </div>
     </div>
+    <ScrollToTopButton />
   </section>
   );
 };

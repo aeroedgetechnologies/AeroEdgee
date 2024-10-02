@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import '../css/MediaCoverage.css';
+import ScrollToTopButton from '../ScrollToTopButton';
 
 const mediaCoverageData = [
   {
@@ -46,7 +47,7 @@ const MediaCoverage = () => {
           <img
             src={mediaCoverageData[currentIndex].image}
             alt={mediaCoverageData[currentIndex].title}
-            className="w-[1200px] h-[500px] rounded-lg mb-2" // Increased width and height
+            className="w-[1100px] h-[500px] rounded-lg mb-2" // Increased width and height
           />
           <h3 className="text-xl font-semibold">
             {mediaCoverageData[currentIndex].title}
@@ -56,17 +57,18 @@ const MediaCoverage = () => {
           </p>
         </div>
         <button
-          onClick={prevSlide}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full shadow-lg hover:bg-gray-600" // Adjusted position
-        >
-          <FaChevronLeft size={24} />
-        </button>
-        <button
-          onClick={nextSlide}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-full shadow-lg hover:bg-gray-600" // Adjusted position
-        >
-          <FaChevronRight size={24} />
-        </button>
+  onClick={prevSlide}
+  className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full shadow-lg button" // Updated class
+>
+  <FaChevronLeft size={24} />
+</button>
+<button
+  onClick={nextSlide}
+  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white p-2 rounded-full shadow-lg button" // Updated class
+>
+  <FaChevronRight size={24} />
+</button>
+
       </div>
       <div className="flex justify-center mt-4">
         {mediaCoverageData.map((_, index) => (
@@ -77,6 +79,7 @@ const MediaCoverage = () => {
           />
         ))}
       </div>
+      <ScrollToTopButton />
     </section>
   );
 };

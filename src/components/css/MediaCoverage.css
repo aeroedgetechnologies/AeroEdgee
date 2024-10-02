@@ -1,29 +1,57 @@
 .media-coverage {
-    background-color: #ffffff;
-    padding: 2rem 0;
-  }
-  
-  .slide {
-    max-width: 400px; /* Optional: Set a max width for the slide */
-  }
-  
-  button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .mySwiper {
-    width: 100%;
-    height: 100%;
-  }
-  
-  .mySwiper .swiper-button-next,
-  .mySwiper .swiper-button-prev {
-    color: #000; /* Custom color for navigation buttons */
-  }
-  
-  .mySwiper .swiper-pagination-bullet {
-    background: #000; /* Custom color for pagination bullets */
-  }
-  
+  background-color: #ffffff;
+}
+
+.slide {
+  max-width: 1400px; /* Match the increased image width in the component */
+  margin: 0 auto; /* Center the slide */
+}
+
+.slide img {
+  transition: transform 0.3s ease; /* Smooth transition for the transform */
+  cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.slide img:hover {
+  transform: scale(1.05); /* Subtle zoom in the image */
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent; /* Set default background to transparent */
+  border: none; /* Remove button border */
+  cursor: pointer; /* Change cursor on hover */
+  transition: background 0.3s; /* Smooth transition */
+}
+
+.button:hover {
+  background: rgba(0, 0, 0, 0.2); /* Slightly darken on hover for better visibility */
+}
+
+.relative {
+  position: relative; /* Ensure absolute positioning works for arrows */
+}
+
+.mySwiper {
+  width: 100%;
+  height: 100%;
+}
+
+.mySwiper .swiper-button-next,
+.mySwiper .swiper-button-prev {
+  color: #000; /* Custom color for navigation buttons */
+}
+
+.mySwiper .swiper-pagination-bullet {
+  background: #000; /* Custom color for pagination bullets */
+}
+
+button.absolute.right-4.top-1\/2.transform.-translate-y-1\/2.text-white.p-2.rounded-full.shadow-lg.button {
+  color: black;
+} 
+
+button.absolute.left-4.top-1\/2.transform.-translate-y-1\/2.text-white.p-2.rounded-full.shadow-lg.button {
+  color: black;
+}

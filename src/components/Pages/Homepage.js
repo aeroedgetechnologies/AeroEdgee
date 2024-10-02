@@ -94,8 +94,8 @@ const scrollToTop = () => {
   
     try {
       // server
-      // const response = await fetch('https://aeroedgee.onrender.com/api/contact', {
-      const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch('https://aeroedgee.onrender.com/api/contact', {
+      // const response = await fetch('http://localhost:5000/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -174,57 +174,32 @@ const scrollToTop = () => {
  <section className="flex flex-col bg-white py-10">
   {/* Battlefield Surveillance System Section */}
   <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginBottom: '10px' }}>
-  <div style={{ padding: '32px', borderRadius: '8px', margin: '0 16px', textAlign: 'left', width: '100%', maxWidth: '640px' }}>
-    <h2 style={{ fontSize: '2.25rem', fontWeight: 'bold', color: '#4B5563', marginBottom: '16px', marginLeft: '16px' }}>
-      Battlefield Surveillance System
-    </h2>
-    <div style={{ display: 'flex', flexDirection: 'col', flexWrap: 'wrap', justifyContent: 'center' }}> 
-      <img
-        width="350"
-        height="350"
-        src={battlefields}
-        alt="Battlefield Surveillance"
-        style={{ width: '350px', height: '350px', margin: '8px' }}
-        loading="lazy"
-      />
-      {/* <img
-        width="350"
-        height="350"
-        src={eyessdrones}
-        alt="Battlefield Surveillance"
-        style={{ width: '350px', height: '350px', margin: '8px' }}
-        loading="lazy"
-      />
-      <img
-        width="350"
-        height="350"
-        src={medicaldroness}
-        alt="Battlefield Surveillance"
-        style={{ width: '350px', height: '350px', margin: '8px' }}
-        loading="lazy"
-      />
-      <img
-        width="350"
-        height="350"
-        src={nightvision}
-        alt="Battlefield Surveillance"
-        style={{ width: '350px', height: '350px', margin: '8px' }}
-        loading="lazy"
-      /> */}
+    <div style={{ padding: '32px', borderRadius: '8px', margin: '0 16px', textAlign: 'left'}}>
+      <h2 style={{ fontSize: '2.25rem', fontWeight: 'bold', color: '#4B5563', marginBottom: '16px', marginLeft: '16px' }}>
+        Battlefield Surveillance System
+      </h2>
+      <div class="custom-applications">
+  <div class="applications-container">
+    <div class="grid ">
+      <img width="750" height="750" src="/static/media/battlefields.51f555f7ce305bbe144d.jpg" alt="Battlefield Surveillance" class="image-item" loading="lazy" />
+      <img width="350" height="350" src="https://images.unsplash.com/photo-1548198309-3beef6c7b72a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Battlefield Surveillance" class="image-item" loading="lazy" />
+      <img width="350" height="350" src="/static/media/medicaldroness.9f39fa02d14cf90f9935.jpg" alt="Battlefield Surveillance" class="image-item" loading="lazy" />
+      <img width="350" height="350" src="/static/media/nightvision.988094b1a8e64d11ee25.jpg" alt="Battlefield Surveillance" class="image-item" loading="lazy" />
     </div>
   </div>
 </div>
 
-
+    </div>
+  </div>
 
   {/* Advanced Features Section */}
   <div className="flex flex-col justify-center items-center">
-    <div className="p-8 rounded-lg mx-4 text-left"> {/* Use text-left for consistency */}
-      <h2 className="text-4xl font-bold text-grey-700 mb-4 ml-4"> {/* ml-4 for left margin */}
+    <div className="p-8 rounded-lg mx-4 text-left">
+      <h2 className="text-4xl font-bold text-grey-700 mb-4 ml-4">
         Advanced Features
       </h2>
       <img
-        className="w-[900px] h-auto mb-4" // Change height to auto for proper aspect ratio
+        className="w-[900px] h-auto mb-4" 
         src={applications}
         alt="Advanced Features"
         loading="lazy"
@@ -236,137 +211,43 @@ const scrollToTop = () => {
 
 
 
+
 {/* Services Section */}
 <section className="flex flex-col md:flex-row bg-white py-10 h-[700px] pt-0">
   <div className="flex flex-col items-center mb-10 w-full">
-    <h2 className="text-4xl font-bold mb-4">Applications</h2>
+    <h2 className="text-4xl font-bold mb-4 ml-0 mr-[789px] mb-[35px]">Applications</h2>
     <section className="grid grid-cols-1 md:grid-cols-4 gap-4 justify-items-center">
-      
-      <div className="flex flex-col items-center">
-        <figure className="relative">
-          <img
-            width="240"
-            height="240"
-            src="https://picsum.photos/240/240?random=1"
-            alt="Mining Maps"
-            className="w-full h-auto"
-            loading="lazy"
-            style={{ borderRadius: "15px" }}
-          />
-          <figcaption className="text-center mt-2 font-bold">Mine Planning</figcaption>
-        </figure>
-      </div>
 
-      <div className="flex flex-col items-center">
-        <figure className="relative">
-          <img
-            width="240"
-            height="240"
-            src="https://picsum.photos/240/240?random=2"
-            alt="Construction Management"
-            className="w-full h-auto"
-            loading="lazy"
-            style={{ borderRadius: "15px" }}
+      {[
+        { src: "https://picsum.photos/240/240?random=1", alt: "Mining Maps", caption: "Mine Planning" },
+        { src: "https://picsum.photos/240/240?random=2", alt: "Construction Management", caption: "Construction Management" },
+        { src: "https://picsum.photos/240/240?random=3", alt: "Railway Inspection", caption: "Railway Inspection" },
+        { src: "https://picsum.photos/240/240?random=4", alt: "Town Planning", caption: "Smart City Planning" },
+        { src: "https://picsum.photos/240/240?random=5", alt: "Disaster Management", caption: "Disaster Assistance" },
+        { src: "https://picsum.photos/240/240?random=6", alt: "Terrain Mapping", caption: "Terrain Mapping" },
+        { src: "https://picsum.photos/240/240?random=7", alt: "Irrigation Survey", caption: "Irrigation Survey" },
+        { src: "https://picsum.photos/240/240?random=8", alt: "Forest Monitoring", caption: "Forest Monitoring" },
+      ].map((item, index) => (
+        <div className="flex flex-col items-center" key={index}>
+          <figure className="relative transition-transform duration-300 transform hover:scale-105 cursor-pointer">
+            <img
+              width="240"
+              height="240"
+              src={item.src}
+              alt={item.alt}
+              className="w-full h-auto rounded-[15px]"
+              loading="lazy"
             />
-          <figcaption className="text-center mt-2 font-bold">Construction Management</figcaption>
-        </figure>
-      </div>
-
-      <div className="flex flex-col items-center">
-        <figure className="relative">
-          <img
-            width="240"
-            height="240"
-            src="https://picsum.photos/240/240?random=3"
-            alt="Railway Inspection"
-            className="w-full h-auto"
-            loading="lazy"
-            style={{ borderRadius: "15px" }}
-          />
-          <figcaption className="text-center mt-2 font-bold">Railway Inspection</figcaption>
-        </figure>
-      </div>
-
-      <div className="flex flex-col items-center">
-        <figure className="relative">
-          <img
-            width="240"
-            height="240"
-            src="https://picsum.photos/240/240?random=4"
-            alt="Town Planning"
-            className="w-full h-auto"
-            loading="lazy"
-            style={{ borderRadius: "15px" }}
-          />
-          <figcaption className="text-center mt-2 font-bold">Smart City Planning</figcaption>
-        </figure>
-      </div>
-
-      {/* Additional images for the second section */}
-      <div className="flex flex-col items-center">
-        <figure className="relative">
-          <img
-            width="240"
-            height="240"
-            src="https://picsum.photos/240/240?random=5"
-            alt="Disaster Management"
-            className="w-full h-auto"
-            loading="lazy"
-            style={{ borderRadius: "15px" }}
-          />
-          <figcaption className="text-center mt-2 font-bold">Disaster Assistance</figcaption>
-        </figure>
-      </div>
-
-      <div className="flex flex-col items-center">
-        <figure className="relative">
-          <img
-            width="240"
-            height="240"
-            src="https://picsum.photos/240/240?random=6"
-            alt="Terrain Mapping"
-            className="w-full h-auto"
-            loading="lazy"
-            style={{ borderRadius: "15px" }}
-          />
-          <figcaption className="text-center mt-2 font-bold">Terrain Mapping</figcaption>
-        </figure>
-      </div>
-
-      <div className="flex flex-col items-center">
-        <figure className="relative">
-          <img
-            width="240"
-            height="240"
-            src="https://picsum.photos/240/240?random=7"
-            alt="Irrigation Survey"
-            className="w-full h-auto"
-            loading="lazy"
-            style={{ borderRadius: "15px" }}
-          />
-          <figcaption className="text-center mt-2 font-bold">Irrigation Survey</figcaption>
-        </figure>
-      </div>
-
-      <div className="flex flex-col items-center">
-        <figure className="relative">
-          <img
-            width="240"
-            height="240"
-            src="https://picsum.photos/240/240?random=8"
-            alt="Forest Monitoring"
-            className="w-full h-auto"
-            loading="lazy"
-            style={{ borderRadius: "15px" }}
-          />
-          <figcaption className="text-center mt-2 font-bold">Forest Monitoring</figcaption>
-        </figure>
-      </div>
-
+            <figcaption className="text-center mt-2 font-bold">{item.caption}</figcaption>
+          </figure>
+        </div>
+      ))}
+      
     </section>
     {/* <h2 className="text-center italic mt-4">Image Courtesy: Picsum</h2> */}
   </div>
 </section>
+
 
 
 

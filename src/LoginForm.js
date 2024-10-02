@@ -4,32 +4,27 @@ import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const SignupForm = () => {
+const LoginForm = () => {
   const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
+    console.log("Username:", username.toLowerCase()); // Log the username
+    console.log("Password:", password); // Log the password
     try {
-      // const response = await axios.post('http://localhost:5000/api/signup', {
+    //   const response = await axios.post('http://localhost:5000/api/login', {
         const response = await axios.post('https://aeroedgee.onrender.com/api/signup', {
-        username: username.toLowerCase(), // Store in lowercase for consistent searching
-        email,
+        username: username.toLowerCase(), // Ensure the username is lowercased here as well
         password,
       });
-      toast.success(response.data.message);
+      toast.success(response.data.message); // Display success message in a toast
       setUsername('');
-      setEmail('');
       setPassword('');
     } catch (error) {
-      const message = error.response?.data?.message || 'Something went wrong';
-      toast.error(message);
-    } finally {
-      setLoading(false);
+      const message = error.response?.data?.message || 'Error logging in';
+      toast.error(message); // Display error message in a toast
     }
   };
 
@@ -39,8 +34,8 @@ const SignupForm = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url("https://img.cdn-pictorem.com/uploads/collection/E/EH4LNA1KMP/900_7ob_Trees_Moon_Lake_Moonlight_Night_Image_Manipulation_Mystic_Light_Mood_Illuminated_Night.jpg")' }}>
-      <div className="relative bg-black bg-opacity-30 rounded-lg shadow-lg p-8 max-w-sm w-full transition-shadow duration-300 shadow-blue-400 hover:shadow-blue-600">
-        <h2 className="text-4xl text-center text-white">Sign Up</h2>
+      <div className="relative bg-black bg-opacity-30 rounded-lg shadow-lg p-8 max-w-sm w-full">
+        <h2 className="text-4xl text-center text-white">Login</h2>
         <form className="mt-6" onSubmit={handleSubmit}>
           {/* Username Input */}
           <div className="relative mb-4">
@@ -56,25 +51,6 @@ const SignupForm = () => {
             <img
               src="https://cdn-icons-png.flaticon.com/512/6325/6325109.png"
               alt="user-image"
-              className="absolute right-4 top-2.5"
-              width="25px"
-            />
-          </div>
-
-          {/* Email Input */}
-          <div className="relative mb-4">
-            <input
-              type="email"
-              id="email-input"
-              required
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="Email"
-              className="w-full px-4 py-2 text-white bg-transparent border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-400"
-            />
-            <img
-              src="https://cdn-icons-png.flaticon.com/512/6325/6325109.png"
-              alt="email-image"
               className="absolute right-4 top-2.5"
               width="25px"
             />
@@ -100,21 +76,30 @@ const SignupForm = () => {
             />
           </div>
 
-          {/* Sign Up Button */}
-          <div className="flex justify-center">
-            <button type="submit" disabled={loading} className="w-full py-2 text-black bg-white rounded-full hover:bg-gray-300">
-              {loading ? 'Signing Up...' : 'Sign Up'}
-            </button>
+          {/* Remember me and Forgot password */}
+          <div className="flex justify-between mb-4">
+            <div className="flex items-center">
+              <input type="checkbox" id="remember" className="mr-2" />
+              <label htmlFor="remember" className="text-white">Remember me</label>
+            </div>
+            <div>
+              <a href="#" className="text-white hover:underline">Forgot Password?</a>
+            </div>
           </div>
 
-          {/* Login Link */}
+          {/* Login Button */}
+          <div className="flex justify-center">
+            <button type="submit" className="w-full py-2 text-black bg-white rounded-full hover:bg-gray-300">Login</button>
+          </div>
+
+          {/* Register Link */}
           <div className="mt-4 text-center text-white">
-            <p className="text-gray-300">Already have an account? <Link to="/login" className="text-blue-500 hover:underline">Login</Link></p>
+            <p className="text-gray-300">Don't you have an account? <Link to="/signup" className="text-blue-500 hover:underline">Register</Link></p>
           </div>
         </form>
       </div>
       <ToastContainer 
-        position="top-center"
+        position="top-center" // Toast position
         autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
@@ -129,4 +114,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default LoginForm;

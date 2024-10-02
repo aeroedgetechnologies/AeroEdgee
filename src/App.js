@@ -15,6 +15,10 @@ import Services from './components/Pages/Services';
 import Contact from './components/Pages/Contact';
 import AboutUs from './components/Pages/AboutUs';
 import Campaign from './components/Pages/Campaign';
+import supportedBy from '../src/Images/Supported by_page-0001.jpg';
+import ScrollToTopButton from './components/ScrollToTopButton';
+import LoginForm from './LoginForm';
+import Homes from './components/Codepen/Homes';
 
 const App = () => {
   return (
@@ -31,36 +35,38 @@ const App = () => {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/item-form" element={<ItemForm />} />
             <Route path="/signup" element={<SignupForm />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/homes" element={<Homes />} />
           </Routes>
         </main>
-        <footer className="bg-gray-200 text-gray-700 py-4">
-  <div className="flex justify-around items-center mb-4">
-    <div className="text-center">
-      <h2 style={{ fontSize: '29px', fontWeight: 'bold' }}>Supported By</h2> {/* Font size in pixels */}
-      <Link to="#">
-        <img
-          src="https://cdspace.in/wp-content/uploads/2021/03/SIIC_IITK_transparent-background-1-768x168.png"
-          alt="Supported By"
-          className="mt-2 w-[360px]"
-        />
-      </Link>
-    </div>
+        <ScrollToTopButton /> 
+        <footer className="bg-gray-300 text-gray-700 py-4">
+          <div className="flex justify-around items-center mb-4">
+            <div className="text-center">
+              <h2 style={{ fontSize: '29px', fontWeight: 'bold' }}>Supported By</h2>
+              <Link to="/">
+                <img
+                  src={supportedBy}
+                  alt="Supported By"
+                  className="mt-2 w-[360px]"
+                />
+              </Link>
+            </div>
 
-    <div className="text-center">
-      <h2 style={{ fontSize: '29px', fontWeight: 'bold' }}>Contact Us</h2> {/* Font size in pixels */}
-      <a href="mailto:sales@cdspace.in" style={{ color: '#4B5563', fontSize: '18px' }}>
-      aeroedgetechnologies@gmail.com
-      </a>
-      {/* <p style={{ color: '#4B5563', fontSize: '28px' }}>+91-8088188974</p> */}
-    </div>
-  </div>
+            <div className="text-center">
+              <h2 style={{ fontSize: '29px', fontWeight: 'bold' }}>Contact Us</h2>
+              <a href="mailto:sales@cdspace.in" style={{ color: '#4B5563', fontSize: '18px' }}>
+                aeroedgetechnologies@gmail.com
+              </a>
+            </div>
+          </div>
 
-  <div className="text-center p-7">
-    <p style={{ fontSize: '18px' }}> {/* Font size in pixels */}
-      &copy; {new Date().getFullYear()} Simple Page. All rights reserved.
-    </p>
-  </div>
-</footer>
+          <div className="text-center p-7">
+            <p style={{ fontSize: '18px' }}>
+              &copy; {new Date().getFullYear()} Simple Page. All rights reserved.
+            </p>
+          </div>
+        </footer>
       </div>
     </Router>
   );

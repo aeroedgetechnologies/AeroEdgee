@@ -1,124 +1,80 @@
 import React from 'react';
 import '../css/Campaign.css'; // Make sure to adjust styles as needed
+import ScrollToTopButton from '../ScrollToTopButton';
 
 const Campaign = () => {
   return (
-    <div className="campaign-section">
-      {/* Section 1 */}
-      <div className="campaign-item">
-        <div className="text-content">
-          <h2 className="text-4xl font-bold mb-4">Join Our Latest Campaign</h2>
-          <p className="text-lg mb-4">
-            We are excited to invite you to participate in our latest campaign aimed at transforming aerial technology across multiple sectors.
-          </p>
-          <p className="text-lg mb-4">
-            From agriculture to urban planning, our initiative is designed to optimize efficiency and promote safety, ensuring a sustainable future.
-          </p>
-          <p className="text-lg">
-            Join us in making a difference today!
-          </p>
+    <div>
+    <section className="container">
+        <div className="each">
+            <div style={{ margin: '0 20px' }}>
+                <h3 style={{ display: 'block', fontFamily: 'HelveticaNeue-Light, Helvetica Neue Light, Helvetica Light Condensed, Helvetica, Arial, sans-serif', fontSize: '38px', fontWeight: 300, letterSpacing: 'normal', lineHeight: '45px', marginLeft: '60px', marginRight: '20px', textAlign: 'left' }}>
+                    <span style={{ color: '#000000' }}>How can</span><br />
+                    <span style={{ fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 600, fontSize: '42px' }}>drones</span><br />
+                    enhance our world?
+                </h3>
+                <img alt="drones flying over landscape" src="https://images.unsplash.com/photo-1589382135022-0e5aecabbd9c?q=80&w=2139&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style={{ width: '100%' }} />
+                <h3 style={{ color: '#000000', display: 'block', fontFamily: 'Helvetica', fontSize: '16px', fontWeight: 'normal', lineHeight: '25px', marginLeft: '60px', marginRight: '20px', marginTop: '30px', textAlign: 'left' }}>
+                    Drones are revolutionizing industries across the globe. Discover how we can leverage their potential. <strong><a href="#" style={{ color: 'rgb(140, 29, 64)', textDecoration: 'underline' }} target="_blank" rel="noopener noreferrer">Learn more</a></strong>.
+                </h3>
+                <h3 style={{ color: '#000000', display: 'block', fontFamily: 'Helvetica', fontSize: '16px', fontWeight: 'normal', lineHeight: '25px', marginLeft: '60px', marginRight: '20px', marginTop: '0px', textAlign: 'left' }}>
+                    Have questions? Reach out to us at <a href="mailto:aeroedgetechnologies@gmail.com" style={{ fontWeight: 'bold', color: 'rgb(140, 29, 64)', textDecoration: 'underline' }}>aeroedgetechnologies@gmail.com</a>.
+                </h3>
+            </div>
         </div>
-        <div className="image-content">
-          <img
-            src="https://images.unsplash.com/photo-1529171308272-201c63f8831a?q=80&w=1933&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Campaign Image 1"
-            className="campaign-image"
-          />
-        </div>
-      </div>
 
-      {/* Section 2 */}
-      <div className="campaign-item reverse">
-        <div className="text-content">
-          <h2 className="text-4xl font-bold mb-4">Innovative Solutions</h2>
-          <p className="text-lg mb-4">
-            Our cutting-edge drones utilize advanced technology to deliver high-precision mapping, surveillance, and data collection services.
-          </p>
-          <p className="text-lg mb-4">
-            With features like real-time analytics and robust performance in various conditions, our solutions are tailored to meet the needs of modern industries.
-          </p>
-          <p className="text-lg">
-            Elevate your operations with our unmatched reliability and efficiency.
-          </p>
+        <div className="each">
+            <img alt="drone surveying a field" src="https://images.unsplash.com/photo-1517430796102-a3a80fe2b7a2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style={{ width: '100%', borderWidth: '0px', borderStyle: 'solid' }} />
+            <div style={{ margin: '0 20px' }}>
+                <h3 style={{ display: 'block', fontFamily: 'HelveticaNeue-Light, Helvetica Neue Light, Helvetica Light Condensed, Helvetica, Arial, sans-serif', fontSize: '38px', fontWeight: 400, lineHeight: '45px', marginLeft: '20px', marginRight: '20px', textAlign: 'center', textTransform: 'uppercase' }}>
+                    <span style={{ color: '#000000', fontSize: '25px', fontWeight: 600 }}>The power of</span><br />
+                    aerial technology
+                </h3>
+                <h3 style={{ color: '#000000', display: 'block', fontFamily: 'Helvetica', fontSize: '16px', fontWeight: 'normal', lineHeight: '25px', marginLeft: '20px', marginRight: '20px', marginTop: '0px', textAlign: 'left' }}>
+                    Drones are transforming the way we gather data and monitor environments. Discover the possibilities of aerial surveillance and precision agriculture.
+                </h3>
+            </div>
         </div>
-        <div className="image-content">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1688463426040-3e724a762492?q=80&w=1975&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Campaign Image 2"
-            className="campaign-image"
-          />
-        </div>
-      </div>
+    </section>
 
-      {/* Section 3 */}
-      <div className="campaign-item">
-        <div className="text-content">
-          <h2 className="text-4xl font-bold mb-4">Get Involved</h2>
-          <p className="text-lg mb-4">
-            We invite both organizations and individuals to collaborate with us in advancing the future of aerial technology.
-          </p>
-          <p className="text-lg mb-4">
-            Your involvement can catalyze innovation and drive substantial growth in sectors that rely on aerial solutions.
-          </p>
-          <p className="text-lg">
-            Together, we can pioneer advancements that benefit society as a whole.
-          </p>
+    <section className="container">
+        <div className="each">
+            <div style={{ margin: '0 20px' }}>
+                <h3 style={{ display: 'block', fontFamily: 'HelveticaNeue-Light, Helvetica Neue Light, Helvetica Light Condensed, Helvetica, Arial, sans-serif', fontSize: '38px', fontWeight: 400, lineHeight: '45px', marginLeft: '20px', marginRight: '20px', textAlign: 'center', textTransform: 'uppercase' }}>
+                    <span style={{ color: '#000000', fontSize: '30px', fontWeight: 600 }}>What is</span><br />
+                    a drone ecosystem?
+                </h3>
+                <h3 style={{ color: '#000000', display: 'block', fontFamily: 'Helvetica', fontSize: '16px', fontWeight: 'normal', lineHeight: '25px', marginLeft: '20px', marginRight: '20px', marginTop: '0px', textAlign: 'left' }}>
+                    We’ve compiled comprehensive insights into how drone technology is shaping various industries. <strong><a href="#" style={{ color: '#8c1d40' }} target="_blank" rel="noopener noreferrer">Explore our findings</a>.</strong>
+                </h3>
+                <h3 style={{ color: '#000000', display: 'block', fontFamily: 'Helvetica', fontSize: '16px', fontWeight: 'normal', lineHeight: '25px', marginLeft: '20px', marginRight: '20px', marginTop: '0px', textAlign: 'left' }}>
+                    Drones are not just gadgets; they are tools for innovation and efficiency. Learn how we can work together.
+                </h3>
+                <h3 style={{ color: '#000000', display: 'block', fontFamily: 'Helvetica', fontSize: '16px', fontWeight: 'normal', lineHeight: '25px', marginLeft: '20px', marginRight: '20px', marginTop: '0px', textAlign: 'left' }}>
+                    For inquiries, contact us at <a href="mailto:aeroedgetechnologies@gmail.com" style={{ fontWeight: 'bold', color: '#8c1d40' }}>aeroedgetechnologies@gmail.com</a>
+                </h3>
+            </div>
         </div>
-        <div className="image-content">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1696273224469-79c9be779b09?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Campaign Image 3"
-            className="campaign-image"
-          />
-        </div>
-      </div>
 
-      {/* Section 4 */}
-      <div className="campaign-item reverse">
-        <div className="text-content">
-          <h2 className="text-4xl font-bold mb-4">Why Choose Us?</h2>
-          <p className="text-lg mb-4">
-            Our dedicated team is committed to providing exceptional support and guidance tailored to your unique needs.
-          </p>
-          <p className="text-lg mb-4">
-            We have built a reputation for excellence, with numerous satisfied clients benefiting from our expertise in aerial technology.
-          </p>
-          <p className="text-lg">
-            Partner with us for unparalleled service and innovative solutions that set you apart in your industry.
-          </p>
+        <div className="each">
+            <div style={{ margin: '0 20px' }}>
+                <h3 style={{ display: 'block', fontFamily: 'HelveticaNeue-Light, Helvetica Neue Light, Helvetica Light Condensed, Helvetica, Arial, sans-serif', fontSize: '38px', fontWeight: 300, lineHeight: '45px', marginLeft: '60px', marginRight: '20px', textAlign: 'left' }}>
+                    How to <span style={{ fontWeight: 600 }}>leverage</span><br />drone technology effectively
+                </h3>
+                <h3 style={{ color: '#000000', display: 'block', fontFamily: 'Helvetica', fontSize: '16px', fontWeight: 'normal', lineHeight: '25px', marginLeft: '60px', marginRight: '20px', marginTop: '0px', textAlign: 'left' }}>
+                    Discover best practices for integrating drones into your business model. <a href="#" style={{ color: '#8c1d40', fontWeight: 'bold' }} target="_blank" rel="noopener noreferrer">Learn more.</a>
+                </h3>
+                <br />
+                <img alt="drone in action" src="https://images.unsplash.com/photo-1631052941794-2a6e26d4ac17?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" style={{ width: '100%' }} />
+                <br />
+                <h3 style={{ color: '#000000', display: 'block', fontFamily: 'Helvetica', fontSize: '16px', fontWeight: 'normal', lineHeight: '25px', marginLeft: '60px', marginRight: '20px', marginTop: '0px', textAlign: 'left' }}>
+                    We’re here to help you navigate the drone landscape. If you have questions, <a href="#" style={{ color: '#8c1d40', fontWeight: 'bold' }}>reach out</a>.
+                </h3>
+            </div>
         </div>
-        <div className="image-content">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1696273225510-5ff59f0e5695?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Campaign Image 4"
-            className="campaign-image"
-          />
-        </div>
-      </div>
-
-      {/* Section 5 */}
-      <div className="campaign-item">
-        <div className="text-content">
-          <h2 className="text-4xl font-bold mb-4">Contact Us</h2>
-          <p className="text-lg mb-4">
-            Interested in learning more about our initiatives? Reach out to us today for comprehensive information on how you can get involved.
-          </p>
-          <p className="text-lg mb-4">
-            Whether you're an industry leader or an enthusiast, we welcome all inquiries and partnerships.
-          </p>
-          <p className="text-lg">
-            Together, let's revolutionize the aerial landscape for the betterment of our communities.
-          </p>
-        </div>
-        <div className="image-content">
-          <img
-            src="https://plus.unsplash.com/premium_photo-1696273225791-bdab25451705?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            alt="Campaign Image 5"
-            className="campaign-image"
-          />
-        </div>
-      </div>
-    </div>
+    </section>
+    <ScrollToTopButton />
+</div>
   );
 };
 

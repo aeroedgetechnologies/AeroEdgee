@@ -1,80 +1,68 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPenFancy, faDharmachakra, faTasks, faTachometerAlt, faRecycle, faHeadset } from '@fortawesome/free-solid-svg-icons';
 import '../css/Services.css'; // Assuming you will create this CSS file for styles
 
-const services = [
+const offerItems = [
   {
-    title: 'Annual Maintenance',
-    description: 'Regular servicing to ensure optimal performance and longevity of equipment.',
-    image: 'https://picsum.photos/300/200?random=1', // Add random image URL
+      icon: faPenFancy,
+      title: 'Project Creation',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
   },
   {
-    title: 'Installations',
-    description: 'Professional setup of systems and equipment tailored to your needs.',
-    image: 'https://picsum.photos/300/200?random=2', // Add random image URL
+      icon: faDharmachakra,
+      title: 'Software Development',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
   },
   {
-    title: 'Medical Supplies',
-    description: 'Essential supplies for healthcare applications.',
-    image: 'https://picsum.photos/300/200?random=3', // Add random image URL
+      icon: faTasks,
+      title: 'Project Management',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
   },
   {
-    title: 'Agriculture Supplies',
-    description: 'Innovative solutions to improve agricultural productivity and efficiency.',
-    image: 'https://picsum.photos/300/200?random=4', // Add random image URL
+      icon: faTachometerAlt,
+      title: 'Project Implementation',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
   },
   {
-    title: 'Training Services',
-    description: 'Comprehensive training programs to equip users with essential skills and knowledge.',
-    image: 'https://picsum.photos/300/200?random=5', // Add random image URL
+      icon: faRecycle,
+      title: 'Software Update',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
   },
   {
-    title: 'Training Services',
-    description: 'Comprehensive training programs to equip users with essential skills and knowledge.',
-    image: 'https://picsum.photos/300/200?random=5', // Add random image URL
+      icon: faHeadset,
+      title: '24/7 Support',
+      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
   },
-  {
-    title: 'Training Services',
-    description: 'Comprehensive training programs to equip users with essential skills and knowledge.',
-    image: 'https://picsum.photos/300/200?random=5', // Add random image URL
-  },
-  {
-    title: 'Training Services',
-    description: 'Comprehensive training programs to equip users with essential skills and knowledge.',
-    image: 'https://picsum.photos/300/200?random=5', // Add random image URL
-  },
-  // {
-  //   title: 'Training Services',
-  //   description: 'Comprehensive training programs to equip users with essential skills and knowledge.',
-  //   image: 'https://picsum.photos/300/200?random=5', // Add random image URL
-  // },
-  // {
-  //   title: 'Training Services',
-  //   description: 'Comprehensive training programs to equip users with essential skills and knowledge.',
-  //   image: 'https://picsum.photos/300/200?random=5', // Add random image URL
-  // },
 ];
 
 const Services = () => {
   return (
-    <section className="services-section">
-      <div className="services-container">
-        <h2 className="services-title">Our Services</h2>
-        <div className="services-grid">
-          {services.map((service, index) => (
-            <div className="service-card" key={index}>
-              <img
-                src={service.image}
-                alt={service.title}
-                className="service-image" // Add a class for styling
-              />
-              <h3 className="service-title">{service.title}</h3>
-              <p className="service-description">{service.description}</p>
+    <section className="we-offer-area text-center bg-gray">
+      <div className="containers">
+        <div className="row">
+          <div className="col-md-12">
+            <div className="site-heading text-center">
+              <h2>What we <span>Offer</span></h2>
+              <h4>Lorem Ipsum is simply dummy text</h4>
             </div>
-          ))}
+          </div>
+        </div>
+        <div className="row our-offer-items less-carousel">
+            {offerItems.map((item, index) => (
+                <div className="col-md-4 col-sm-6 equal-height" key={index}>
+                    <div className="item">
+                        <FontAwesomeIcon icon={item.icon} />
+                        <h4>{item.title}</h4>
+                        <p>{item.description}</p>
+                    </div>
+                </div>
+            ))}
         </div>
       </div>
     </section>
   );
 };
+
 
 export default Services;

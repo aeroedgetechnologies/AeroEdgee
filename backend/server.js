@@ -1,4 +1,5 @@
 // server.js
+require('dotenv').config(); // Load environment variables
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -13,15 +14,10 @@ app.use(cors());
 app.use(express.json());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://aeroedgetechnologies:3p2zsj2gF9TWc4DU@aeroedge.k7so6.mongodb.net/mern-crud?retryWrites=true&w=majority&appName=Aeroedge', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-
-// mongoose.connect('mongodb://localhost:27017/mern-crud', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// })
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.error("MongoDB connection error:", err));
 
@@ -36,7 +32,7 @@ const Item = mongoose.model('Item', itemSchema);
 const userSchema = new mongoose.Schema({
   username: { type: String, required: true },
   email: { type: String, required: true, unique: true },
-  password: { type: String, required: true }, // Consider hashing passwords
+  password: { type: String, required: true },
 });
 
 const User = mongoose.model('User', userSchema);
@@ -51,12 +47,13 @@ const contactSchema = new mongoose.Schema({
 });
 
 const Contact = mongoose.model('Contact', contactSchema);
+
 const transporter = nodemailer.createTransport({
-  service: 'Gmail', // or another email service
+  service: 'Gmail',
   auth: {
-    user: 'your-email@gmail.com', // your email
-    pass: 'your-email-password' // your email password or app password
-  }
+    user: process.env.EMAIL_USER, // use the environment variable
+    pass: process.env.EMAIL_PASS, // use the environment variable
+  },
 });
 
 app.get('/', (req, res) => {
@@ -97,30 +94,27 @@ app.delete('/api/items/:id', async (req, res) => {
 app.post('/api/signup', async (req, res) => {
   const { username, email, password } = req.body;
   try {
-    // Check if the email already exists
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).send({ message: 'Email already exists' });
     }
 
-    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
-
-    const user = new User({ username
-      , email, password: hashedPassword });
+    const user = new User({ username, email, password: hashedPassword });
     await user.save();
     res.status(201).send({ message: 'User created successfully!' });
   } catch (error) {
     res.status(500).send({ message: 'Error creating user: ' + error.message });
   }
 });
+
+// Login Route
 app.post('/api/login', async (req, res) => {
   const { username, password } = req.body;
 
   console.log("Login attempt with username:", username);
   
   try {
-    // Convert username to lowercase for case-insensitive search
     const user = await User.findOne({ username: username.toLowerCase() });
 
     if (!user) {
@@ -128,15 +122,8 @@ app.post('/api/login', async (req, res) => {
       return res.status(400).send({ message: 'Invalid username or password' });
     }
 
-    console.log("User found:", user);
-
-    // Compare provided password with hashed password
     const isMatch = await bcrypt.compare(password, user.password);
     
-    console.log("Password provided:", password);
-    console.log("Stored hashed password:", user.password);
-    console.log("Do passwords match?", isMatch);
-
     if (!isMatch) {
       console.log("Password does not match.");
       return res.status(400).send({ message: 'Invalid username or password' });
@@ -149,7 +136,6 @@ app.post('/api/login', async (req, res) => {
     res.status(500).send({ message: 'Error logging in: ' + error.message });
   }
 });
-
 
 // Start the server
 app.listen(PORT, () => {

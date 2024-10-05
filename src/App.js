@@ -19,9 +19,11 @@ import supportedBy from '../src/Images/Supported by_page-0001.jpg';
 import ScrollToTopButton from './components/ScrollToTopButton';
 import LoginForm from './LoginForm';
 import Homes from './components/Codepen/Homes';
+import { ToastProvider } from './components/ToastContext';
 
 const App = () => {
   return (
+    <ToastProvider> 
     <Router>
       <div>
         <Navbar />
@@ -69,6 +71,7 @@ const App = () => {
         </footer>
       </div>
     </Router>
+    </ToastProvider>
   );
 };
 

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -8,20 +8,21 @@ const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Username:", username.toLowerCase()); // Log the username
     console.log("Password:", password); // Log the password
     try {
-    //   const response = await axios.post('http://localhost:5000/api/login', {
-        const response = await axios.post('https://aeroedgee.onrender.com/api/signup', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/login`, {
         username: username.toLowerCase(), // Ensure the username is lowercased here as well
         password,
       });
       toast.success(response.data.message); // Display success message in a toast
       setUsername('');
       setPassword('');
+      navigate('/', { state: { fromLogin: true } });
     } catch (error) {
       const message = error.response?.data?.message || 'Error logging in';
       toast.error(message); // Display error message in a toast

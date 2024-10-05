@@ -13,6 +13,8 @@ import abovearrowicons from '../../Images/arrow imagee.png'
 import pdf from '../../components/pdf/specifications.pdf';
 import { FaAngleUp } from 'react-icons/fa'; // Import the up arrow icon
 import { BiBorderRadius } from 'react-icons/bi';
+import { useLocation } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 
 
 const HomePage = () => {
@@ -85,8 +87,17 @@ const scrollToTop = () => {
     link.click(); // Simulate click to trigger download
     document.body.removeChild(link); // Clean up
   };
+  const [toastShown, setToastShown] = useState(false); // Track if toast has been shown
 
+  const location = useLocation();
 
+  useEffect(() => {
+    // Check if there is a state and it indicates a successful login
+    if (location.state?.fromLogin && !toastShown) {
+      toast.success("Login successful!"); // Show success toast
+      setToastShown(true); // Set toast as shown
+    }
+  }, [location, toastShown]);
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -335,6 +346,18 @@ const scrollToTop = () => {
     <FaAngleUp className="h-8 w-8" />
   </button>
 )}
+      <ToastContainer 
+        position="top-center"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 };

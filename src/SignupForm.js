@@ -15,7 +15,7 @@ const SignupForm = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.post('https://aeroedgee.onrender.com/api/signup', {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/signup`, {
         username: username.toLowerCase(),
         email,
         password,

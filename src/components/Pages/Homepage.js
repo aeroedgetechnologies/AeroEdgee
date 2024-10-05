@@ -347,7 +347,7 @@ const scrollToTop = () => {
       value={formData.message} // Bind to state
       onChange={handleChange} // Update state on change
       required
-      className="border-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-2 px-3 pt-4"
+      className="border-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-2 px-3 pt-4 " 
       rows="4"
       placeholder="Message *"
     />

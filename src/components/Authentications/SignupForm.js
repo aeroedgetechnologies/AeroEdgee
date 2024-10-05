@@ -1,6 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import applications from '../../Images/delivery-robot-futuristic-environment.jpg'
@@ -10,6 +10,7 @@ const SignupForm = () => {
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const navigate = useNavigate(); // Initialize navigate
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,6 +25,7 @@ const SignupForm = () => {
       setUsername('');
       setEmail('');
       setPassword('');
+      navigate('/login', { state: { signupSuccess: true } });
     } catch (error) {
       const message = error.response?.data?.message || 'Something went wrong';
       toast.error(message);

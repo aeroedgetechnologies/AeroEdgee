@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import applications from '../../Images/delivery-robot-futuristic-environment.jpg'
@@ -9,8 +9,13 @@ const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const location = useLocation(); // Get location from the hook
   const navigate = useNavigate();
-
+    useEffect(() => {
+    if (location.state?.signupSuccess) {
+      toast.success("Signup successful! You can now log in."); // Show success toast
+    }
+  }, [location]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Username:", username.toLowerCase()); // Log the username

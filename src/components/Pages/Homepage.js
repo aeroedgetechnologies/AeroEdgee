@@ -129,14 +129,17 @@ const scrollToTop = () => {
       });
 
       if (response.ok) {
-        toast.success('We will contact you through email!'); // Show success toast
-        setFormData({
-          name: '',
-          organization: '',
-          email: '',
-          phone: '',
-          message: '',
-          gdpr: false,
+        toast.success('We will contact you through email!', {
+          onClose: () => {
+            setFormData({
+              name: '',
+              organization: '',
+              email: '',
+              phone: '',
+              message: '',
+              gdpr: false,
+            });
+          },
         });
       } else {
         toast.error('Failed to send message.'); // Show error toast

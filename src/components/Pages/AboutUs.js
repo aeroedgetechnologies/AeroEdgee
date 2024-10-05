@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo, useCallback } from 'react';
 import '../css/AboutUs.css'; 
 import ScrollToTopButton from '../ScrollToTopButton';
 
@@ -10,12 +10,20 @@ const images = [
   "https://images.unsplash.com/photo-1686354715732-7e4685269a25?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE2ODg5ODcyNzN8&ixlib=rb-4.0.3&q=85",
 ];
 
+// Memoized Image Component
+const ImageComponent = memo(({ src, index }) => (
+  <div className="imgWrapper" key={index}>
+    <img src={src} alt={`Gallery Image ${index + 1}`} loading="lazy" />
+  </div>
+));
+
+
 const AboutUs = () => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const handleToggle = () => {
-    setIsExpanded(!isExpanded);
-  };
+  const handleToggle = useCallback(() => {
+    setIsExpanded(prev => !prev);
+  }, []);
 
   return (
     <section className="about-us-section">
@@ -23,9 +31,7 @@ const AboutUs = () => {
         <div className="contentLeft">
           <div className="row">
             {images.map((src, index) => (
-              <div className="imgWrapper" key={index}>
-                <img src={src} alt={`Gallery Image ${index + 1}`} />
-              </div>
+              <ImageComponent src={src} index={index} key={index} />
             ))}
           </div>
         </div>

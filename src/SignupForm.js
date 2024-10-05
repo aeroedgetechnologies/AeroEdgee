@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,9 +15,8 @@ const SignupForm = () => {
     e.preventDefault();
     setLoading(true);
     try {
-      // const response = await axios.post('http://localhost:5000/api/signup', {
-        const response = await axios.post('https://aeroedgee.onrender.com/api/signup', {
-        username: username.toLowerCase(), // Store in lowercase for consistent searching
+      const response = await axios.post('https://aeroedgee.onrender.com/api/signup', {
+        username: username.toLowerCase(),
         email,
         password,
       });
@@ -33,9 +32,9 @@ const SignupForm = () => {
     }
   };
 
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
+  const togglePasswordVisibility = useCallback(() => {
+    setShowPassword((prev) => !prev);
+  }, []);
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-cover bg-center" style={{ backgroundImage: 'url("https://img.cdn-pictorem.com/uploads/collection/E/EH4LNA1KMP/900_7ob_Trees_Moon_Lake_Moonlight_Night_Image_Manipulation_Mystic_Light_Mood_Illuminated_Night.jpg")' }}>
@@ -129,4 +128,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default React.memo(SignupForm);

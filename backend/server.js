@@ -62,10 +62,17 @@ app.get('/', (req, res) => {
 
 // Contact Form Submission Route
 app.post('/api/contact', async (req, res) => {
+  console.log('Received contact form data:', req.body); // Add this line
   const { name, organization, email, phone, message } = req.body;
   const contact = new Contact({ name, organization, email, phone, message });
-  await contact.save();
-  res.status(201).send({ message: 'Message sent successfully!' });
+
+  try {
+    await contact.save();
+    res.status(201).send({ message: 'Message sent successfully!' });
+  } catch (error) {
+    console.error('Error saving contact:', error);
+    res.status(400).send({ message: 'Failed to send message.' });
+  }
 });
 
 // CRUD Routes for Items

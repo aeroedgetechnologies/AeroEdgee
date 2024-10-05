@@ -7,20 +7,20 @@ import Navbar from './components/Navbar';
 // import Campaign from './components/pages/Campaign';
 // import ContactUs from './components/pages/ContactUs';
 // import AboutUs from './components/pages/AboutUs';
-import ItemForm from './ItemForm';
-import SignupForm from './SignupForm';
+import ItemForm from './components/Pages/ItemForm';
+import SignupForm from './components/Authentications/SignupForm';
 import HomePage from './components/Pages/Homepage';
 import Product from './components/Pages/Product';
 import Services from './components/Pages/Services';
 import Contact from './components/Pages/Contact';
 import AboutUs from './components/Pages/AboutUs';
 import Campaign from './components/Pages/Campaign';
-import supportedBy from '../src/Images/Supported by_page-0001.jpg';
+import ourclients from '../src/Images/Supported by_page-0001 (1).jpg';
 import ScrollToTopButton from './components/ScrollToTopButton';
-import LoginForm from './LoginForm';
+import LoginForm from './components/Authentications/LoginForm';
 import Homes from './components/Codepen/Homes';
 import { ToastProvider } from './components/ToastContext';
-
+import "../src/components/css/Footer.css"
 const App = () => {
   return (
     <ToastProvider> 
@@ -43,32 +43,33 @@ const App = () => {
         </main>
         <ScrollToTopButton /> 
         <footer className="bg-gray-300 text-gray-700 py-4">
-          <div className="flex justify-around items-center mb-4">
-            <div className="text-center">
-              <h2 style={{ fontSize: '29px', fontWeight: 'bold' }}>Supported By</h2>
-              <Link to="/">
-                <img
-                  src={supportedBy}
-                  alt="Supported By"
-                  className="mt-2 w-[360px]"
-                />
-              </Link>
-            </div>
+  <div className="flex flex-col md:flex-row justify-around items-center mb-4">
+    <div className="text-center mb-4 md:mb-0">
+      <h2 className="text-2xl font-bold">Our Clients</h2>
+      <Link to="/">
+        <img
+          src={ourclients}
+          alt="Supported By"
+          className="mt-2 w-3/4 md:w-[360px] max-w-full"
+        />
+      </Link>
+    </div>
 
-            <div className="text-center">
-              <h2 style={{ fontSize: '29px', fontWeight: 'bold' }}>Contact Us</h2>
-              <a href="mailto:sales@cdspace.in" style={{ color: '#4B5563', fontSize: '18px' }}>
-                aeroedgetechnologies@gmail.com
-              </a>
-            </div>
-          </div>
+    <div className="text-center">
+      <h2 className="text-2xl font-bold">Contact Us</h2>
+      <a href="mailto:sales@cdspace.in" className="text-lg" style={{ color: '#4B5563' }}>
+        aeroedgetechnologies@gmail.com
+      </a>
+    </div>
+  </div>
 
-          <div className="text-center p-7">
-            <p style={{ fontSize: '18px' }}>
-              &copy; {new Date().getFullYear()} Simple Page. All rights reserved.
-            </p>
-          </div>
-        </footer>
+  <div className="text-center p-7">
+    <p className="text-lg">
+      &copy; {new Date().getFullYear()} Simple Page. All rights reserved.
+    </p>
+  </div>
+</footer>
+
       </div>
     </Router>
     </ToastProvider>

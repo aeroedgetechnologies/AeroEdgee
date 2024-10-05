@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import '../css/Homepage.css'
 import jsPDF from 'jspdf';
-import logos from '../../Images/drones withh white background heree it is.jpg'
+import logos from '../../Images/portrait-male-security-guard-with-radio-station-camera-screens.jpg'
 import pdflogos from '../../Images/pdf logos.jpg'
 import applications from '../../Images/Site Vectors_page-0001.jpg'
 import dronesimages from '../../Images/drone-with-camera-is-flying-iceberg.jpg'
@@ -15,6 +15,8 @@ import { FaAngleUp } from 'react-icons/fa'; // Import the up arrow icon
 import { BiBorderRadius } from 'react-icons/bi';
 import { useLocation } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
+import ScrollToTopButton from '../ScrollToTopButton';
+import logoss from '../../Images/sidebar_page-0001 (2).jpg';
 
 
 const HomePage = () => {
@@ -98,56 +100,79 @@ const scrollToTop = () => {
       setToastShown(true); // Set toast as shown
     }
   }, [location, toastShown]);
+  const [formData, setFormData] = useState({
+    name: '',
+    organization: '',
+    email: '',
+    phone: '',
+    message: '',
+    gdpr: false,
+  });
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
+  };
+  
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    const data = Object.fromEntries(formData.entries());
-  
     try {
-      // server
-      const response = await fetch('https://aeroedgee.onrender.com/api/contact', {
-      // const response = await fetch('http://localhost:5000/api/contact', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(formData),
       });
-  
+
       if (response.ok) {
-        alert('Message sent successfully!');
+        toast.success('We will contact you through email!'); // Show success toast
+        setFormData({
+          name: '',
+          organization: '',
+          email: '',
+          phone: '',
+          message: '',
+          gdpr: false,
+        });
       } else {
-        alert('Failed to send message.');
+        toast.error('Failed to send message.'); // Show error toast
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('An error occurred.');
+      toast.error('An error occurred.'); // Show error toast
     }
   };
 
   return (
     <>
     {/* Products Section */}
-      <section
-        style={{
-          backgroundImage: `url(https://images.unsplash.com/photo-1525066298243-cb6c16628ae0?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3DD)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          height: '700px',
-        }}
-      >
-        <div className="flex justify-center items-center h-full mr-[1200px] ml-[150px]">
-          <div className="p-8 rounded-lg mx-4 my-10 text-center">
-            <h1 className="text-7xl font-bold text-gray-100 mb-2">SNAP-M</h1>
-            <h2 className="text-2xl text-gray-100">Survey Grade Drone for Aerial Mapping</h2>
-            <p className={`text-4xl font-semibold text-yellow-300 mb-4 ${animate ? 'animate-drop-and-bounce' : ''}`}>
-              DGCA Type Certified
-            </p>
-          </div>
-        </div>
-      </section>
+    <section
+  style={{
+    backgroundImage: `url(https://images.unsplash.com/photo-1525066298243-cb6c16628ae0?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3DD)`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+    height: '700px',
+  }}
+>
+{/* <img src={logoss} alt="Logo" className="mr-2 rounded h-10 w-[110px]" /> */}
+
+  <div className="flex justify-start items-center h-full ml-10"> {/* Align to the left */}
+    <div className="p-8 rounded-lg mx-4 my-10 text-left"> {/* Change to text-left */}
+      {/* <h1 className="text-7xl font-bold text-blue-300 mb-2">SNAP-M</h1>
+      <h2 className="text-2xl text-gray-200">Survey Grade Drone for Aerial Mapping</h2> */}
+      <p className="text-4xl font-semibold text-grey-400 mb-4">
+        {/* {renderLetters(text)} */}
+        I n n o v a t i o n s
+      </p>
+    </div>
+  </div>
+</section>
       {/* Services Section */}
-      <section className="flex flex-col md:flex-row bg-white py-10 h-[700px]">
+      <section className="flex flex-col md:flex-row bg-white py-10">
   {/* Image Column */}
   <div className="md:w-1/2 ml-16">
     <img 
@@ -224,11 +249,10 @@ const scrollToTop = () => {
 
 
 {/* Services Section */}
-<section className="flex flex-col md:flex-row bg-white py-10 h-[700px] pt-0">
+<section className="flex flex-col bg-white py-10">
   <div className="flex flex-col items-center mb-10 w-full">
-    <h2 className="text-4xl font-bold mb-4 ml-0 mr-[789px] mb-[35px]">Applications</h2>
-    <section className="grid grid-cols-1 md:grid-cols-4 gap-4 justify-items-center">
-
+    <h2 className="text-4xl font-bold mb-4">Applications</h2>
+    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center">
       {[
         { src: "https://picsum.photos/240/240?random=1", alt: "Mining Maps", caption: "Mine Planning" },
         { src: "https://picsum.photos/240/240?random=2", alt: "Construction Management", caption: "Construction Management" },
@@ -253,26 +277,104 @@ const scrollToTop = () => {
           </figure>
         </div>
       ))}
-      
     </section>
-    {/* <h2 className="text-center italic mt-4">Image Courtesy: Picsum</h2> */}
   </div>
 </section>
 
 
-
-
       {/* Contact Us Section */}
-      <section
+{/* Contact Us Section */}
+<section
   style={{
     backgroundImage: `url(${dronesimages})`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
-    height: '700px',
+    minHeight: '700px', // Use minHeight instead of height
   }}
 >
   <div className="flex justify-center items-center h-[720px]">
-    <div className="p-8 rounded-lg mx-4 my-10 ml-[900px]">
+    <div className="hidden md:flex flex-grow justify-end pr-16"> {/* Flex container for larger screens */}
+      <div className="p-8 rounded-lg max-w-[700px]"> {/* Limit width for form */}
+        <h1 className="text-4xl font-bold text-gray-700 mb-2">Contact Us</h1>
+        <p className="text-xl text-gray-600">Learn more about our story.</p>
+
+        <form className="mt-5" onSubmit={handleSubmit}>
+  <div className="mb-4">
+    <label className="block text-gray-900">Name *</label>
+    <input
+      type="text"
+      name="name"
+      value={formData.name} // Bind to state
+      onChange={handleChange} // Update state on change
+      required
+      className="border-b-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
+    />
+  </div>
+  <div className="mb-4">
+    <label className="block text-gray-900">Organization Name</label>
+    <input
+      type="text"
+      name="organization"
+      value={formData.organization} // Bind to state
+      onChange={handleChange} // Update state on change
+      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
+    />
+  </div>
+  <div className="mb-4">
+    <label className="block text-gray-900">Email Address *</label>
+    <input
+      type="email"
+      name="email"
+      value={formData.email} // Bind to state
+      onChange={handleChange} // Update state on change
+      required
+      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
+    />
+  </div>
+  <div className="mb-4">
+    <label className="block text-gray-900">Phone Number</label>
+    <input
+      type="tel"
+      name="phone"
+      value={formData.phone} // Bind to state
+      onChange={handleChange} // Update state on change
+      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
+    />
+  </div>
+  <div className="mb-4 relative">
+    <textarea
+      name="message"
+      value={formData.message} // Bind to state
+      onChange={handleChange} // Update state on change
+      required
+      className="border-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-2 px-3 pt-4"
+      rows="4"
+      placeholder="Message *"
+    />
+  </div>
+  <div className="mb-4">
+    <label className="block text-gray-900 flex items-center">
+      <input
+        type="checkbox"
+        name="gdpr"
+        checked={formData.gdpr} // Bind to state
+        onChange={handleChange} // Update state on change
+        required
+        className="mr-2"
+      />
+      By using this form you agree with the storage and handling of your data by this website.
+    </label>
+  </div>
+  <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+    Send
+  </button>
+</form>
+
+      </div>
+    </div>
+
+    {/* Centered form for smaller screens */}
+    <div className="md:hidden p-8 rounded-lg max-w-[400px]"> {/* Hide on larger screens */}
       <h1 className="text-4xl font-bold text-gray-700 mb-2">Contact Us</h1>
       <p className="text-xl text-gray-600">Learn more about our story.</p>
 
@@ -304,32 +406,28 @@ const scrollToTop = () => {
           />
         </div>
         <div className="mb-4">
-  <label className="block text-gray-900">Phone Number</label>
-  <input
-    type="tel"
-    name="phone"
-    // placeholder="+91"
-    className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 placeholder:text-gray-100 text-gray-100"
-  />
-</div>
+          <label className="block text-gray-900">Phone Number</label>
+          <input
+            type="tel"
+            name="phone"
+            className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
+          />
+        </div>
         <div className="mb-4 relative">
-        <textarea
-  name="message"
-  required
-  className="border-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-2 px-3 pt-4 placeholder:text-gray-100 text-gray-100 "
-  rows="4"
-  placeholder="Message *"
-/>
-</div>
-
-
-<div className="mb-4">
-  <label className="block text-gray-9000 flex items-center">
-    <input type="checkbox" name="gdpr" required className="mr-2" />
-    By using this form you agree with the storage and handling of your data by this website.
-  </label>
-</div>
-
+          <textarea
+            name="message"
+            required
+            className="border-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-2 px-3 pt-4"
+            rows="4"
+            placeholder="Message *"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-gray-900 flex items-center">
+            <input type="checkbox" name="gdpr" required className="mr-2" />
+            By using this form you agree with the storage and handling of your data by this website.
+          </label>
+        </div>
         <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
           Send
         </button>
@@ -337,15 +435,8 @@ const scrollToTop = () => {
     </div>
   </div>
 </section>
-{showScroll && (
-  <button
-    onClick={scrollToTop}
-    className="fixed bottom-5 right-5 bg-transparent rounded-full shadow-lg hover:bg-gray-300 transition duration-300"
-    aria-label="Scroll to Top"
-  >
-    <FaAngleUp className="h-8 w-8" />
-  </button>
-)}
+
+<ScrollToTopButton />
       <ToastContainer 
         position="top-center"
         autoClose={3000}

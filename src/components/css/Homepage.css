@@ -98,3 +98,40 @@
     margin: 0 auto; /* Center the container */
     padding: 16px; /* Optional padding around the container */
   }
+  @keyframes appearLetterByLetter {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .letter {
+    display: inline-block;
+    opacity: 0; /* Initially hidden */
+    animation: appearLetterByLetter 0.5s forwards; /* Animation for each letter */
+  }
+  
+  .letter:nth-child(n) {
+    animation-delay: calc(0.1s * var(--i)); /* Stagger each letter */
+  }
+  
+  img.object-cover.h-full.w-full.rounded-lg.h-\[600px\] {
+    height: 549px;
+    width: 907px;
+    margin-left: -23px;
+}
+
+.md\:w-1\/2.flex.flex-col.justify-between.p-8 {
+  height: 602px;
+}
+
+
+section.flex.flex-col.md\:flex-row.bg-white.py-10 {
+  min-height: 55px !important;
+}
+
+

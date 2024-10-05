@@ -42,12 +42,12 @@ const products = [
     image: products6, // Use the renamed variable here
   },
   {
-    title: 'Information Technologies',
+    title: 'Automations',
     description: 'Reliable communication tools for seamless operations.',
     image: 'https://images.unsplash.com/photo-1723987135977-ae935608939e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Use the renamed variable here
   },
   {
-    title: 'Microbiology Equipments',
+    title: 'Fire safety',
     description: 'Reliable communication tools for seamless operations.',
     image: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Use the renamed variable here
   },
@@ -64,8 +64,10 @@ const Product = () => {
   }}
 >
   <div className="max-w-6xl mx-auto px-4 text-left h-full flex flex-col justify-center">
-    <h2 className="text-4xl mb-2 pl-4">Drones Delivering<br /><span className="text-yellow-300">GOOD</span>s.</h2>
-    <h6 className="text-lg pl-4">Next Generation Drones for Future Logistics</h6>
+    <h2 className="text-4xl mb-2 pl-4">Drones Delivering Medical Essentials<br />
+    {/* <span className="text-yellow-300">GOOD</span>s. */}
+    </h2>
+    <h6 className="text-lg pl-4 text-red-700">Next Generation Drones for Future Logistics</h6>
   </div>
 </section>
 

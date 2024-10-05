@@ -1,0 +1,27 @@
+footer {
+    padding: 1rem;
+  }
+  
+  footer .flex {
+    flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+  }
+  
+  footer h2 {
+    margin-bottom: 0.5rem; /* Spacing for headings */
+  }
+  
+  footer img {
+    max-width: 100%; /* Ensures the image is responsive */
+    height: auto; /* Maintains aspect ratio */
+  }
+  
+  @media (max-width: 768px) {
+    footer .flex {
+      flex-direction: column; /* Stacks items vertically on smaller screens */
+    }
+  
+    footer img {
+      width: 80%; /* Adjusts image size for mobile */
+    }
+  }
+  

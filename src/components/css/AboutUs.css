@@ -76,7 +76,7 @@
 .contentRight .content h4 {
     font-size: 22px;
     font-weight: 400;
-    color: #d35400;
+    color: #00a01d;
 }
 
 .contentRight .content h2 {
@@ -98,7 +98,7 @@
     letter-spacing: 1px;
     padding: 13px 30px;
     color: #fff;
-    background: #d35400;
+    background: #00a01d;
     border-radius: 8px;
     user-select: none;
 }
@@ -127,7 +127,7 @@
   letter-spacing: 1px;
   padding: 10px 20px;
   color: #fff;
-  background: #d35400; /* Matches your existing button style */
+  background: #00a01d; /* Matches your existing button style */
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -135,7 +135,7 @@
 }
 
 .read-more-button:hover {
-  background: #e67e22; /* Slightly lighter color on hover */
+  background: #00a01d; /* Slightly lighter color on hover */
 }
 
 section.about-us-section {

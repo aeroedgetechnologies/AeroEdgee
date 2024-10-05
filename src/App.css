@@ -40,8 +40,17 @@
 
 /* src/App.css */
 /* src/App.css */
+@font-face {
+  font-family: 'Futura Bk BT';
+  src: url('./fonts/FuturaBkBT.woff2') format('woff2'), /* Adjust the path and format as needed */
+       url('./fonts/FuturaBkBT.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Futura Bk BT', Arial, sans-serif; /* Fallbacks if the font doesn't load */
   margin: 0;
   padding: 0;
 }

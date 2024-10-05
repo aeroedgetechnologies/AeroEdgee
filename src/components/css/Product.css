@@ -20,4 +20,12 @@
       margin: 10px 0;
     }
   }
+
+  h6.text-lg.pl-4.text-red-700 {
+    margin-left: -25px;
+}
+
+h2.text-4xl.mb-2.pl-4 {
+  margin-left: -255px;
+}
   

@@ -17,6 +17,7 @@ import { useLocation } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import ScrollToTopButton from '../ScrollToTopButton';
 import logoss from '../../Images/sidebar_page-0001 (2).jpg';
+import homepageImage from '../../Images/Homepage drone image.jpg';
 
 
 const HomePage = () => {
@@ -155,7 +156,7 @@ const scrollToTop = () => {
     {/* Products Section */}
     <section
   style={{
-    backgroundImage: `url(https://images.unsplash.com/photo-1525066298243-cb6c16628ae0?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3DD)`,
+    backgroundImage: `url(https://images.unsplash.com/photo-1517430796102-a3a80fe2b7a2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     height: '700px',

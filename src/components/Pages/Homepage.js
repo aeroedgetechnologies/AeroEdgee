@@ -3,7 +3,7 @@ import '../css/Homepage.css'
 import jsPDF from 'jspdf';
 import logos from '../../Images/portrait-male-security-guard-with-radio-station-camera-screens.jpg'
 import pdflogos from '../../Images/pdf logos.jpg'
-import applications from '../../Images/Site Vectors_page-0001.jpg'
+import applications from '../../Images/Site Vectors_page-0001 (2).jpg'
 import dronesimages from '../../Images/drone-with-camera-is-flying-iceberg.jpg'
 import battlefields from '../../Images/battlefields.jpg'
 import eyessdrones from '../../Images/eyessdrones.jpg'
@@ -17,8 +17,17 @@ import { useLocation } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import ScrollToTopButton from '../ScrollToTopButton';
 import logoss from '../../Images/sidebar_page-0001 (2).jpg';
-import homepageImage from '../../Images/Homepage drone image.jpg';
-
+// import homepageImage from '../../Images/Homepage drone image.jpg';
+// import homepageImage from '../../Images/Homepage drone image.jpg'; 
+import applications1 from '../../components/Site Context/Applications Images/pexels-debarshi-mukherjee-803108656-28762353.jpg'; 
+import applications2 from '../../components/Site Context/Applications Images/pexels-elfust-18960738.jpg'; 
+import applications3 from '../../components/Site Context/Applications Images/pexels-mysterious-ocean-260670408-12686560.jpg'; 
+import applications4 from '../../components/Site Context/Applications Images/pexels-quang-nguyen-vinh-222549-14776899.jpg'; 
+import applications5 from '../../components/Site Context/Applications Images/pexels-sevenstormphotography-439416.jpg'; 
+import applications6 from '../../components/Site Context/Applications Images/pexels-shalenderkumar-4204698.jpg'; 
+import applications7 from '../../components/Site Context/Applications Images/pexels-urtimud-89-76108288-14263363.jpg'; 
+import applications8 from '../../components/Site Context/Applications Images/pexels-vanngo-ng-105653827-23857944.jpg'; 
+import battlefieldss from '../../Images/anemometer-wind-speed-measurement-small-weather-station-anemometer-blue-sky_347372-911.avif'
 
 const HomePage = () => {
   const [animate, setAnimate] = useState(false);
@@ -154,22 +163,15 @@ const scrollToTop = () => {
   return (
     <>
     {/* Products Section */}
-    <section
-  style={{
-    backgroundImage: `url(https://images.unsplash.com/photo-1517430796102-a3a80fe2b7a2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    height: '700px',
-  }}
->
+    <section className="homepage-section">
 {/* <img src={logoss} alt="Logo" className="mr-2 rounded h-10 w-[110px]" /> */}
 
   <div className="flex justify-start items-center h-full ml-10"> {/* Align to the left */}
     <div className="p-8 rounded-lg mx-4 my-10 text-left"> {/* Change to text-left */}
       {/* <h1 className="text-7xl font-bold text-blue-300 mb-2">SNAP-M</h1>
       <h2 className="text-2xl text-gray-200">Survey Grade Drone for Aerial Mapping</h2> */}
-      <p className="text-4xl font-semibold text-grey-400 mb-4">
-        {/* {renderLetters(text)} */}
+      <p className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-700 mb-4">
+{/* {renderLetters(text)} */}
         I n n o v a t i o n s
       </p>
     </div>
@@ -190,10 +192,14 @@ const scrollToTop = () => {
   <div className="md:w-1/2 flex flex-col justify-between p-8">
     {/* Text at the top */}
     <div>
-      <h2 className="text-3xl font-bold mb-4">Proudly Made in India</h2>
-      <p className="text-lg mb-2">Survey of India qualified PPK drone for high precision aerial mapping.</p>
-      <p className="text-lg mb-2">Industry-leading flight time with maximum possible area coverage.</p>
-      <p className="text-lg mb-4">Superior mapping accuracy with indigenous dual-frequency RTK/PPK system.</p>
+      <h2 className="text-3xl font-bold mb-4">What We Are</h2>
+      {/* <p className="text-lg mb-2">Survey of India qualified PPK drone for high precision aerial mapping.</p>
+      <p className="text-lg mb-2">Industry-leading flight time with maximum possible area coverage.</p> */}
+      <p className="text-lg mb-4">We are at the forefront of advancing automation and surveillance systems that redefine security and operational efficiency. By harnessing cutting-edge technologies such as artificial intelligence and machine learning, our solutions enable real-time analysis of vast data streams, ensuring rapid identification of potential threats and streamlined responses. Our smart surveillance systems, equipped with facial recognition and predictive analytics, are designed to detect unusual behaviors and deliver timely alerts for proactive intervention. While we are committed to enhancing public safety and productivity, we also prioritize ethical considerations regarding privacy and data management. We believe in a future where innovative technology and civil liberties coexist, and we are dedicated to leading the way.
+      The landscape of surveillance technology has evolved dramatically over the past decade. Traditional systems often relied on passive monitoring, requiring human operators to sift through hours of footage to identify potential incidents. However, with advancements in artificial intelligence (AI) and machine learning, we have revolutionized this approach. Our automated surveillance systems are capable of real-time data analysis, recognizing patterns, and detecting anomalies with unparalleled accuracy.
+
+For instance, our smart cameras are equipped with advanced facial recognition capabilities, enabling organizations to enhance their security protocols effectively. By leveraging AI algorithms, these systems can swiftly identify individuals in crowded environments, allowing for prompt responses to potential threats.
+      </p>
     </div>
 
     {/* Button positioned at the bottom right */}
@@ -216,13 +222,13 @@ const scrollToTop = () => {
   <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginBottom: '10px' }}>
     <div style={{ padding: '32px', borderRadius: '8px', margin: '0 16px', textAlign: 'left'}}>
       <h2 style={{ fontSize: '2.25rem', fontWeight: 'bold', color: '#4B5563', marginBottom: '16px', marginLeft: '16px' }}>
-        Battlefield Surveillance System
+        Surveillance Systems
       </h2>
       <div class="custom-applications">
   <div class="applications-container">
     <div class="grid ">
       <img width="750" height="750" src="/static/media/battlefields.51f555f7ce305bbe144d.jpg" alt="Battlefield Surveillance" class="image-item" loading="lazy" />
-      <img width="350" height="350" src="https://images.unsplash.com/photo-1548198309-3beef6c7b72a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Battlefield Surveillance" class="image-item" loading="lazy" />
+      <img width="350" height="350" src={battlefieldss} alt="Battlefield Surveillance" class="image-item" loading="lazy" />
       <img width="350" height="350" src="/static/media/medicaldroness.9f39fa02d14cf90f9935.jpg" alt="Battlefield Surveillance" class="image-item" loading="lazy" />
       <img width="350" height="350" src="/static/media/nightvision.988094b1a8e64d11ee25.jpg" alt="Battlefield Surveillance" class="image-item" loading="lazy" />
     </div>
@@ -233,8 +239,19 @@ const scrollToTop = () => {
   </div>
 
   {/* Advanced Features Section */}
-  <div className="flex flex-col justify-center items-center">
-    <div className="p-8 rounded-lg mx-4 text-left">
+  <div className="flex flex-row justify-center items-center">
+  <div className="md:w-1/2 flex flex-col justify-between p-8">
+    {/* Text at the top */}
+    <div>
+      <h2 className="text-3xl font-bold mb-4">Evolution Of Technology</h2>
+      {/* <p className="text-lg mb-2">Survey of India qualified PPK drone for high precision aerial mapping.</p>
+      <p className="text-lg mb-2">Industry-leading flight time with maximum possible area coverage.</p> */}
+      <p className="text-lg mb-4">Our advanced technology revolutionizes quality control by combining features that ensure superior performance and reliability. With accurate weather detection, our drones provide real-time data on conditions like wind speed and temperature, enhancing situational awareness and mission success. The integration of AI in operation planning allows for automatic generation of optimal flight paths and adaptive strategies, responding to changing environments effectively. Our drones maintain exceptional stability even in adverse weather, ensuring precise navigation and data collection.
+Built with military-grade quality, they withstand rigorous field conditions, reducing the risk of equipment failure. The strongest materials in the frame construction offer durability and enhanced flight stability, enabling the carrying of heavier payloads while maintaining maneuverability. Additionally, high-performance cameras with impressive zoom ranges and infrared imaging capabilities allow for detailed surveillance and reconnaissance, even in low-light conditions. Together, these features position our drones as essential tools for modern military operations, providing teams with the edge they need to execute missions with precision and confidence.
+      </p>
+    </div>
+  </div>
+    <div className="p-8 rounded-lg mx-4 text-lefts">
       <h2 className="text-4xl font-bold text-grey-700 mb-4 ml-4">
         Advanced Features
       </h2>
@@ -258,14 +275,14 @@ const scrollToTop = () => {
     <h2 className="text-4xl font-bold mb-4">Applications</h2>
     <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center">
       {[
-        { src: "https://picsum.photos/240/240?random=1", alt: "Mining Maps", caption: "Mine Planning" },
-        { src: "https://picsum.photos/240/240?random=2", alt: "Construction Management", caption: "Construction Management" },
-        { src: "https://picsum.photos/240/240?random=3", alt: "Railway Inspection", caption: "Railway Inspection" },
-        { src: "https://picsum.photos/240/240?random=4", alt: "Town Planning", caption: "Smart City Planning" },
-        { src: "https://picsum.photos/240/240?random=5", alt: "Disaster Management", caption: "Disaster Assistance" },
-        { src: "https://picsum.photos/240/240?random=6", alt: "Terrain Mapping", caption: "Terrain Mapping" },
-        { src: "https://picsum.photos/240/240?random=7", alt: "Irrigation Survey", caption: "Irrigation Survey" },
-        { src: "https://picsum.photos/240/240?random=8", alt: "Forest Monitoring", caption: "Forest Monitoring" },
+        { src: applications1, alt: "Disaster Relief Coordination", caption: "Disaster Relief Coordination" },
+        { src: applications7, alt: "Resource Extraction Planning", caption: "Resource Extraction Planning" },
+        { src: applications3, alt: "Rail System Evaluation", caption: "Rail System Evaluation" },
+        { src: applications8, alt: "Advanced Agriculture", caption: "Advanced Agriculture" },
+        { src: applications6, alt: "Urban Planning Strategy", caption: "Urban Planning Strategy" },
+        { src: applications5, alt: "Construction Project Management ", caption: "Construction Project Management" },
+        { src: applications2, alt: "Geographic Information Analysis", caption: "Geographic Information Analysis" },
+        { src: applications4, alt: "Mountain Topography Mapping", caption: "Mountain Topography Mapping" },
       ].map((item, index) => (
         <div className="flex flex-col items-center" key={index}>
           <figure className="relative transition-transform duration-300 transform hover:scale-105 cursor-pointer">
@@ -289,90 +306,86 @@ const scrollToTop = () => {
       {/* Contact Us Section */}
 {/* Contact Us Section */}
 <section
-  style={{
-    backgroundImage: `url(${dronesimages})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    minHeight: '700px', // Use minHeight instead of height
-  }}
+  className="Contactussection-background"
 >
   <div className="flex justify-center items-center h-[720px]">
     <div className="hidden md:flex flex-grow justify-end pr-16"> {/* Flex container for larger screens */}
       <div className="p-8 rounded-lg max-w-[700px]"> {/* Limit width for form */}
-        <h1 className="text-4xl font-bold text-gray-700 mb-2">Contact Us</h1>
-        <p className="text-xl text-gray-600">Learn more about our story.</p>
+        <h1 className="text-4xl font-bold text-white mb-2">Contact Us</h1>
+        <p className="text-xl text-white">Learn more about our story.</p>
 
         <form className="mt-5" onSubmit={handleSubmit}>
   <div className="mb-4">
-    <label className="block text-gray-900">Name *</label>
+    <label htmlFor="name" className="block text-white">Name *</label>
     <input
       type="text"
       name="name"
-      value={formData.name} // Bind to state
-      onChange={handleChange} // Update state on change
+      id="name"
       required
-      className="border-b-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
+      onChange={handleChange}
+      className="border-b-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 text-white" // Added text-white
     />
   </div>
   <div className="mb-4">
-    <label className="block text-gray-900">Organization Name</label>
+    <label htmlFor="organization" className="block text-white">Organization Name</label>
     <input
       type="text"
       name="organization"
-      value={formData.organization} // Bind to state
-      onChange={handleChange} // Update state on change
-      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
+      id="organization"
+      onChange={handleChange}
+      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 text-white" // Added text-white
     />
   </div>
   <div className="mb-4">
-    <label className="block text-gray-900">Email Address *</label>
+    <label htmlFor="email" className="block text-white">Email Address *</label>
     <input
       type="email"
       name="email"
-      value={formData.email} // Bind to state
-      onChange={handleChange} // Update state on change
+      id="email"
       required
-      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
+      onChange={handleChange}
+      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 text-white" // Added text-white
     />
   </div>
   <div className="mb-4">
-    <label className="block text-gray-900">Phone Number</label>
+    <label htmlFor="phone" className="block text-white">Phone Number</label>
     <input
       type="tel"
       name="phone"
-      value={formData.phone} // Bind to state
-      onChange={handleChange} // Update state on change
-      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
+      id="phone"
+      onChange={handleChange}
+      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 text-white" // Added text-white
     />
   </div>
   <div className="mb-4 relative">
     <textarea
       name="message"
-      value={formData.message} // Bind to state
-      onChange={handleChange} // Update state on change
+      id="message"
       required
-      className="border-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-2 px-3 pt-4 " 
+      onChange={handleChange}
+      className="border-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-2 px-3 pt-4 text-white placeholder-white" // Added text-white
       rows="4"
       placeholder="Message *"
     />
   </div>
   <div className="mb-4">
-    <label className="block text-gray-900 flex items-center">
+    <label className="block text-white flex items-center">
       <input
         type="checkbox"
         name="gdpr"
-        checked={formData.gdpr} // Bind to state
-        onChange={handleChange} // Update state on change
+        id="gdpr"
         required
+        onChange={handleChange}
         className="mr-2"
       />
       By using this form you agree with the storage and handling of your data by this website.
     </label>
   </div>
-  <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+  <button type="submit" className="bg-red-600 text-white px-4 py-2 rounded hover:bg-blue-700">
     Send
   </button>
 </form>
+
 
       </div>
     </div>
@@ -432,7 +445,7 @@ const scrollToTop = () => {
             By using this form you agree with the storage and handling of your data by this website.
           </label>
         </div>
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded ">
           Send
         </button>
       </form>

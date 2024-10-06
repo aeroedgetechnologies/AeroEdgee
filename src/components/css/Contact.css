@@ -52,3 +52,16 @@
     }
   }
   
+
+  .Contactussection-background{
+    background-image: url('../../components/Site Context/Contact US/pexels-nic-scrollstoppingphotos-28101093.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 700px; /* Use min-height */
+  }
+
+  .input-white {
+    color: white; /* Text color */
+    caret-color: white; /* Cursor color */
+  }
+  

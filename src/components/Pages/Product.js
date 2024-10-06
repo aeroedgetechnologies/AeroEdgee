@@ -9,6 +9,8 @@ import products4 from '../../Images/products4.jpg';
 import products5 from '../../Images/products5.jpg'; // Keep this as products5
 import products6 from '../../Images/photo_2024-09-29_13-14-49.jpg'; // Rename this import
 import ScrollToTopButton from '../ScrollToTopButton';
+import products11 from '../../components/Site Context/Automation & Fire safety/pexels-kjbromme-16544054.jpg'; 
+import products12 from '../../components/Site Context/Automation & Fire safety/pexels-lolimjoshingyou-12997193 (1).jpg'; 
 
 const products = [
   {
@@ -28,7 +30,7 @@ const products = [
   },
   {
     title: 'Drones Integrated Equipment',
-    description: 'Comprehensive solutions that optimize drone functionality.',
+    description: 'Comprehensive solutions that optimize Equipments functionality.',
     image: products4,
   },
   {
@@ -43,32 +45,31 @@ const products = [
   },
   {
     title: 'Automations',
-    description: 'Reliable communication tools for seamless operations.',
-    image: 'https://images.unsplash.com/photo-1723987135977-ae935608939e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Use the renamed variable here
+    description: 'Our quality parts reducing manual tasks and enhancing efficiency.',
+    image: products11, // Use the renamed variable here
   },
   {
     title: 'Fire safety',
-    description: 'Reliable communication tools for seamless operations.',
-    image: 'https://images.unsplash.com/photo-1518152006812-edab29b069ac?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', // Use the renamed variable here
+    description: 'With real-time monitoring and alerts, we ensure a rapid response to potential hazards.',
+    image: products12, // Use the renamed variable here
   },
 ];
 const Product = () => {
   return (
     <div>
       {/* Drones Delivering Good Section */}
-      <section
-  className="bg-cover bg-center text-white py-10"
-  style={{
-    backgroundImage: 'url(https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)', // Replace with your desired background image URL
-    height: '600px', // Adjust the height as needed
-  }}
->
-  <div className="max-w-6xl mx-auto px-4 text-left h-full flex flex-col justify-center">
-    <h2 className="text-4xl mb-2 pl-4">Drones Delivering Medical Essentials<br />
+      <section className="bg-custom text-white py-10">
+<div className="max-w-6xl mx-auto px-4 text-left h-full flex flex-col justify-center">
+  <h2 className="text-4xl mb-2 pl-4 md:pl-6 lg:pl-8">
+    Drones Delivering Medical Essentials
+    <br />
     {/* <span className="text-yellow-300">GOOD</span>s. */}
-    </h2>
-    <h6 className="text-lg pl-4 text-red-700">Next Generation Drones for Future Logistics</h6>
-  </div>
+  </h2>
+  <h6 className="text-lg pl-4 text-red-700 md:text-xl lg:text-2xl md:pl-6 lg:pl-8">
+    Next Generation Drones for Future Logistics
+  </h6>
+</div>
+
 </section>
 
       {/* Products Section */}
@@ -86,29 +87,24 @@ const Product = () => {
       </section>
 
       {/* Life Saving Deliveries Section */}
-      <section
-      className="py-10 bg-white"
-      style={{ 
-        position: 'relative',
-        height: '600px',
-        backgroundImage: 'url(https://images.unsplash.com/photo-1520870121499-7dddb6ccbcde?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)', 
-      }}
-    >
+<section className="py-10 bg-white bg-custom-section">
       <div className="absolute inset-0 bg-cover bg-center" style={{ opacity: 0.2 }} />
-      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center relative z-10 h-full ml-10"> {/* Add margin-left here */}
-        <div className="md:w-1/2 mb-4 flex justify-center">
-          <ReactPlayer
-            url="https://youtu.be/278IRQ6HSi4?si=FMa4fNcH6I5FveQ1" // YouTube video URL
-            className="w-full h-full max-w-[750px] max-h-[450px]"
-            controls
-          />
-        </div>
-        <div className="md:w-1/2 flex flex-col justify-center text-center md:text-left md:ml-6">
-          <h2 className="text-3xl font-bold mb-4">Life Saving<br />Deliveries</h2>
-          <p className="mb-2">Reducing delivery time by more than 75%. Crucial to save a life!</p>
-          <p><strong>First</strong> Drone Medical delivery of INDIA.</p>
-        </div>
-      </div>
+      <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center relative z-10 h-full ml-10">
+  <div className="relative w-full max-w-[90vw] mx-auto overflow-hidden" style={{ paddingTop: '56.25%', minHeight: '200px' }}>
+    <ReactPlayer
+      url="https://youtu.be/ePfc0cmDAbc?si=FJctnlw57C9P2pvQ" // YouTube video URL
+      className="absolute top-0 left-0 w-full h-full"
+      controls
+    />
+  </div>
+
+  <div className="md:w-1/2 flex flex-col justify-center text-center md:text-left md:ml-10 md:mt-0 mt-6"> {/* Added mt-6 for spacing */}
+    <h2 className="text-3xl font-bold mb-4 text-gray-300">AMC Agreements</h2>
+    <p className="mb-2 text-gray-300">Helping to keep products in optimal condition and potentially prolonging their lifespan</p>
+    {/* <p className="mb-2 text-gray-300"><strong>First</strong> Drone Medical delivery of INDIA.</p> */}
+  </div>
+</div>
+
       <div
         className="absolute inset-0 flex items-center justify-center"
         style={{ pointerEvents: 'none' }} // Prevents interfering with other elements

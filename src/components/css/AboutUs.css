@@ -145,3 +145,49 @@ section.about-us-section {
   background-position: center; */
   /* min-height: 100%; */
 }
+
+h1.text-xl.font-semibold.text-gray-800.mb-4 {
+    margin-left: 346px;
+    margin-top: 14px;
+}
+h1.text-xl.font-semibold.text-gray-800.mb-4 {
+    font-size: 42px;
+}
+h1.text-xl.font-semibold.text-gray-800.mb-4 {
+    margin-left: 346px;
+    margin-top: 72px;
+    font-size: 42px;
+}
+h2.opportunities {
+    margin-left: 323px;
+    font-size: 40px;
+    color: #1e272e;
+}
+p.opportunitiesParagraphs {
+    margin-left: 321px;
+}
+.contentRights {
+    display: flex; /* Use flexbox for layout */
+    align-items: flex-start; /* Align items at the top */
+  }
+  
+  .contents {
+    flex: 1; /* Allow contents to take available space */
+    display: flex;
+    flex-direction: column;
+    margin-top: 52px;
+  }
+  
+  .rightImage {
+    margin-left: 20px; /* Space between text and image */
+    max-width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  img.rightImage {
+    height: 606px;
+    margin-right: 78px;
+    border-radius: 11px;
+    margin-top: 70px;
+}
+  

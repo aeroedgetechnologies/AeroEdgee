@@ -5,34 +5,34 @@ import '../css/Services.css'; // Assuming you will create this CSS file for styl
 
 const offerItems = [
   {
+    icon: faTachometerAlt,
+    title: 'Advanced Agriculture',
+    description: 'Utilizing cutting-edge technology to enhance agricultural practices for sustainable farming.',
+},
+{
+    icon: faRecycle,
+    title: 'Urban Planning Strategy',
+    description: 'We create innovative urban planning strategies that prioritize community well-being.',
+},
+{
+    icon: faHeadset,
+    title: 'Construction Project Management',
+    description: 'Our team excels in managing construction projects from inception to completion.',
+},
+  {
       icon: faPenFancy,
-      title: 'Project Creation',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+      title: 'Disaster Relief Coordination',
+      description: 'We specialize in coordinating disaster relief efforts to ensure timely and effective response during emergencies.',
   },
   {
       icon: faDharmachakra,
-      title: 'Software Development',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+      title: 'Resource Extraction Planning',
+      description: 'Our experts develop strategic plans for resource extraction, balancing efficiency and sustainability.',
   },
   {
       icon: faTasks,
-      title: 'Project Management',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-  },
-  {
-      icon: faTachometerAlt,
-      title: 'Project Implementation',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-  },
-  {
-      icon: faRecycle,
-      title: 'Software Update',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-  },
-  {
-      icon: faHeadset,
-      title: '24/7 Support',
-      description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+      title: 'Rail System Evaluation',
+      description: 'We provide comprehensive evaluations of rail systems to improve safety, efficiency, and infrastructure.',
   },
 ];
 
@@ -44,7 +44,7 @@ const Services = () => {
           <div className="col-md-12">
             <div className="site-heading text-center">
               <h2>What we <span>Offer</span></h2>
-              <h4>Lorem Ipsum is simply dummy text</h4>
+              <h4>Your trusted partner in essential services</h4>
             </div>
           </div>
         </div>
@@ -59,10 +59,13 @@ const Services = () => {
                 </div>
             ))}
         </div>
+        <span></span>
+        <h1 className="text-xl font-semibold text-gray-800 mb-4 servicesNotes">
+  Note: Clarifications are essential prior to conducting an analysis of the projects and providing the necessary services.
+</h1>
       </div>
     </section>
   );
 };
-
 
 export default Services;

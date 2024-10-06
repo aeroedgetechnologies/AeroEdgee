@@ -64,7 +64,7 @@ const Navbar = () => {
             </Link>
             <span className="absolute left-0 right-0 bottom-[-4px] h-0.5 bg-black scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></span>
           </li>
-          <li className="relative group">
+          {/* <li className="relative group">
             <Link 
               to="/signup" 
               className="text-gray-800 transition duration-300 block px-4 py-2 md:p-0"
@@ -73,7 +73,7 @@ const Navbar = () => {
               Sign Up
             </Link>
             <span className="absolute left-0 right-0 bottom-[-4px] h-0.5 bg-black scale-x-0 transition-transform duration-500 group-hover:scale-x-100"></span>
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>

@@ -55,3 +55,9 @@ button.absolute.right-4.top-1\/2.transform.-translate-y-1\/2.text-white.p-2.roun
 button.absolute.left-4.top-1\/2.transform.-translate-y-1\/2.text-white.p-2.rounded-full.shadow-lg.button {
   color: black;
 }
+button.absolute.left-4.top-1\/2.transform.-translate-y-1\/2.text-white.p-2.rounded-full.shadow-lg.text-black {
+  color: black;
+}
+button.absolute.right-4.top-1\/2.transform.-translate-y-1\/2.text-white.p-2.rounded-full.shadow-lg {
+  color: black;
+}

@@ -4,7 +4,7 @@ import dronesimages from '../../Images/drone-with-camera-is-flying-iceberg.jpg';
 import ScrollToTopButton from '../ScrollToTopButton';
 import { ToastContainer, toast } from 'react-toastify'; // Import ToastContainer and toast
 import 'react-toastify/dist/ReactToastify.css'; // Import toast styles
-
+import contausimages from'../../components/Site Context/Contact US/pexels-nic-scrollstoppingphotos-28101093.jpg'
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -57,91 +57,87 @@ const Contact = () => {
   };
 
   return (
-    <section
-      style={{
-        backgroundImage: `url(${dronesimages})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        minHeight: '700px', // Use minHeight instead of height
-      }}
-    >
+<section
+  className="Contactussection-background"
+>
       <div className="flex justify-center items-center h-[720px]">
         <div className="hidden md:flex flex-grow justify-end pr-16"> {/* Flex container for larger screens */}
           <div className="p-8 rounded-lg max-w-[700px]"> {/* Limit width for form */}
-            <h1 className="text-4xl font-bold text-gray-700 mb-2">Contact Us</h1>
-            <p className="text-xl text-gray-600">Learn more about our story.</p>
+            <h1 className="text-4xl font-bold text-white mb-2">Contact Us</h1>
+            <p className="text-xl text-white">Learn more about our story.</p>
 
             <form className="mt-5" onSubmit={handleSubmit}>
-              <div className="mb-4">
-                <label htmlFor="name" className="block text-gray-900">Name *</label>
-                <input
-                  type="text"
-                  name="name"
-                  id="name"
-                  required
-                  onChange={handleChange} // Add onChange
-                  className="border-b-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
-                />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="organization" className="block text-gray-900">Organization Name</label>
-                <input
-                  type="text"
-                  name="organization"
-                  id="organization"
-                  onChange={handleChange} // Add onChange
-                  className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
-                />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-900">Email Address *</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  required
-                  onChange={handleChange} // Add onChange
-                  className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
-                />
-              </div>
-              <div className="mb-4">
-                <label htmlFor="phone" className="block text-gray-900">Phone Number</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  id="phone"
-                  onChange={handleChange} // Add onChange
-                  className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
-                />
-              </div>
-              <div className="mb-4 relative">
-                <textarea
-                  name="message"
-                  id="message"
-                  required
-                  onChange={handleChange} // Add onChange
-                  className="border-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-2 px-3 pt-4"
-                  rows="4"
-                  placeholder="Message *"
-                />
-              </div>
-              <div className="mb-4">
-                <label className="block text-gray-900 flex items-center">
-                  <input
-                    type="checkbox"
-                    name="gdpr"
-                    id="gdpr"
-                    required
-                    onChange={handleChange} // Add onChange
-                    className="mr-2"
-                  />
-                  By using this form you agree with the storage and handling of your data by this website.
-                </label>
-              </div>
-              <button type="submit" className="bg-gray-500 text-white px-4 py-2 rounded hover:bg-green-700">
-              Send
-              </button>
-            </form>
+  <div className="mb-4">
+    <label htmlFor="name" className="block text-white">Name *</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      required
+      onChange={handleChange}
+      className="border-b-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 text-white" // Added text-white
+    />
+  </div>
+  <div className="mb-4">
+    <label htmlFor="organization" className="block text-white">Organization Name</label>
+    <input
+      type="text"
+      name="organization"
+      id="organization"
+      onChange={handleChange}
+      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 text-white" // Added text-white
+    />
+  </div>
+  <div className="mb-4">
+    <label htmlFor="email" className="block text-white">Email Address *</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      required
+      onChange={handleChange}
+      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 text-white" // Added text-white
+    />
+  </div>
+  <div className="mb-4">
+    <label htmlFor="phone" className="block text-white">Phone Number</label>
+    <input
+      type="tel"
+      name="phone"
+      id="phone"
+      onChange={handleChange}
+      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 text-white" // Added text-white
+    />
+  </div>
+  <div className="mb-4 relative">
+    <textarea
+      name="message"
+      id="message"
+      required
+      onChange={handleChange}
+      className="border-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-2 px-3 pt-4 text-white placeholder-white" // Added text-white
+      rows="4"
+      placeholder="Message *"
+    />
+  </div>
+  <div className="mb-4">
+    <label className="block text-white flex items-center">
+      <input
+        type="checkbox"
+        name="gdpr"
+        id="gdpr"
+        required
+        onChange={handleChange}
+        className="mr-2"
+      />
+      By using this form you agree with the storage and handling of your data by this website.
+    </label>
+  </div>
+  <button type="submit" className="bg-red-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+    Send
+  </button>
+</form>
+
           </div>
         </div>
 
@@ -151,76 +147,77 @@ const Contact = () => {
           <p className="text-xl text-gray-600">Learn more about our story.</p>
 
           <form className="mt-5" onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label htmlFor="name" className="block text-gray-900">Name *</label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                required
-                onChange={handleChange} // Add onChange
-                className="border-b-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="organization" className="block text-gray-900">Organization Name</label>
-              <input
-                type="text"
-                name="organization"
-                id="organization"
-                onChange={handleChange} // Add onChange
-                className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="email" className="block text-gray-900">Email Address *</label>
-              <input
-                type="email"
-                name="email"
-                id="email"
-                required
-                onChange={handleChange} // Add onChange
-                className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
-              />
-            </div>
-            <div className="mb-4">
-              <label htmlFor="phone" className="block text-gray-900">Phone Number</label>
-              <input
-                type="tel"
-                name="phone"
-                id="phone"
-                onChange={handleChange} // Add onChange
-                className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
-              />
-            </div>
-            <div className="mb-4 relative">
-              <textarea
-                name="message"
-                id="message"
-                required
-                onChange={handleChange} // Add onChange
-                className="border-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-2 px-3 pt-4"
-                rows="4"
-                placeholder="Message *"
-              />
-            </div>
-            <div className="mb-4">
-              <label className="block text-gray-900 flex items-center">
-                <input
-                  type="checkbox"
-                  name="gdpr"
-                  id="gdpr"
-                  required
-                  onChange={handleChange} // Add onChange
-                  className="mr-2"
-                />
-                By using this form you agree with the storage and handling of your data by this website.
-              </label>
-            </div>
-            <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
-              Send
-            </button>
-          </form>
+  <div className="mb-4">
+    <label htmlFor="name" className="block text-white">Name *</label>
+    <input
+      type="text"
+      name="name"
+      id="name"
+      required
+      onChange={handleChange}
+      className="border-b-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 input-white" // Add input-white class
+    />
+  </div>
+  <div className="mb-4">
+    <label htmlFor="organization" className="block text-white">Organization Name</label>
+    <input
+      type="text"
+      name="organization"
+      id="organization"
+      onChange={handleChange}
+      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 input-white" // Add input-white class
+    />
+  </div>
+  <div className="mb-4">
+    <label htmlFor="email" className="block text-white">Email Address *</label>
+    <input
+      type="email"
+      name="email"
+      id="email"
+      required
+      onChange={handleChange}
+      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 input-white" // Add input-white class
+    />
+  </div>
+  <div className="mb-4">
+    <label htmlFor="phone" className="block text-white">Phone Number</label>
+    <input
+      type="tel"
+      name="phone"
+      id="phone"
+      onChange={handleChange}
+      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 input-white" // Add input-white class
+    />
+  </div>
+  <div className="mb-4 relative">
+    <textarea
+      name="message"
+      id="message"
+      required
+      onChange={handleChange}
+      className="border-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-2 px-3 pt-4 input-white" // Add input-white class
+      rows="4"
+      placeholder="Message *"
+    />
+  </div>
+  <div className="mb-4">
+    <label className="block text-white flex items-center">
+      <input
+        type="checkbox"
+        name="gdpr"
+        id="gdpr"
+        required
+        onChange={handleChange}
+        className="mr-2"
+      />
+      By using this form you agree with the storage and handling of your data by this website.
+    </label>
+  </div>
+  <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded">
+    Send
+  </button>
+</form>
+
         </div>
       </div>
       <ScrollToTopButton />

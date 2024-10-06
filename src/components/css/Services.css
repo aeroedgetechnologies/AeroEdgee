@@ -288,3 +288,57 @@ width: 120px;
 .item {
   margin-right: 29px;
 }
+
+/* .we-offer-area{
+  background-image: url('../../components/Site Context/Campaign/agricultural-drone-hovering-vibrant-green-field-generative-ai_914383-187.avif');
+  background-size: cover;
+  background-position: center;
+  min-height: 700px; 
+} */
+
+h1.text-xl.font-semibold.text-gray-800.mb-4.servicesNotes {
+  margin-left: 10px;
+  margin-top: 7px;
+  font-size: 20px;
+}
+
+.container {
+  margin: 20px;
+}
+
+.header {
+  display: block;
+  font-family: 'Futura', Helvetica, Arial, sans-serif;
+  font-size: 38px;
+  font-weight: 300;
+  letter-spacing: normal;
+  line-height: 45px;
+  text-align: left;
+}
+
+.header-advanced {
+  font-family: 'Futura', Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 42px;
+}
+
+.subheader {
+  color: #000;
+  font-family: 'Futura', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 25px;
+}
+
+.bold-link {
+  color: rgb(140, 29, 64);
+  text-decoration: underline;
+}
+
+.uppercase {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.image {
+  width: 100%;
+}

@@ -55,3 +55,17 @@ body{
 .glow-effect {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(0, 255, 255, 0.5), 0 0 30px rgba(0, 255, 255, 0.5);
 }
+
+
+/* In your CSS file */
+.background-image {
+  background-image: url('../../Images/Homepage drone image.jpg');
+  background-size: cover;
+  background-position: center center;
+  height: 700px;
+  background-color: gray;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

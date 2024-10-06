@@ -20,12 +20,41 @@
       margin: 10px 0;
     }
   }
+  @media (max-width: 375px) {
+    h6.text-lg.pl-4.text-red-700.md\:text-xl.lg\:text-2xl.md\:pl-6.lg\:pl-8 {
+      margin-left: 0px !important;
+      white-space: nowrap;
+      font-size: 11px;
+  }
+  h2.text-4xl.mb-2.pl-4.md\:pl-6.lg\:pl-8 {
+    white-space: nowrap;
+    font-size: 15px;
+    margin-bottom: -7px;
+}
+  }
 
-  h6.text-lg.pl-4.text-red-700 {
-    margin-left: -25px;
+  .max-w-6xl.mx-auto.px-4.text-left.h-full.flex.flex-col.justify-center {
+    margin-left: 994px;
 }
 
-h2.text-4xl.mb-2.pl-4 {
-  margin-left: -255px;
+  h6.text-lg.pl-4.text-red-700.md\:text-xl.lg\:text-2xl.md\:pl-6.lg\:pl-8 {
+    margin-left: 117px;
 }
-  
+
+/* MediaCoverage.css or a relevant CSS file */
+.bg-custom {
+  background-image: url('../../components/Site Context/Products cover image/drone-para-cargas-de-emergencia.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 600px; /* Adjust height as needed */
+}
+
+
+/* MediaCoverage.css or your relevant CSS file */
+.bg-custom-section {
+  position: relative;
+  height: 600px; /* Adjust height as needed */
+  background-image: url('../../components/Site Context/Products Bottom cover image/pexels-mikhail-nilov-9242921.jpg');
+  background-size: cover; /* Ensure the background covers the section */
+  background-position: center; /* Center the background image */
+}

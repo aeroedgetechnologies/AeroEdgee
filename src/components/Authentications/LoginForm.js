@@ -41,7 +41,7 @@ const LoginForm = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-cover bg-center" style={{ backgroundImage: `url(${applications})` }}>
-      <div className="relative bg-black bg-opacity-30 rounded-lg shadow-lg p-8 max-w-sm w-full">
+      <div className="relative bg-black bg-opacity-30 rounded-lg shadow-lg p-8 max-w-sm w-full transition-shadow duration-300 shadow-blue-400 hover:shadow-blue-600">
         <h2 className="text-4xl text-center text-white">Login</h2>
         <form className="mt-6" onSubmit={handleSubmit}>
           {/* Username Input */}
@@ -53,14 +53,14 @@ const LoginForm = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Username"
-              className="w-full px-4 py-2 text-white bg-transparent border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-400"
+              className="w-full px-4 py-2 text-gray-700 bg-transparent border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-400 placeholder-black"
             />
-            <img
+            {/* <img
               src="https://cdn-icons-png.flaticon.com/512/6325/6325109.png"
               alt="user-image"
               className="absolute right-4 top-2.5"
               width="25px"
-            />
+            /> */}
           </div>
 
           {/* Password Input */}
@@ -72,7 +72,7 @@ const LoginForm = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-              className="w-full px-4 py-2 text-white bg-transparent border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-400"
+              className="w-full px-4 py-2 text-gray-700 bg-transparent border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-400 placeholder-black"
             />
             <img
               src="https://cdn-icons-png.flaticon.com/512/2489/2489659.png"

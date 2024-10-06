@@ -52,14 +52,14 @@ const SignupForm = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Username"
-              className="w-full px-4 py-2 text-white bg-transparent border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-400"
+              className="w-full px-4 py-2 text-white bg-transparent border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-400 placeholder-black"
             />
-            <img
+            {/* <img
               src="https://cdn-icons-png.flaticon.com/512/6325/6325109.png"
               alt="user-image"
               className="absolute right-4 top-2.5"
               width="25px"
-            />
+            /> */}
           </div>
 
           {/* Email Input */}
@@ -71,14 +71,14 @@ const SignupForm = () => {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
-              className="w-full px-4 py-2 text-white bg-transparent border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-400"
+              className="w-full px-4 py-2 text-white bg-transparent border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-400 placeholder-black"
             />
-            <img
+            {/* <img
               src="https://cdn-icons-png.flaticon.com/512/6325/6325109.png"
               alt="email-image"
               className="absolute right-4 top-2.5"
               width="25px"
-            />
+            /> */}
           </div>
 
           {/* Password Input */}
@@ -90,7 +90,7 @@ const SignupForm = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Password"
-              className="w-full px-4 py-2 text-white bg-transparent border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-400"
+              className="w-full px-4 py-2 text-white bg-transparent border-2 border-gray-300 rounded-full focus:outline-none focus:border-blue-400 placeholder-black"
             />
             <img
               src="https://cdn-icons-png.flaticon.com/512/2489/2489659.png"

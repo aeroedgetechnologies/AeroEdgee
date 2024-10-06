@@ -203,14 +203,14 @@ For instance, our smart cameras are equipped with advanced facial recognition ca
     </div>
 
     {/* Button positioned at the bottom right */}
-    <div className="flex justify-end mt-4">
+    {/* <div className="flex justify-end mt-4">
             <img 
               src={pdflogos} 
               alt="Download PDF" 
               className="cursor-pointer h-[69px]" 
               onClick={generatePDF}
             />
-          </div>
+          </div> */}
   </div>
 </section>
 

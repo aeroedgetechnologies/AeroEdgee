@@ -23,7 +23,7 @@ const Campaign = () => {
 
 The anemometer features a user-friendly interface, making it easy to operate in the field. It displays wind speed in various units (mph, km/h, or m/s) and tracks wind direction, ensuring comprehensive weather data collection. Designed for durability, it withstands harsh weather conditions, guaranteeing reliable performance in diverse environments.            </h3>
             <h3 className="subheader">
-              Have questions? Reach out to us at <a href="mailto:aeroedgetechnologies@gmail.com" className="bold-link">aeroedgetechnologies@gmail.com</a>.
+              Have questions? Reach out to us at <a href="mailto:connect@aeroedgetechnologies.in" className="bold-link">connect@aeroedgetechnologies.in</a>.
             </h3>
           </div>
         </div>
@@ -68,7 +68,7 @@ Through this research, Aero Edge Technologies is contributing to the broader sci
             </h3> */}
             <br/>
             <h3 className="subheader">
-              For inquiries, contact us at <a href="mailto:aeroedgetechnologies@gmail.com" className="bold-link">aeroedgetechnologies@gmail.com</a>
+              For inquiries, contact us at <a href="mailto:connect@aeroedgetechnologies.in" className="bold-link">connect@aeroedgetechnologies.in</a>
             </h3>
           </div>
         </div>

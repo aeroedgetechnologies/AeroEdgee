@@ -129,7 +129,7 @@ const App = () => {
               <div className="text-center">
                 <h2 className="text-2xl font-bold">Write Us</h2>
                 <a href="mailto:sales@cdspace.in" className="text-lg" style={{ color: '#4B5563' }}>
-                  aeroedgetechnologies@gmail.com
+                  connect@aeroedgetechnologies.in
                 </a>
               </div>
             </div>

@@ -174,7 +174,7 @@ const scrollToTop = () => {
 {/* {renderLetters(text)} */}
         {/* I n n o v a t i o n s */}
         {/* h i g h {" "}  m a i n t a i n a n c e */}
-<p>h&nbsp;i&nbsp;g&nbsp;h&nbsp;&nbsp;&nbsp;m&nbsp;a&nbsp;i&nbsp;n&nbsp;t&nbsp;e&nbsp;n&nbsp;a&nbsp;n&nbsp;c&nbsp;e</p>
+<p>d&nbsp;e&nbsp;f&nbsp;e&nbsp;n&nbsp;c&nbsp;e&nbsp;&nbsp;&nbsp;&amp;&nbsp;&nbsp;&nbsp;e&nbsp;n&nbsp;e&nbsp;r&nbsp;g&nbsp;y</p>
       </p>
     </div>
   </div>

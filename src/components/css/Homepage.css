@@ -21,7 +21,7 @@
 
 .homepage-section {
   position: relative;
-  background-image: url('/images/homepage-banner.png');
+  background-image: url('/images/homepage-banner.png?v=2');
   background-size: cover;
   background-position: center 45%;
   background-repeat: no-repeat;

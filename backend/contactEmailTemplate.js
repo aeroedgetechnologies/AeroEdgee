@@ -1,3 +1,17 @@
+/** Medium gray brand palette for contact notification emails */
+const GRAY = {
+  primary: '#6b7280',
+  primaryDark: '#4b5563',
+  primaryLight: '#9ca3af',
+  textOnGray: '#ffffff',
+  textMutedOnGray: '#e5e7eb',
+  bodyBg: '#f3f4f6',
+  cardBg: '#ffffff',
+  text: '#1f2937',
+  textMuted: '#6b7280',
+  border: '#e5e7eb',
+};
+
 function escapeHtml(value) {
   return String(value ?? '')
     .replace(/&/g, '&amp;')
@@ -18,22 +32,9 @@ function buildContactEmailHtml({ name, organization, email, phone, message }) {
     timeZone: 'Asia/Kolkata',
   });
 
-  const rows = [
-    ['Full name', displayValue(name)],
-    ['Organization', displayValue(organization)],
-    ['Email', displayValue(email)],
-    ['Phone', displayValue(phone)],
-  ];
-
-  const tableRows = rows
-    .map(
-      ([label, value]) => `
-        <tr>
-          <td style="padding:12px 16px;border-bottom:1px solid #e2e8f0;color:#64748b;font-size:13px;width:140px;vertical-align:top;">${label}</td>
-          <td style="padding:12px 16px;border-bottom:1px solid #e2e8f0;color:#0f172a;font-size:14px;font-weight:600;">${value}</td>
-        </tr>`
-    )
-    .join('');
+  const orgLine = organization
+    ? `<p style="margin:4px 0 0;font-size:13px;color:${GRAY.textMutedOnGray};">${displayValue(organization)}</p>`
+    : '';
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -42,44 +43,62 @@ function buildContactEmailHtml({ name, organization, email, phone, message }) {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>New contact form submission</title>
 </head>
-<body style="margin:0;padding:0;background-color:#f1f5f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:#f1f5f9;padding:32px 16px;">
+<body style="margin:0;padding:0;background-color:${GRAY.bodyBg};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:${GRAY.bodyBg};padding:40px 16px;">
     <tr>
       <td align="center">
-        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:600px;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 4px 24px rgba(15,23,42,0.08);">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px;background:${GRAY.cardBg};border-radius:4px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
+          <!-- Header -->
           <tr>
-            <td style="background:linear-gradient(135deg,#0f172a 0%,#1e3a5f 100%);padding:28px 32px;">
-              <p style="margin:0 0 6px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#94a3b8;font-weight:600;">AeroEdge Technologies</p>
-              <h1 style="margin:0;font-size:22px;line-height:1.3;color:#ffffff;font-weight:700;">New contact enquiry</h1>
-              <p style="margin:10px 0 0;font-size:14px;line-height:1.5;color:#cbd5e1;">A visitor submitted the contact form on aetechnologies.in</p>
+            <td style="background-color:${GRAY.primary};padding:28px 32px;text-align:center;">
+              <h1 style="margin:0;font-size:22px;line-height:1.3;color:${GRAY.textOnGray};font-weight:700;">${displayValue(name)}</h1>
+              <p style="margin:8px 0 0;font-size:14px;color:${GRAY.textMutedOnGray};">
+                <a href="mailto:${escapeHtml(email)}" style="color:${GRAY.textOnGray};text-decoration:none;">${displayValue(email)}</a>
+              </p>
+              ${orgLine}
             </td>
           </tr>
+          <!-- Body -->
           <tr>
-            <td style="padding:24px 32px 8px;">
-              <p style="margin:0 0 16px;font-size:13px;color:#64748b;">
-                <strong style="color:#0f172a;">Received:</strong> ${escapeHtml(submittedAt)} (IST)
+            <td style="padding:32px 32px 24px;background:${GRAY.cardBg};">
+              <p style="margin:0 0 20px;font-size:15px;color:${GRAY.text};line-height:1.5;">
+                <strong>Subject:</strong> Professional Inquiry — AeroEdge Contact Form
               </p>
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="border:1px solid #e2e8f0;border-radius:8px;overflow:hidden;">
-                ${tableRows}
+              <hr style="border:none;border-top:1px solid ${GRAY.border};margin:0 0 24px;" />
+              <p style="margin:0 0 12px;font-size:15px;color:${GRAY.text};line-height:1.5;">Dear AeroEdge Team,</p>
+              <p style="margin:0 0 16px;font-size:14px;color:${GRAY.textMuted};line-height:1.5;">
+                A new enquiry was submitted on <strong style="color:${GRAY.text};">aetechnologies.in</strong> on ${escapeHtml(submittedAt)} (IST).
+              </p>
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:0 0 20px;font-size:14px;color:${GRAY.text};">
+                <tr>
+                  <td style="padding:6px 0;color:${GRAY.textMuted};width:110px;vertical-align:top;">Phone</td>
+                  <td style="padding:6px 0;font-weight:600;">${displayValue(phone)}</td>
+                </tr>
+                <tr>
+                  <td style="padding:6px 0;color:${GRAY.textMuted};vertical-align:top;">Organization</td>
+                  <td style="padding:6px 0;font-weight:600;">${displayValue(organization)}</td>
+                </tr>
+              </table>
+              <p style="margin:0 0 8px;font-size:13px;font-weight:600;color:${GRAY.textMuted};text-transform:uppercase;letter-spacing:0.05em;">Message</p>
+              <p style="margin:0 0 28px;font-size:14px;color:${GRAY.text};line-height:1.7;white-space:pre-wrap;">${displayValue(message)}</p>
+              <table role="presentation" cellspacing="0" cellpadding="0" align="center" style="margin:0 auto;">
+                <tr>
+                  <td align="center" style="border-radius:6px;background-color:${GRAY.primary};">
+                    <a href="mailto:${escapeHtml(email)}?subject=Re%3A%20Your%20AeroEdge%20enquiry" style="display:inline-block;padding:14px 48px;font-size:15px;font-weight:600;color:${GRAY.textOnGray};text-decoration:none;">Reply</a>
+                  </td>
+                </tr>
               </table>
             </td>
           </tr>
+          <!-- Footer -->
           <tr>
-            <td style="padding:8px 32px 28px;">
-              <p style="margin:0 0 8px;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#64748b;">Message</p>
-              <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;padding:16px 18px;color:#334155;font-size:14px;line-height:1.65;white-space:pre-wrap;">${displayValue(message)}</div>
-            </td>
-          </tr>
-          <tr>
-            <td style="padding:0 32px 28px;">
-              <a href="mailto:${escapeHtml(email)}" style="display:inline-block;background:#dc2626;color:#ffffff;text-decoration:none;font-size:14px;font-weight:600;padding:12px 22px;border-radius:8px;">Reply to ${displayValue(name)}</a>
-            </td>
-          </tr>
-          <tr>
-            <td style="background:#f8fafc;padding:18px 32px;border-top:1px solid #e2e8f0;">
-              <p style="margin:0;font-size:12px;line-height:1.5;color:#94a3b8;text-align:center;">
-                This notification was sent automatically from the AeroEdge website contact form.<br />
-                <a href="https://aetechnologies.in" style="color:#dc2626;text-decoration:none;">aetechnologies.in</a>
+            <td style="background-color:${GRAY.primary};padding:24px 32px;text-align:center;">
+              <p style="margin:0;font-size:16px;font-weight:700;color:${GRAY.textOnGray};">AeroEdge Technologies</p>
+              <p style="margin:6px 0 0;font-size:13px;color:${GRAY.textMutedOnGray};">Defence &amp; Industrial UAV Solutions</p>
+              <p style="margin:12px 0 0;font-size:12px;color:${GRAY.textMutedOnGray};">
+                <a href="https://aetechnologies.in" style="color:${GRAY.textOnGray};text-decoration:underline;">aetechnologies.in</a>
+                &nbsp;·&nbsp;
+                <a href="mailto:connect@aeroedgetechnologies.in" style="color:${GRAY.textOnGray};text-decoration:underline;">connect@aeroedgetechnologies.in</a>
               </p>
             </td>
           </tr>
@@ -97,15 +116,16 @@ function buildContactEmailText({ name, organization, email, phone, message }) {
     '==========================================',
     '',
     `Name: ${name || '—'}`,
-    `Organization: ${organization || '—'}`,
     `Email: ${email || '—'}`,
+    `Organization: ${organization || '—'}`,
     `Phone: ${phone || '—'}`,
     '',
     'Message:',
     message || '—',
     '',
     '—',
-    'Sent from aetechnologies.in contact form',
+    'Reply to the sender from your inbox.',
+    'https://aetechnologies.in',
   ].join('\n');
 }
 

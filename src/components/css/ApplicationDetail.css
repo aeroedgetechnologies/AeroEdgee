@@ -134,47 +134,18 @@
 .application-detail-cta--full {
   width: 100%;
   margin-top: 0.5rem;
+  padding: 0.85rem 1.5rem;
 }
 
 /* Desktop: flex row — left column scrolls with page, right sidebar stays stuck */
 .application-detail-layout {
-  max-width: 72rem;
+  max-width: min(90rem, 100%);
   margin: 0 auto;
-  padding: 1.25rem 1.25rem 1.5rem;
+  padding: 1.75rem 1.5rem 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 0;
   align-items: stretch;
-}
-
-@media (min-width: 1024px) {
-  .application-detail-layout {
-    flex-direction: row;
-    align-items: flex-start;
-    max-width: min(90rem, 100%);
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    gap: 1.5rem;
-  }
-
-  .application-detail-main {
-    flex: 1 1 auto;
-    min-width: 0;
-  }
-
-  .application-detail-sidebar-column {
-    flex: 0 0 288px;
-    width: 288px;
-    align-self: flex-start;
-  }
-
-  .application-detail-sidebar {
-    position: sticky;
-    top: 5.5rem;
-    z-index: 10;
-    max-height: calc(100vh - 6rem);
-    overflow-y: auto;
-  }
 }
 
 .application-detail-main {
@@ -185,17 +156,13 @@
   box-shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
   border: 1px solid #e2e8f0;
   overflow: visible;
-  padding-bottom: 2rem;
+  padding-bottom: 2.5rem;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-.application-detail-sidebar-column {
-  min-width: 0;
-}
-
 .application-gallery {
-  margin: 1.75rem 1.75rem 0;
-  padding: 1.25rem;
+  margin: 2.25rem 2.25rem 0;
+  padding: 1.5rem 1.5rem 1.75rem;
   background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
   border: 1px solid #e2e8f0;
   border-radius: 12px;
@@ -252,8 +219,8 @@
 }
 
 .application-block {
-  margin: 1.5rem 1.75rem 0;
-  padding: 1.75rem 2rem;
+  margin: 2rem 2.25rem 0;
+  padding: 2rem 2.25rem;
   background: #fff;
   border: 1px solid #e8edf2;
   border-radius: 12px;
@@ -263,13 +230,13 @@
 .application-block h2 {
   display: flex;
   align-items: center;
-  gap: 0.6rem;
+  gap: 0.75rem;
   font-size: 1.28rem;
   font-weight: 700;
   color: var(--aero-text);
   letter-spacing: -0.02em;
-  margin: 0 0 1rem;
-  padding-bottom: 0.65rem;
+  margin: 0 0 1.25rem;
+  padding-bottom: 0.85rem;
   border-bottom: 1px solid #e2e8f0;
 }
 
@@ -287,13 +254,14 @@
   color: #334155;
   font-weight: 500;
   margin: 0;
-  line-height: 1.7;
+  line-height: 1.8;
+  padding: 0.15rem 0;
 }
 
 .application-block p {
   color: #475569;
-  line-height: 1.75;
-  margin: 0 0 0.85rem;
+  line-height: 1.8;
+  margin: 0 0 1.1rem;
   font-size: 1rem;
 }
 
@@ -305,7 +273,8 @@
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   border-left: 4px solid var(--aero-brand);
   box-shadow: none;
-  padding: 1.5rem 2rem;
+  padding: 2rem 2.25rem;
+  margin-top: 2.25rem;
 }
 
 .application-block--intro h2 {
@@ -315,9 +284,9 @@
 .application-block--split {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.25rem;
+  gap: 1.5rem;
   padding: 0;
-  margin: 1.5rem 1.75rem 0;
+  margin: 2rem 2.25rem 0;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -325,7 +294,7 @@
 
 .application-block--split > div {
   margin: 0;
-  padding: 1.5rem 1.75rem;
+  padding: 1.75rem 2rem;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
@@ -380,8 +349,8 @@
 .application-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-top: 0.25rem;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .application-tag {
@@ -401,13 +370,13 @@
 }
 
 .application-cta-banner {
-  margin: 1.75rem 1.75rem 0;
-  padding: 2rem 2.25rem;
+  margin: 2.5rem 2.25rem 0;
+  padding: 2.5rem 2.75rem;
   background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 1.5rem;
   align-items: flex-start;
   box-shadow: 0 8px 24px rgba(15, 23, 42, 0.15);
 }
@@ -426,8 +395,8 @@
 }
 
 .application-cta-banner h2 {
-  font-size: 1.2rem;
-  margin: 0 0 0.35rem;
+  font-size: 1.25rem;
+  margin: 0 0 0.65rem;
   color: #fff;
   border: none;
   padding: 0;
@@ -454,25 +423,31 @@
   background: #f1f5f9;
 }
 
-.application-detail-sidebar {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
+/* Talk to an expert — full width below main content */
+.application-expert-bottom {
+  max-width: min(90rem, 100%);
+  margin: 0 auto;
+  padding: 2rem 1.5rem 0.5rem;
+}
+
+.application-expert-bottom__inner {
+  max-width: 42rem;
+  margin: 0 auto;
 }
 
 .sidebar-card {
   background: #fff;
   border-radius: 12px;
-  padding: 1.5rem 1.75rem;
+  padding: 2rem 2.25rem;
   box-shadow: 0 2px 12px rgba(15, 23, 42, 0.06);
   border: 1px solid #e2e8f0;
 }
 
 .sidebar-card h3 {
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   font-weight: 700;
   color: #0f172a;
-  margin: 0 0 0.65rem;
+  margin: 0 0 0.85rem;
 }
 
 .sidebar-card__hint {
@@ -483,18 +458,18 @@
 }
 
 .sidebar-card--contact p:not(.sidebar-card__brand) {
-  margin: 0 0 1rem;
-  line-height: 1.6;
-  font-size: 0.95rem;
+  margin: 0 0 1.25rem;
+  line-height: 1.65;
+  font-size: 1rem;
   color: #475569;
 }
 
 .sidebar-card--contact .sidebar-email {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
 }
 
 .sidebar-card--contact .application-detail-cta--full {
-  margin-top: 0.25rem;
+  margin-top: 0.5rem;
 }
 
 .related-applications-list {
@@ -576,7 +551,7 @@
 .application-related-bottom {
   max-width: min(90rem, 100%);
   margin: 0 auto;
-  padding: 0 1.5rem 3rem;
+  padding: 2.5rem 1.5rem 3.5rem;
 }
 
 .application-related-bottom__inner {
@@ -700,6 +675,34 @@
   border: none;
 }
 
+@media (max-width: 640px) {
+  .application-gallery {
+    margin: 1.5rem 1.25rem 0;
+    padding: 1.25rem;
+  }
+
+  .application-block,
+  .application-block--split,
+  .application-block--intro {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+    padding: 1.5rem 1.5rem;
+  }
+
+  .application-cta-banner {
+    margin: 2rem 1.25rem 0;
+    padding: 2rem 1.5rem;
+  }
+
+  .application-expert-bottom {
+    padding: 1.75rem 1.25rem 0.5rem;
+  }
+
+  .application-expert-bottom__inner {
+    padding: 1.75rem 1.5rem;
+  }
+}
+
 .sidebar-card--contact {
   background: #fff;
   border: 1px solid #e2e8f0;
@@ -707,24 +710,17 @@
 }
 
 .sidebar-card--contact .sidebar-card__brand {
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--aero-brand);
-  margin: 0 0 0.2rem;
+  margin: 0 0 0.5rem;
 }
 
 .sidebar-card--contact h3 {
   color: #0f172a;
-  font-size: 1rem;
-}
-
-.sidebar-card--contact p {
-  font-size: 0.82rem;
-  margin: 0 0 0.5rem;
-  line-height: 1.45;
-  color: #64748b;
+  font-size: 1.25rem;
 }
 
 .sidebar-email {

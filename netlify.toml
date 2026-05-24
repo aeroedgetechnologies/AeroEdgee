@@ -1,0 +1,14 @@
+# Static CRA frontend — API runs on Render (see render.yaml)
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "18"
+  # CRA treats ESLint warnings as errors when CI=true (Netlify default)
+  CI = "false"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

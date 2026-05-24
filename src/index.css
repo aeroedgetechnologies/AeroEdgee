@@ -44,6 +44,11 @@ main.scrollable {
   overflow-y: visible;
 }
 
+/* Sticky sidebars break if main clips overflow (e.g. application detail pages) */
+main.scrollable:has(.application-detail-page) {
+  overflow: visible;
+}
+
 
 
 /* Tailwind CSS */

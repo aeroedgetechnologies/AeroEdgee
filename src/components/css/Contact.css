@@ -62,8 +62,9 @@
   }
 
   .contact-page-inner {
-    max-width: 72rem;
-    margin: 0 auto;
+    width: 100%;
+    max-width: none;
+    margin: 0;
     padding: 2rem 1.25rem;
     min-height: 60vh;
     display: flex;
@@ -71,18 +72,19 @@
     justify-content: center;
   }
 
-  /* Desktop / laptop: form on the right, inset from the edge */
+  /* Desktop / laptop: form hugging the right with a small margin */
   @media (min-width: 1024px) {
     .contact-page-inner {
       justify-content: flex-end;
-      padding-right: clamp(5rem, 14vw, 11rem);
-      padding-left: 2rem;
+      padding-left: 1.5rem;
+      padding-right: 1.75rem;
     }
 
     .contact-form-panel {
-      max-width: 28rem;
+      max-width: 26rem;
+      width: 100%;
       flex-shrink: 0;
-      margin-right: 1.5rem;
+      margin-right: 0;
     }
   }
 

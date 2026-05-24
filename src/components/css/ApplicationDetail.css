@@ -3,6 +3,12 @@
   overflow: visible;
 }
 
+/* Override global section rules from other stylesheets */
+.application-detail-page section {
+  min-height: 0;
+  padding: 0;
+}
+
 .application-detail-hero {
   min-height: clamp(280px, 42vh, 440px);
   position: relative;
@@ -143,8 +149,11 @@
 
 @media (min-width: 1024px) {
   .application-detail-layout {
+    max-width: min(90rem, 100%);
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     grid-template-columns: minmax(0, 1fr) 288px;
-    column-gap: 1.25rem;
+    column-gap: 1.5rem;
   }
 
   .application-detail-main {

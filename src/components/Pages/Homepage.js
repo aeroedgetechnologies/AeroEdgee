@@ -121,16 +121,10 @@ const scrollToTop = () => {
     />
     {/* Products Section */}
     <section className="homepage-section" aria-label="AeroEdge hero banner">
-      <div className="homepage-section__inner flex justify-start items-center h-full">
-        <div className="px-6 md:px-10 lg:px-16 py-10 md:py-14 text-left max-w-2xl">
-          <p className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-slate-500 mb-3">
-            AeroEdge Technologies
-          </p>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-3">
-            Advanced engineering for defence &amp; energy
-          </h1>
-          <p className="text-base md:text-lg text-slate-600 leading-relaxed">
-            Military-grade drones, surveillance systems, and precision manufacturing for mission-critical applications.
+      <div className="homepage-section__inner flex justify-start items-center h-full ml-6 md:ml-10">
+        <div className="homepage-hero-copy p-8 rounded-lg text-left">
+          <p className="homepage-hero-tagline" aria-label="defence and industrial">
+            d&nbsp;e&nbsp;f&nbsp;e&nbsp;n&nbsp;c&nbsp;e&nbsp;&nbsp;&nbsp;&amp;&nbsp;&nbsp;&nbsp;i&nbsp;n&nbsp;d&nbsp;u&nbsp;s&nbsp;t&nbsp;r&nbsp;i&nbsp;a&nbsp;l
           </p>
         </div>
       </div>

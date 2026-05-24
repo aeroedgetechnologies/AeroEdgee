@@ -1,15 +1,22 @@
-import applications1 from '../components/Site Context/Applications Images/pexels-debarshi-mukherjee-803108656-28762353.jpg';
-import applications2 from '../components/Site Context/Applications Images/pexels-elfust-18960738.jpg';
-import applications3 from '../components/Site Context/Applications Images/pexels-mysterious-ocean-260670408-12686560.jpg';
-import applications4 from '../components/Site Context/Applications Images/pexels-quang-nguyen-vinh-222549-14776899.jpg';
-import applications5 from '../components/Site Context/Applications Images/pexels-sevenstormphotography-439416.jpg';
-import applications6 from '../components/Site Context/Applications Images/pexels-shalenderkumar-4204698.jpg';
-import applications7 from '../components/Site Context/Applications Images/pexels-urtimud-89-76108288-14263363.jpg';
-import applications8 from '../components/Site Context/Applications Images/pexels-vanngo-ng-105653827-23857944.jpg';
-import droneIceberg from '../Images/drone-with-camera-is-flying-iceberg.jpg';
 import battlefield from '../Images/battlefields.jpg';
 import medicalDrones from '../Images/medicaldroness.jpg';
 import nightVision from '../Images/nightvision.jpg';
+import applications2 from '../components/Site Context/Applications Images/pexels-elfust-18960738.jpg';
+import applications3 from '../components/Site Context/Applications Images/pexels-mysterious-ocean-260670408-12686560.jpg';
+
+/** High-res application heroes (public/images/applications/) */
+const appImg = (file) => `${process.env.PUBLIC_URL || ''}/images/applications/${file}`;
+
+const IMG = {
+  disaster: appImg('disaster-relief-coordination.jpg'),
+  resource: appImg('resource-extraction-planning.jpg'),
+  rail: appImg('rail-system-evaluation.jpg'),
+  agriculture: appImg('advanced-agriculture.jpg'),
+  urban: appImg('urban-planning-strategy.jpg'),
+  construction: appImg('construction-project-management.jpg'),
+  gis: appImg('geographic-information-analysis.jpg'),
+  mountain: appImg('mountain-topography-mapping.jpg'),
+};
 
 export const applicationsList = [
   {
@@ -17,8 +24,8 @@ export const applicationsList = [
     title: 'Disaster Relief Coordination',
     shortDescription:
       'Advanced drone platforms and aerial intelligence for rapid-response missions in disaster-prone environments.',
-    heroImage: applications1,
-    gallery: [applications1, battlefield, medicalDrones, droneIceberg, nightVision],
+    heroImage: IMG.disaster,
+    gallery: [IMG.disaster, battlefield, medicalDrones, nightVision],
     tagline: 'Mission-critical UAV technology for emergency and public safety agencies.',
     sections: [
       {
@@ -67,8 +74,8 @@ export const applicationsList = [
     title: 'Resource Extraction Planning',
     shortDescription:
       'High-resolution aerial survey and remote sensing for mining, oil & gas, quarry, and industrial resource planning.',
-    heroImage: applications7,
-    gallery: [applications7, applications4, applications2, battlefield, droneIceberg],
+    heroImage: IMG.resource,
+    gallery: [IMG.resource, battlefield, applications2],
     tagline: 'Terrain intelligence before field deployment begins.',
     sections: [
       {
@@ -111,8 +118,8 @@ export const applicationsList = [
     title: 'Rail System Evaluation',
     shortDescription:
       'Continuous aerial inspection of tracks, bridges, tunnels, and electrification with AI defect detection.',
-    heroImage: applications3,
-    gallery: [applications3, applications5, applications2, nightVision, applications7],
+    heroImage: IMG.rail,
+    gallery: [IMG.rail, applications3, nightVision],
     tagline: 'Predictive maintenance for modern railway infrastructure.',
     sections: [
       {
@@ -155,8 +162,8 @@ export const applicationsList = [
     title: 'Advanced Agriculture',
     shortDescription:
       'Precision agriculture UAVs for crop monitoring, irrigation, spraying, and AI-driven field intelligence.',
-    heroImage: applications8,
-    gallery: [applications8, applications2, droneIceberg, applications4, applications1],
+    heroImage: IMG.agriculture,
+    gallery: [IMG.agriculture, applications2],
     tagline: 'Data-driven farming from the sky.',
     sections: [
       {
@@ -199,8 +206,8 @@ export const applicationsList = [
     title: 'Urban Planning Strategy',
     shortDescription:
       'Aerial mapping and geospatial intelligence for smart cities, infrastructure, and sustainable urban development.',
-    heroImage: applications6,
-    gallery: [applications6, applications2, applications5, applications8, applications3],
+    heroImage: IMG.urban,
+    gallery: [IMG.urban, applications2],
     tagline: 'Spatial intelligence for growing cities.',
     sections: [
       {
@@ -243,8 +250,8 @@ export const applicationsList = [
     title: 'Construction Project Management',
     shortDescription:
       'Aerial progress tracking, 3D modeling, and safety monitoring for large civil and industrial builds.',
-    heroImage: applications5,
-    gallery: [applications5, applications6, applications3, applications7, applications4],
+    heroImage: IMG.construction,
+    gallery: [IMG.construction, applications3],
     tagline: 'Your construction site, documented from above.',
     sections: [
       {
@@ -287,8 +294,8 @@ export const applicationsList = [
     title: 'Geographic Information Analysis',
     shortDescription:
       'UAV remote sensing and geospatial analytics for precision terrain and infrastructure intelligence.',
-    heroImage: applications2,
-    gallery: [applications2, applications4, applications8, applications1, applications7],
+    heroImage: IMG.gis,
+    gallery: [IMG.gis, IMG.mountain],
     tagline: 'High-precision terrain intelligence at scale.',
     sections: [
       {
@@ -331,8 +338,8 @@ export const applicationsList = [
     title: 'Mountain Topography Mapping',
     shortDescription:
       'High-altitude UAV mapping for rugged terrain, slope stability, and remote reconnaissance.',
-    heroImage: applications4,
-    gallery: [applications4, applications7, droneIceberg, applications3, nightVision],
+    heroImage: IMG.mountain,
+    gallery: [IMG.mountain, IMG.gis, nightVision],
     tagline: 'Precision mapping where conventional survey cannot reach.',
     sections: [
       {

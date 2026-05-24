@@ -99,12 +99,16 @@ import Homes from './components/Codepen/Homes';
 import { ToastProvider } from './components/ToastContext';
 import "../src/components/css/Footer.css";
 import TestBackground from './components/Pages/TestBackground';
-import OurClientsLink from './components/Pages/OurClientsLink'; // Correct import path
+import OurClientsLink from './components/Pages/OurClientsLink';
+import ScrollToTop from './components/Pages/ScrollToTop';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const App = () => {
   return (
     <ToastProvider>
       <Router>
+        <ScrollToTop />
         <div>
           <Navbar />
           <main className="scrollable">
@@ -123,6 +127,7 @@ const App = () => {
             </Routes>
           </main>
           <ScrollToTopButton />
+          <ToastContainer position="top-center" autoClose={4000} theme="light" />
           <footer className="bg-gray-300 text-gray-700 py-4">
             <div className="flex flex-col md:flex-row justify-around items-center mb-4">
               <OurClientsLink /> {/* This is now inside the Router context */}

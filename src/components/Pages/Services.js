@@ -1,7 +1,8 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenFancy, faDharmachakra, faTasks, faTachometerAlt, faRecycle, faHeadset } from '@fortawesome/free-solid-svg-icons';
-import '../css/Services.css'; // Assuming you will create this CSS file for styles
+import '../css/Services.css';
+import Seo from '../Seo';
 
 const offerItems = [
   {
@@ -38,6 +39,12 @@ const offerItems = [
 
 const Services = () => {
   return (
+    <>
+    <Seo
+      title="Services"
+      path="/services"
+      description="AeroEdge drone and surveillance services: disaster relief, urban planning, construction management, agriculture, rail evaluation, and resource extraction."
+    />
     <section className="we-offer-area text-center bg-gray">
       <div className="containers">
         <div className="row">
@@ -65,6 +72,7 @@ const Services = () => {
 </h1>
       </div>
     </section>
+    </>
   );
 };
 

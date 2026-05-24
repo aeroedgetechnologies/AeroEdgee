@@ -1,6 +1,7 @@
 import React, { useState, memo, useCallback } from 'react';
 import '../css/AboutUs.css'; 
 import ScrollToTopButton from '../ScrollToTopButton';
+import Seo from '../Seo';
 import AboutUs1 from '../../components/Site Context/About us/04_p6230547.jpg'
 import AboutUs2 from '../../components/Site Context/About us/About us.jpeg'
 import AboutUs3 from '../../components/Site Context/About us/IMG_0055.jpg'
@@ -30,6 +31,8 @@ const AboutUs = () => {
   }, []);
 
   return (
+    <>
+    <Seo title="About Us" path="/about-us" description="Learn about AeroEdge Technologies — innovation in drones, surveillance, and defence automation." />
     <section className="about-us-section">
       <div className="container">
         <div className="contentLeft">
@@ -78,6 +81,7 @@ const AboutUs = () => {
 
 
     </section>
+    </>
   );
 };
 

@@ -1,73 +1,96 @@
 .products-section {
-    max-width: 1200px;
-    margin: 40px auto;
-    /* padding: 0 20px; */
-  }
-  
-  .product-card {
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
-    transition: box-shadow 0.3s ease;
-  }
-  
-  .product-card:hover {
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  @media (max-width: 768px) {
-    .product-card {
-      margin: 10px 0;
-    }
-    .max-w-6xl.mx-auto.px-4.text-left.h-full.flex.flex-col.justify-center {
-      margin-left: 1px !important;
-    }
-  }
-  @media (max-width: 375px) {
-    h6.text-lg.pl-4.text-red-700.md\:text-xl.lg\:text-2xl.md\:pl-6.lg\:pl-8 {
-      margin-left: 0px !important;
-      white-space: nowrap;
-      font-size: 11px;
-  }
-  h2.text-4xl.mb-2.pl-4.md\:pl-6.lg\:pl-8 {
-    white-space: nowrap;
-    font-size: 15px;
-    margin-bottom: -7px;
-}
-.max-w-6xl.mx-auto.px-4.text-left.h-full.flex.flex-col.justify-center {
-  margin-left: 1px !important;
-}
-  }
-
-  .max-w-6xl.mx-auto.px-4.text-left.h-full.flex.flex-col.justify-center {
-    margin-left: 994px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
 }
 
-  h6.text-lg.pl-4.text-red-700.md\:text-xl.lg\:text-2xl.md\:pl-6.lg\:pl-8 {
-    margin-left: 117px;
+.product-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  transition: box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-/* MediaCoverage.css or a relevant CSS file */
-.bg-custom {
+.product-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-hero {
   background-image: url('../../components/Site Context/Products cover image/ai-robot-interacting-with-futuristic-data-interface.jpg');
   background-size: cover;
   background-position: center;
-  height: 600px; /* Adjust height as needed */
+  min-height: clamp(320px, 45vh, 520px);
+  display: flex;
+  align-items: flex-end;
 }
 
+.product-hero-overlay {
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.35) 55%, transparent 100%);
+  padding: 2rem 0 2.5rem;
+}
 
-/* MediaCoverage.css or your relevant CSS file */
-.bg-custom-section {
+.product-hero-content {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.product-hero h1 {
+  color: #fff;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 0.5rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.product-hero-subtitle {
+  color: #f3f4f6;
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  margin: 0;
+  max-width: 36rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.product-video-section {
+  background-color: #f8fafc;
+  padding: 3rem 0;
+}
+
+.product-video-section .video-wrapper {
   position: relative;
-  height: 600px; /* Adjust height as needed */
-  background-image: url('../../components/Site Context/Products Bottom cover image/pexels-mikhail-nilov-9242921.jpg');
-  background-size: cover; /* Ensure the background covers the section */
-  background-position: center; /* Center the background image */
-}
-.font-semibold {
-  margin-top: 26px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background: #000;
 }
 
-.slide img {
-  width: 65vw;
+.product-video-section .video-wrapper > div {
+  position: absolute !important;
+  inset: 0;
+}
+
+.product-video-copy h2 {
+  color: #1f2937;
+  font-size: clamp(1.35rem, 3vw, 1.75rem);
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.product-video-copy p {
+  color: #4b5563;
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .product-card {
+    margin-bottom: 0.5rem;
+  }
 }

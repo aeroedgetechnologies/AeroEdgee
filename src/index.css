@@ -19,9 +19,19 @@ code {
 }
 
 body {
-  height: 100vh; /* Full viewport height */
-  overflow-y: scroll; /* Allow vertical scrolling */
-  margin: 0; /* Remove default margin */
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+}
+
+#root {
+  overflow-x: hidden;
+}
+
+main.scrollable {
+  width: 100%;
+  overflow-x: hidden;
 }
 
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import '../css/Campaign.css'; // Ensure styles are adjusted as needed
 import ScrollToTopButton from '../ScrollToTopButton';
+import Seo from '../Seo';
 import campaign1 from '../../components/Site Context/Campaign/Hcfee111b0b5c41aea4ea13c7cce15f21A.jpg_640x640Q90.jpg_.jpg';
 import campaign2 from '../../components/Site Context/Campaign/agricultural-drone-hovering-vibrant-green-field-generative-ai_914383-187 (2).jpg';
 import campaign3 from '../../components/Site Context/Campaign/closeup-military-aircraft-cable-connector-isolated-white-background_361767-1033.jpg';
@@ -8,6 +9,7 @@ import campaign3 from '../../components/Site Context/Campaign/closeup-military-a
 const Campaign = () => {
   return (
     <div>
+      <Seo title="Campaign" path="/campaign" description="AeroEdge campaigns showcasing drone innovation for agriculture, defence, and medical logistics." />
       <section className="container">
         <div className="each">
           <div>

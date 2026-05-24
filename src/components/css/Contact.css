@@ -53,11 +53,36 @@
   }
   
 
-  .Contactussection-background{
+  .Contactussection-background {
     background-image: url('../../components/Site Context/Contact US/pexels-nic-scrollstoppingphotos-28101093.jpg');
     background-size: cover;
     background-position: center;
-    min-height: 700px; /* Use min-height */
+    min-height: min(100vh, 900px);
+    padding: 2rem 1rem 4rem;
+  }
+
+  .contact-page-inner {
+    max-width: 42rem;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-form-panel {
+    width: 100%;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .contact-form-panel {
+      padding: 2rem 2.25rem;
+    }
   }
 
   .input-white {

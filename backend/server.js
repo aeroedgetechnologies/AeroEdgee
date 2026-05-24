@@ -14,8 +14,26 @@ const MONGO_URI = process.env.MONGO_URI || process.env.MONGODB_URI;
 const NOTIFY_EMAIL =
   process.env.NOTIFY_EMAIL || 'aeroedgetechnologies@gmail.com';
 
-// Middleware
-app.use(cors());
+const allowedOrigins = [
+  'https://aetechnologies.in',
+  'https://www.aetechnologies.in',
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
+  process.env.FRONTEND_URL,
+].filter(Boolean);
+
+app.use(
+  cors({
+    origin(origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+      return callback(null, true);
+    },
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+  })
+);
 app.use(express.json());
 
 if (!MONGO_URI) {
@@ -153,14 +171,6 @@ app.post('/api/contact', async (req, res) => {
   let saved = false;
   let emailed = false;
 
-  try {
-    await contact.save();
-    saved = true;
-    console.log('MongoDB save successful');
-  } catch (error) {
-    console.error('MongoDB save error:', error);
-  }
-
   if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
     try {
       await sendContactNotification({
@@ -178,6 +188,14 @@ app.post('/api/contact', async (req, res) => {
     console.error(
       'Email send skipped: EMAIL_USER and EMAIL_PASS must be set in environment variables.'
     );
+  }
+
+  try {
+    await contact.save();
+    saved = true;
+    console.log('MongoDB save successful');
+  } catch (error) {
+    console.error('MongoDB save error:', error);
   }
 
   if (saved || emailed) {

@@ -16,6 +16,8 @@ import { BiBorderRadius } from 'react-icons/bi';
 import { useLocation } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import ScrollToTopButton from '../ScrollToTopButton';
+import ContactForm from '../ContactForm';
+import Seo from '../Seo';
 import logoss from '../../Images/sidebar_page-0001 (2).jpg';
 // import homepageImage from '../../Images/Homepage drone image.jpg';
 // import homepageImage from '../../Images/Homepage drone image.jpg'; 
@@ -110,58 +112,13 @@ const scrollToTop = () => {
       setToastShown(true); // Set toast as shown
     }
   }, [location, toastShown]);
-  const [formData, setFormData] = useState({
-    name: '',
-    organization: '',
-    email: '',
-    phone: '',
-    message: '',
-    gdpr: false,
-  });
-
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
-  };
-  
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/contact`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        toast.success('We will contact you through email!', {
-          onClose: () => {
-            setFormData({
-              name: '',
-              organization: '',
-              email: '',
-              phone: '',
-              message: '',
-              gdpr: false,
-            });
-          },
-        });
-      } else {
-        toast.error('Failed to send message.'); // Show error toast
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      toast.error('An error occurred.'); // Show error toast
-    }
-  };
-
   return (
     <>
+    <Seo
+      path="/"
+      description="AeroEdge Technologies — military-grade drones, surveillance systems, anti-UAV defence, and automation for energy, agriculture, and logistics in India."
+      keywords="AeroEdge, drones India, surveillance systems, defence technology, anti-UAV, aerial mapping"
+    />
     {/* Products Section */}
     <section className="homepage-section">
 {/* <img src={logoss} alt="Logo" className="mr-2 rounded h-10 w-[110px]" /> */}
@@ -180,18 +137,17 @@ const scrollToTop = () => {
   </div>
 </section>
       {/* Services Section */}
-      <section className="flex flex-col md:flex-row bg-white py-10">
-  {/* Image Column */}
-  <div className="md:w-1/2 ml-16">
+      <section className="page-section flex flex-col lg:flex-row bg-white gap-8 lg:gap-12">
+  <div className="lg:w-1/2 w-full px-4 lg:px-8">
     <img 
       src={logos} 
-      alt="Services" 
-      className="object-cover h-full w-full rounded-lg h-[600px]"
+      alt="AeroEdge automation and surveillance technology" 
+      className="object-cover w-full rounded-lg max-h-[480px] lg:max-h-[560px]"
+      loading="lazy"
     />
   </div>
   
-  {/* Text Column */}
-  <div className="md:w-1/2 flex flex-col justify-between p-8 overflow-y-auto max-h-[500px]">
+  <div className="lg:w-1/2 w-full flex flex-col justify-center p-4 lg:p-8">
     {/* Text at the top */}
     <div>
       <h2 className="text-3xl font-bold mb-4">What We Are</h2>
@@ -218,256 +174,87 @@ For instance, our smart cameras are equipped with advanced facial recognition ca
 
 
 
- {/* Campaign Section */}
- <section className="flex flex-col bg-white py-10">
-  {/* Battlefield Surveillance System Section */}
-  <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', marginBottom: '10px' }}>
-    <div style={{ padding: '32px', borderRadius: '8px', margin: '0 16px', textAlign: 'left'}}>
-      <h2 style={{ fontSize: '2.25rem', fontWeight: 'bold', color: '#4B5563', marginBottom: '16px', marginLeft: '16px' }}>
-        Surveillance Systems
-      </h2>
-      <div class="custom-applications">
-  <div class="applications-container">
-    <div class="grid ">
-      <img width="750" height="750" src="/static/media/battlefields.51f555f7ce305bbe144d.jpg" alt="Battlefield Surveillance" class="image-item" loading="lazy" />
-      <img width="350" height="350" src={battlefieldss} alt="Battlefield Surveillance" class="image-item" loading="lazy" />
-      <img width="350" height="350" src="/static/media/medicaldroness.9f39fa02d14cf90f9935.jpg" alt="Battlefield Surveillance" class="image-item" loading="lazy" />
-      <img width="350" height="350" src="/static/media/nightvision.988094b1a8e64d11ee25.jpg" alt="Battlefield Surveillance" class="image-item" loading="lazy" />
-    </div>
-  </div>
-</div>
+      {/* Surveillance & technology */}
+      <section className="page-section bg-white" aria-labelledby="surveillance-heading">
+        <div className="section-container">
+          <h2 id="surveillance-heading" className="section-title">
+            Surveillance Systems
+          </h2>
+          <div className="surveillance-image-grid">
+            <img src={battlefields} alt="Battlefield surveillance drone deployment" className="surveillance-image surveillance-image--wide" loading="lazy" />
+            <img src={battlefieldss} alt="Weather monitoring for drone operations" className="surveillance-image" loading="lazy" />
+            <img src={medicaldroness} alt="Medical delivery drone system" className="surveillance-image" loading="lazy" />
+            <img src={nightvision} alt="Night vision surveillance capability" className="surveillance-image" loading="lazy" />
+          </div>
+        </div>
+      </section>
 
-    </div>
-  </div>
-
-  {/* Advanced Features Section */}
-  <div className="flex flex-row justify-center items-center">
-  <div className="md:w-1/2 flex flex-col justify-between p-8">
-    {/* Text at the top */}
-    <div>
-      <h2 className="text-3xl font-bold mb-4">Evolution Of Technology</h2>
-      {/* <p className="text-lg mb-2">Survey of India qualified PPK drone for high precision aerial mapping.</p>
-      <p className="text-lg mb-2">Industry-leading flight time with maximum possible area coverage.</p> */}
-      <p className="text-lg mb-4">Our advanced technology revolutionizes quality control by combining features that ensure superior performance and reliability. With accurate weather detection, our drones provide real-time data on conditions like wind speed and temperature, enhancing situational awareness and mission success. The integration of AI in operation planning allows for automatic generation of optimal flight paths and adaptive strategies, responding to changing environments effectively. Our drones maintain exceptional stability even in adverse weather, ensuring precise navigation and data collection.
-Built with military-grade quality, they withstand rigorous field conditions, reducing the risk of equipment failure. The strongest materials in the frame construction offer durability and enhanced flight stability, enabling the carrying of heavier payloads while maintaining maneuverability. Additionally, high-performance cameras with impressive zoom ranges and infrared imaging capabilities allow for detailed surveillance and reconnaissance, even in low-light conditions. Together, these features position our drones as essential tools for modern military operations, providing teams with the edge they need to execute missions with precision and confidence.
-      </p>
-    </div>
-  </div>
-    <div className="p-8 rounded-lg mx-4 text-lefts">
-      <h2 className="text-4xl font-bold text-grey-700 mb-4 ml-4">
-        Advanced Features
-      </h2>
-      <img
-        className="w-[900px] h-auto mb-4" 
-        src={applications}
-        alt="Advanced Features"
-        loading="lazy"
-      />
-    </div>
-  </div>
-</section>
-
-
-
-
-
-{/* Services Section */}
-<section className="flex flex-col bg-white py-10">
-  <div className="flex flex-col items-center mb-10 w-full">
-    <h2 className="text-4xl font-bold mb-4">Applications</h2>
-    <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 justify-items-center">
-      {[
-        { src: applications1, alt: "Disaster Relief Coordination", caption: "Disaster Relief Coordination" },
-        { src: applications7, alt: "Resource Extraction Planning", caption: "Resource Extraction Planning" },
-        { src: applications3, alt: "Rail System Evaluation", caption: "Rail System Evaluation" },
-        { src: applications8, alt: "Advanced Agriculture", caption: "Advanced Agriculture" },
-        { src: applications6, alt: "Urban Planning Strategy", caption: "Urban Planning Strategy" },
-        { src: applications5, alt: "Construction Project Management ", caption: "Construction Project Management" },
-        { src: applications2, alt: "Geographic Information Analysis", caption: "Geographic Information Analysis" },
-        { src: applications4, alt: "Mountain Topography Mapping", caption: "Mountain Topography Mapping" },
-      ].map((item, index) => (
-        <div className="flex flex-col items-center" key={index}>
-          <figure className="relative transition-transform duration-300 transform hover:scale-105 cursor-pointer">
+      <section className="page-section bg-gray-50" aria-labelledby="evolution-heading">
+        <div className="section-container evolution-grid">
+          <div className="evolution-copy">
+            <h2 id="evolution-heading" className="section-title text-left">
+              Evolution Of Technology
+            </h2>
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Our advanced technology revolutionizes quality control by combining features that ensure
+              superior performance and reliability. With accurate weather detection, our drones provide
+              real-time data on conditions like wind speed and temperature, enhancing situational
+              awareness and mission success. Built with military-grade quality, they withstand rigorous
+              field conditions. High-performance cameras with impressive zoom ranges and infrared imaging
+              allow detailed surveillance and reconnaissance, even in low-light conditions.
+            </p>
+          </div>
+          <div className="evolution-visual">
+            <h3 className="text-2xl font-bold text-gray-800 mb-4">Advanced Features</h3>
             <img
-              width="240"
-              height="240"
-              src={item.src}
-              alt={item.alt}
-              className="w-full h-auto rounded-[15px]"
+              className="w-full max-w-xl h-auto rounded-xl shadow-md mx-auto"
+              src={applications}
+              alt="Advanced drone and surveillance features diagram"
               loading="lazy"
             />
-            <figcaption className="text-center mt-2 font-bold">{item.caption}</figcaption>
-          </figure>
+          </div>
         </div>
-      ))}
-    </section>
-  </div>
-</section>
+      </section>
+
+      <section className="page-section bg-white applications-section" aria-labelledby="applications-heading">
+        <div className="section-container">
+          <h2 id="applications-heading" className="section-title text-center mb-10">
+            Applications
+          </h2>
+          <div className="applications-grid">
+            {[
+              { src: applications1, alt: 'Disaster relief coordination with aerial drones', caption: 'Disaster Relief Coordination' },
+              { src: applications7, alt: 'Resource extraction planning aerial survey', caption: 'Resource Extraction Planning' },
+              { src: applications3, alt: 'Rail system evaluation using drone inspection', caption: 'Rail System Evaluation' },
+              { src: applications8, alt: 'Advanced agriculture drone mapping', caption: 'Advanced Agriculture' },
+              { src: applications6, alt: 'Urban planning strategy aerial imagery', caption: 'Urban Planning Strategy' },
+              { src: applications5, alt: 'Construction project management drones', caption: 'Construction Project Management' },
+              { src: applications2, alt: 'Geographic information analysis', caption: 'Geographic Information Analysis' },
+              { src: applications4, alt: 'Mountain topography mapping', caption: 'Mountain Topography Mapping' },
+            ].map((item) => (
+              <figure className="application-card" key={item.caption}>
+                <img src={item.src} alt={item.alt} className="application-card__img" loading="lazy" />
+                <figcaption className="application-card__caption">{item.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
 
 
-      {/* Contact Us Section */}
-{/* Contact Us Section */}
-<section
-  className="Contactussection-background"
->
-  <div className="flex justify-center items-center h-[720px]">
-    <div className="hidden md:flex flex-grow justify-end pr-16"> {/* Flex container for larger screens */}
-      <div className="p-8 rounded-lg max-w-[700px]"> {/* Limit width for form */}
-        <h1 className="text-4xl font-bold text-white mb-2">Contact Us</h1>
-        <p className="text-xl text-white">Learn more about our story.</p>
-
-        <form className="mt-5" onSubmit={handleSubmit}>
-  <div className="mb-4">
-    <label htmlFor="name" className="block text-white">Name *</label>
-    <input
-      type="text"
-      name="name"
-      id="name"
-      required
-      onChange={handleChange}
-      className="border-b-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 text-white" // Added text-white
-    />
-  </div>
-  <div className="mb-4">
-    <label htmlFor="organization" className="block text-white">Organization Name</label>
-    <input
-      type="text"
-      name="organization"
-      id="organization"
-      onChange={handleChange}
-      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 text-white" // Added text-white
-    />
-  </div>
-  <div className="mb-4">
-    <label htmlFor="email" className="block text-white">Email Address *</label>
-    <input
-      type="email"
-      name="email"
-      id="email"
-      required
-      onChange={handleChange}
-      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 text-white" // Added text-white
-    />
-  </div>
-  <div className="mb-4">
-    <label htmlFor="phone" className="block text-white">Phone Number</label>
-    <input
-      type="tel"
-      name="phone"
-      id="phone"
-      onChange={handleChange}
-      className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1 text-white" // Added text-white
-    />
-  </div>
-  <div className="mb-4 relative">
-    <textarea
-      name="message"
-      id="message"
-      required
-      onChange={handleChange}
-      className="border-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-2 px-3 pt-4 text-white placeholder-white" // Added text-white
-      rows="4"
-      placeholder="Message *"
-    />
-  </div>
-  <div className="mb-4">
-    <label className="block text-white flex items-center">
-      <input
-        type="checkbox"
-        name="gdpr"
-        id="gdpr"
-        required
-        onChange={handleChange}
-        className="mr-2"
-      />
-      By using this form you agree with the storage and handling of your data by this website.
-    </label>
-  </div>
-  <button type="submit" className="bg-red-600 text-white px-4 py-2 rounded hover:bg-blue-700">
-    Send
-  </button>
-</form>
-
-
-      </div>
-    </div>
-
-    {/* Centered form for smaller screens */}
-    <div className="md:hidden p-8 rounded-lg max-w-[400px]"> {/* Hide on larger screens */}
-      <h1 className="text-4xl font-bold text-gray-700 mb-2">Contact Us</h1>
-      <p className="text-xl text-gray-600">Learn more about our story.</p>
-
-      <form className="mt-5" onSubmit={handleSubmit}>
-        <div className="mb-4">
-          <label className="block text-gray-900">Name *</label>
-          <input
-            type="text"
-            name="name"
-            required
-            className="border-b-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
-          />
+      <section className="Contactussection-background" aria-labelledby="home-contact-heading">
+        <div className="contact-page-inner">
+          <div className="contact-form-panel">
+            <h2 id="home-contact-heading" className="text-3xl md:text-4xl font-bold text-white mb-2">
+              Contact Us
+            </h2>
+            <p className="text-lg text-white/90 mb-4">Learn more about our story — request a demo or quote.</p>
+            <ContactForm variant="dark" />
+          </div>
         </div>
-        <div className="mb-4">
-          <label className="block text-gray-900">Organization Name</label>
-          <input
-            type="text"
-            name="organization"
-            className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-900">Email Address *</label>
-          <input
-            type="email"
-            name="email"
-            required
-            className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-900">Phone Number</label>
-          <input
-            type="tel"
-            name="phone"
-            className="border-b border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-1"
-          />
-        </div>
-        <div className="mb-4 relative">
-          <textarea
-            name="message"
-            required
-            className="border-2 border-gray-100 bg-transparent focus:outline-none focus:border-blue-500 w-full py-2 px-3 pt-4"
-            rows="4"
-            placeholder="Message *"
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-900 flex items-center">
-            <input type="checkbox" name="gdpr" required className="mr-2" />
-            By using this form you agree with the storage and handling of your data by this website.
-          </label>
-        </div>
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded ">
-          Send
-        </button>
-      </form>
-    </div>
-  </div>
-</section>
+      </section>
 
 <ScrollToTopButton />
-      <ToastContainer 
-        position="top-center"
-        autoClose={3000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
     </>
   );
 };

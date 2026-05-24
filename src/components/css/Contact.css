@@ -71,17 +71,18 @@
     justify-content: center;
   }
 
-  /* Desktop / laptop: form on the right with margin from the edge */
+  /* Desktop / laptop: form on the right, inset from the edge */
   @media (min-width: 1024px) {
     .contact-page-inner {
       justify-content: flex-end;
-      padding-right: clamp(2rem, 5vw, 4rem);
+      padding-right: clamp(5rem, 14vw, 11rem);
       padding-left: 2rem;
     }
 
     .contact-form-panel {
       max-width: 28rem;
       flex-shrink: 0;
+      margin-right: 1.5rem;
     }
   }
 

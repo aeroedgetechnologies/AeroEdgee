@@ -101,6 +101,7 @@ import "../src/components/css/Footer.css";
 import TestBackground from './components/Pages/TestBackground';
 import OurClientsLink from './components/Pages/OurClientsLink';
 import ScrollToTop from './components/Pages/ScrollToTop';
+import ApplicationDetail from './components/Pages/ApplicationDetail';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -119,6 +120,7 @@ const App = () => {
               <Route path="/campaign" element={<Campaign />} />
               <Route path="/contact-us" element={<Contact />} />
               <Route path="/about-us" element={<AboutUs />} />
+              <Route path="/applications/:slug" element={<ApplicationDetail />} />
               <Route path="/item-form" element={<ItemForm />} />
               <Route path="/signup" element={<SignupForm />} />
               <Route path="/login" element={<LoginForm />} />

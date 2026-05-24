@@ -119,16 +119,11 @@
   }
 }
 
-.application-card {
+.application-card-link {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0;
-  transition: transform 0.3s ease;
-}
-
-.application-card:hover {
-  transform: scale(1.03);
 }
 
 .application-card__img {

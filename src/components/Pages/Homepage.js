@@ -21,15 +21,9 @@ import Seo from '../Seo';
 import logoss from '../../Images/sidebar_page-0001 (2).jpg';
 // import homepageImage from '../../Images/Homepage drone image.jpg';
 // import homepageImage from '../../Images/Homepage drone image.jpg'; 
-import applications1 from '../../components/Site Context/Applications Images/pexels-debarshi-mukherjee-803108656-28762353.jpg'; 
-import applications2 from '../../components/Site Context/Applications Images/pexels-elfust-18960738.jpg'; 
-import applications3 from '../../components/Site Context/Applications Images/pexels-mysterious-ocean-260670408-12686560.jpg'; 
-import applications4 from '../../components/Site Context/Applications Images/pexels-quang-nguyen-vinh-222549-14776899.jpg'; 
-import applications5 from '../../components/Site Context/Applications Images/pexels-sevenstormphotography-439416.jpg'; 
-import applications6 from '../../components/Site Context/Applications Images/pexels-shalenderkumar-4204698.jpg'; 
-import applications7 from '../../components/Site Context/Applications Images/pexels-urtimud-89-76108288-14263363.jpg'; 
-import applications8 from '../../components/Site Context/Applications Images/pexels-vanngo-ng-105653827-23857944.jpg'; 
-import battlefieldss from '../../Images/anemometer-wind-speed-measurement-small-weather-station-anemometer-blue-sky_347372-911.avif'
+import { Link } from 'react-router-dom';
+import { applicationsList } from '../../data/applicationsData';
+import battlefieldss from '../../Images/anemometer-wind-speed-measurement-small-weather-station-anemometer-blue-sky_347372-911.avif';
 
 const HomePage = () => {
   const [animate, setAnimate] = useState(false);
@@ -216,26 +210,35 @@ For instance, our smart cameras are equipped with advanced facial recognition ca
         </div>
       </section>
 
-      <section className="page-section bg-white applications-section" aria-labelledby="applications-heading">
+      <section
+        id="applications"
+        className="page-section bg-white applications-section"
+        aria-labelledby="applications-heading"
+      >
         <div className="section-container">
-          <h2 id="applications-heading" className="section-title text-center mb-10">
+          <h2 id="applications-heading" className="section-title text-center mb-4">
             Applications
           </h2>
+          <p className="text-center text-gray-600 max-w-2xl mx-auto mb-10">
+            Click any application to explore capabilities, imagery, and how AeroEdge supports your sector.
+          </p>
           <div className="applications-grid">
-            {[
-              { src: applications1, alt: 'Disaster relief coordination with aerial drones', caption: 'Disaster Relief Coordination' },
-              { src: applications7, alt: 'Resource extraction planning aerial survey', caption: 'Resource Extraction Planning' },
-              { src: applications3, alt: 'Rail system evaluation using drone inspection', caption: 'Rail System Evaluation' },
-              { src: applications8, alt: 'Advanced agriculture drone mapping', caption: 'Advanced Agriculture' },
-              { src: applications6, alt: 'Urban planning strategy aerial imagery', caption: 'Urban Planning Strategy' },
-              { src: applications5, alt: 'Construction project management drones', caption: 'Construction Project Management' },
-              { src: applications2, alt: 'Geographic information analysis', caption: 'Geographic Information Analysis' },
-              { src: applications4, alt: 'Mountain topography mapping', caption: 'Mountain Topography Mapping' },
-            ].map((item) => (
-              <figure className="application-card" key={item.caption}>
-                <img src={item.src} alt={item.alt} className="application-card__img" loading="lazy" />
-                <figcaption className="application-card__caption">{item.caption}</figcaption>
-              </figure>
+            {applicationsList.map((app) => (
+              <Link
+                to={`/applications/${app.id}`}
+                className="application-card-link"
+                key={app.id}
+                aria-label={`Learn more about ${app.title}`}
+              >
+                <img
+                  src={app.heroImage}
+                  alt={app.title}
+                  className="application-card__img"
+                  loading="lazy"
+                />
+                <span className="application-card__caption">{app.title}</span>
+                <span className="application-card-link__cta">View details →</span>
+              </Link>
             ))}
           </div>
         </div>

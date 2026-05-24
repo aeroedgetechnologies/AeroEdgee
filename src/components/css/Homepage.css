@@ -1,0 +1,405 @@
+/* homepage.css */
+
+@keyframes dropAndBounce {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    60% {
+      transform: translateY(-10px); /* First bounce */
+    }
+    80% {
+      transform: translateY(5px);   /* Second bounce */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .animate-drop-and-bounce {
+    animation: dropAndBounce 0.8s ease forwards; /* Adjust duration */
+  }
+  /* In your CSS file */
+.placeholder-custom::placeholder {
+    color: white; /* Change to desired color */
+  }
+  
+
+  .applications-container {
+    max-height: 500px; /* Adjust this value as needed */
+    overflow-y: auto;  /* Enable vertical scrolling */
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Default to 1 column */
+    gap: 16px; /* Adjust the gap as needed */
+  }
+  
+  @media (min-width: 768px) {
+    .grid {
+      grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens and up */
+    }
+  }
+  
+
+  @media (max-width: 767px) {
+    .form-class {
+      margin-left: auto;
+      margin-right: auto;
+      width: 90%; /* Set width to a percentage for better responsiveness */
+      padding: 16px; /* Add padding for mobile spacing */
+      font-size: 1rem; /* Adjust font size for better readability */
+      box-sizing: border-box; /* Ensure padding doesn't affect width */
+    }
+  
+    .form-class h1 {
+      font-size: 1.5rem; /* Smaller heading size for mobile */
+    }
+  
+    .form-class p {
+      font-size: 0.9rem; /* Smaller paragraph text */
+    }
+  
+    .form-class input,
+    .form-class textarea {
+      padding: 12px; /* Adjust input padding for mobile */
+      font-size: 0.9rem; /* Adjust input font size */
+      width: calc(100% - 24px); /* Adjust width to account for padding */
+      margin: 0 auto; /* Center inputs */
+    }
+  
+    .form-class button {
+      padding: 10px 20px; /* Adjust button padding */
+      font-size: 1rem; /* Adjust button text size */
+    }
+  }
+  
+
+  .image-item {
+    width: 350px; /* Set a specific width */
+    height: 203px; /* Set a specific height */
+    border-radius: 15px; /* Optional for aesthetics */
+    object-fit: cover; /* Maintain aspect ratio */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .image-item:hover {
+    transform: scale(1.05); /* Scale up on hover */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  .custom-applications {
+    max-width: 941px; /* Set a maximum width for the container */
+    margin: 0 auto; /* Center the container */
+    padding: 16px; /* Optional padding around the container */
+  }
+  @keyframes appearLetterByLetter {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .letter {
+    display: inline-block;
+    opacity: 0; /* Initially hidden */
+    animation: appearLetterByLetter 0.5s forwards; /* Animation for each letter */
+  }
+  
+  .letter:nth-child(n) {
+    animation-delay: calc(0.1s * var(--i)); /* Stagger each letter */
+  }
+  
+  img.object-cover.h-full.w-full.rounded-lg.h-\[600px\] {
+    height: 549px;
+    width: 907px;
+    margin-left: -23px;
+}
+
+.md\:w-1\/2.flex.flex-col.justify-between.p-8 {
+  height: 602px;
+}
+
+
+section.flex.flex-col.md\:flex-row.bg-white.py-10 {
+  min-height: 55px !important;
+}
+
+
+/* Homepage.css */
+.homepage-section {
+  background-image: url('../../Images/photo_2025-10-11_13-39-40.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 700px;
+}
+
+
+img.w-full.h-auto.rounded-\[15px\] {
+  height: 192px;
+  width: 247px;
+  margin: 9px;
+}
+
+.Contactussection-background{
+  background-image: url('../../components/Site Context/Contact US/pexels-nic-scrollstoppingphotos-28101093.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: 700px; /* Use min-height */
+}
+
+.text-lefts {
+  text-align: left;
+}
+
+.md\:w-1\/2.flex.flex-col.justify-between.p-8 {
+  height: 602px;
+  margin-left: 69px;
+}
+
+
+/* Global Reset for consistent margin and padding */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Animation for bouncing elements */
+@keyframes dropAndBounce {
+    0% {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    50% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    60% {
+      transform: translateY(-10px); /* First bounce */
+    }
+    80% {
+      transform: translateY(5px);   /* Second bounce */
+    }
+    100% {
+      transform: translateY(0);
+    }
+}
+
+/* Responsive grid layout for medium screens */
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns on medium screens and up */
+    }
+}
+
+/* Form responsiveness for smaller screens */
+@media (max-width: 767px) {
+    .form-class {
+        margin-left: auto;
+        margin-right: auto;
+        width: 90%;
+        padding: 16px;
+        font-size: 1rem;
+        box-sizing: border-box;
+    }
+
+    .form-class h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-class p {
+        font-size: 0.9rem;
+    }
+
+    .form-class input,
+    .form-class textarea {
+        padding: 12px;
+        font-size: 0.9rem;
+        width: calc(100% - 24px);
+        margin: 0 auto;
+    }
+
+    .form-class button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
+
+/* Letter-by-letter animation */
+@keyframes appearLetterByLetter {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Section flex behavior for mobile screens */
+@media (max-width: 767px) {
+    section.flex.flex-col.md\:flex-row.bg-white.py-10 {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        min-height: 100%; /* Full height on mobile */
+    }
+    img.object-cover.h-full.w-full.rounded-lg.h-\[600px\] {
+      height: 134px;
+      width: 907px;
+      margin-left: -23px;
+  }
+}
+
+/* Mobile specific adjustments (max-width: 767px) */
+@media (max-width: 767px) {
+
+    /* General body adjustments for mobile */
+    body {
+        font-size: 1rem; /* Default font size */
+    }
+
+    /* Fix form container to adjust for smaller screens */
+    .form-class {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%; /* Full width for mobile */
+        padding: 16px;
+        box-sizing: border-box; /* Ensure padding doesn't affect width */
+    }
+
+    .form-class h1 {
+        font-size: 1.5rem;
+    }
+
+    .form-class p {
+        font-size: 0.9rem;
+    }
+
+    .form-class input,
+    .form-class textarea {
+        padding: 12px;
+        font-size: 0.9rem;
+        width: 100%; /* Make inputs full-width */
+        margin: 0 auto; /* Center inputs */
+    }
+
+    .form-class button {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    /* Ensure images fit properly on mobile */
+    .image-item {
+        width: 100%;
+        height: auto; /* Maintain aspect ratio */
+        max-width: 350px; /* Maximum width */
+        border-radius: 15px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    /* Make sure grid behaves responsively on mobile */
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr; /* Single column grid for small screens */
+        gap: 16px;
+    }
+
+    /* Adjust homepage section height */
+    .homepage-section {
+        background-image: url('../../Images/photo-1517430796102-a3a80fe2b7a2.avif');
+        background-size: cover;
+        background-position: center;
+        height: 400px; /* Adjusted height for mobile */
+    }
+
+    /* Adjust Contact Us section background image */
+    .Contactussection-background {
+        background-image: url('../../components/Site Context/Contact US/pexels-nic-scrollstoppingphotos-28101093.jpg');
+        background-size: cover;
+        background-position: center;
+        min-height: 500px; /* Adjusted height for mobile */
+    }
+
+    /* Stack sections vertically on small screens */
+    section.flex.flex-col.md\:flex-row.bg-white.py-10 {
+        flex-direction: column; /* Stack elements vertically on smaller screens */
+        min-height: auto; /* Remove fixed height */
+    }
+
+    /* Adjust placeholder text */
+    .placeholder-custom::placeholder {
+        color: white;
+    }
+
+    /* Modify letter animation for mobile screens */
+    .letter {
+        display: inline-block;
+        opacity: 0;
+        animation: appearLetterByLetter 0.5s forwards;
+    }
+
+    /* Adjust font size and margins for headings and paragraphs */
+    h2.text-4xl,
+    h6.text-lg {
+        font-size: 1.2rem; /* Adjust font size for mobile */
+        margin-bottom: 10px; /* Reduce margin for better spacing */
+    }
+
+    /* Adjust padding and margins */
+    .md\:w-1\/2.flex.flex-col.justify-between.p-8 {
+        height: auto; /* Remove fixed height */
+        margin-left: 0; /* Adjust margin */
+        padding: 16px;
+    }
+
+    /* Ensure images are responsive */
+    img.w-full.h-auto.rounded-\[15px\] {
+        width: 100%; /* Full width */
+        height: auto; /* Maintain aspect ratio */
+        margin: 9px;
+    }
+
+    /* Fix container heights and layout for small screens */
+    .homepage-section,
+    .Contactussection-background {
+        min-height: 500px; /* Adjust the height */
+    }
+}
+
+/* For tablets or larger devices (min-width: 768px) */
+@media (min-width: 768px) {
+    .grid {
+        grid-template-columns: repeat(4, 1fr); /* 4 columns for larger screens */
+    }
+
+}
+@media (min-width: 375px) and (max-width: 768px) {
+  .flex.flex-row.justify-center.items-center {
+    display: flex;
+    flex-direction: column;
+  }
+  .flex.flex-row.justify-center.items-center {
+    display: flex;
+    /* margin-left: 187px; */
+    flex-direction: column;
+}
+img.object-cover.h-full.w-full.rounded-lg.h-\[600px\] {
+  height: 140px;
+  width: 892px;
+  margin-left: -23px;
+}
+}
+

@@ -1,0 +1,233 @@
+/* Homepage layout — scoped class names (avoid conflicting with Tailwind .grid) */
+
+.page-section {
+  padding: 3rem 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.section-container {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-weight: 700;
+  color: #374151;
+  margin-bottom: 1.5rem;
+}
+
+.homepage-section {
+  position: relative;
+  background-size: cover;
+  background-position: center 45%;
+  background-repeat: no-repeat;
+  min-height: clamp(380px, 52vh, 720px);
+  display: flex;
+  align-items: center;
+}
+
+.homepage-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.78) 0%,
+    rgba(255, 255, 255, 0.45) 42%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  pointer-events: none;
+}
+
+.homepage-section__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.homepage-hero-copy {
+  max-width: 42rem;
+}
+
+.homepage-hero-tagline {
+  margin: 0;
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.35;
+  color: #1f2937;
+  text-transform: lowercase;
+  letter-spacing: 0.28em;
+}
+
+/* Contact section background — layout in Contact.css */
+.Contactussection-background {
+  background-image: url('../../components/Site Context/Contact US/pexels-nic-scrollstoppingphotos-28101093.jpg');
+  background-size: cover;
+  background-position: center;
+  min-height: min(100vh, 880px);
+  padding: 2rem 0 4rem;
+}
+
+/* Surveillance — 4 equal images in one row on laptop/desktop */
+.surveillance-image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .surveillance-image-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.surveillance-image {
+  width: 100%;
+  height: 11rem;
+  object-fit: cover;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08);
+}
+
+@media (min-width: 768px) {
+  .surveillance-image {
+    height: 14rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .surveillance-image {
+    height: 16rem;
+  }
+}
+
+.surveillance-image:hover {
+  transform: scale(1.03);
+}
+
+.read-more-block {
+  margin-bottom: 0.5rem;
+}
+
+.read-more-btn {
+  margin-top: 0.75rem;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--aero-brand-active);
+  background: transparent;
+  border: 2px solid var(--aero-brand);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.read-more-btn:hover {
+  background: var(--aero-brand-hover);
+  border-color: var(--aero-brand-hover);
+  color: #fff;
+}
+
+/* Evolution + features */
+.evolution-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+@media (min-width: 1024px) {
+  .evolution-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+.evolution-copy .section-title {
+  text-align: left;
+}
+
+/* Applications */
+.applications-section {
+  padding-bottom: 4rem;
+}
+
+.applications-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .applications-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .applications-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.application-card-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.application-card__img {
+  width: 100%;
+  max-width: 15rem;
+  height: 12rem;
+  object-fit: cover;
+  object-position: center 42%;
+  transform: scale(1.05);
+  border-radius: 15px;
+}
+
+.application-card__caption {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #1f2937;
+  padding: 0 0.25rem;
+}
+
+@keyframes dropAndBounce {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  60% {
+    transform: translateY(-10px);
+  }
+  80% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-drop-and-bounce {
+  animation: dropAndBounce 0.8s ease forwards;
+}
+
+@media (max-width: 767px) {
+  .homepage-section {
+    min-height: 400px;
+  }
+}

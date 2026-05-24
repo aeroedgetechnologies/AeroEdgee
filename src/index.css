@@ -1,0 +1,52 @@
+/* Existing styles */
+/* body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */
+
+:root {
+  /* Matches site-wide Tailwind grays (navbar logo, links, footer) */
+  --aero-brand: #6b7280;
+  --aero-brand-hover: #4b5563;
+  --aero-brand-active: #374151;
+  --aero-text: #1f2937;
+  --aero-muted: #9ca3af;
+}
+
+/* Hide scrollbar for all elements */
+::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+main.scrollable {
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+
+
+/* Tailwind CSS */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

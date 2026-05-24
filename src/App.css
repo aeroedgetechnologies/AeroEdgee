@@ -1,0 +1,49 @@
+/* Ensure body and html elements fit screen without horizontal scrolling */
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: clip; /* clip avoids breaking position: sticky on descendants */
+}
+
+/* Navbar adjustments for mobile devices */
+@media (max-width: 768px) {
+  /* Navbar items should be stacked vertically on mobile */
+  .navbar-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  /* Hamburger menu icon and positioning */
+  .hamburger-menu {
+    display: block;
+    cursor: pointer;
+  }
+
+  /* Display the full navbar when the menu is open */
+  .navbar-links.open {
+    display: block;
+  }
+
+  /* Menu items styling for mobile screens */
+  .navbar-links li {
+    margin-bottom: 20px;
+  }
+
+  /* Adjust navbar background for mobile */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 100;
+  }
+}
+ul.md\:flex.space-x-6.absolute.md\:static.bg-white.w-full.md\:w-auto.transition-transform.duration-300.ease-in-out.top-16.md\:top-0 {
+  z-index: 14;
+}

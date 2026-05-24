@@ -1,0 +1,107 @@
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    color: white;
+  }
+  
+  .contact-form-container {
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .input-field {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .textarea-field {
+    resize: none; /* Prevent resizing */
+  }
+  
+  .submit-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+  }
+  
+  .submit-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .contact-form-container {
+      padding: 15px;
+    }
+  }
+  
+
+  .Contactussection-background {
+    background-image: url('../../components/Site Context/Contact US/pexels-nic-scrollstoppingphotos-28101093.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: min(100vh, 900px);
+    padding: 2rem 1rem 4rem;
+  }
+
+  .contact-page-inner {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2rem 1.25rem;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Desktop / laptop: form on the right with margin from the edge */
+  @media (min-width: 1024px) {
+    .contact-page-inner {
+      justify-content: flex-end;
+      padding-right: clamp(2rem, 5vw, 4rem);
+      padding-left: 2rem;
+    }
+
+    .contact-form-panel {
+      max-width: 28rem;
+      flex-shrink: 0;
+    }
+  }
+
+  .contact-form-panel {
+    width: 100%;
+    max-width: 42rem;
+    background: rgba(15, 23, 42, 0.55);
+    backdrop-filter: blur(6px);
+    border-radius: 12px;
+    padding: 1.75rem 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .contact-form-panel {
+      padding: 2rem 2.25rem;
+    }
+  }
+
+  .input-white {
+    color: white; /* Text color */
+    caret-color: white; /* Cursor color */
+  }
+  

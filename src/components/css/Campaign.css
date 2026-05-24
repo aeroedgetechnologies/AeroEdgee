@@ -1,0 +1,47 @@
+.campaign-section {
+    padding: 40px 20px;
+    background-color: #f9f9f9; /* Light background for contrast */
+  }
+  
+  .campaign-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 40px; /* Space between sections */
+    transition: transform 0.3s ease; /* Animation */
+  }
+  
+  .campaign-item:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+  }
+  
+  .reverse {
+    flex-direction: row-reverse; /* Reverse order for alternating sections */
+  }
+  
+  .text-content {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  .image-content {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .campaign-image {
+    width: 100%; /* Make the image responsive */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Optional: rounded corners */
+  }
+  
+  h2 {
+    color: #333; /* Dark text color */
+  }
+  
+  p {
+    color: #555; /* Slightly lighter text for paragraphs */
+    line-height: 1.6; /* Improve readability */
+  }
+  

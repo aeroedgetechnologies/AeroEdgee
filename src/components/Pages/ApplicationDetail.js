@@ -160,48 +160,52 @@ const ApplicationDetail = () => {
         </article>
 
         <div className="application-detail-sidebar-column">
-          <aside className="application-detail-sidebar" aria-label="Related applications">
-          <div className="sidebar-card">
-            <h3>Related applications</h3>
-            <p className="sidebar-card__hint">Explore more ways AeroEdge supports your mission</p>
-            <ul className="related-applications-list">
-              {related.map((app) => (
-                <li key={app.id}>
-                  <Link to={`/applications/${app.id}`} className="related-application-item">
-                    <img src={app.heroImage} alt="" onError={handleImgError} />
-                    <div>
-                      <span className="related-application-item__title">{app.title}</span>
-                      <span className="related-application-item__desc">{app.shortDescription}</span>
-                    </div>
-                    <span className="related-application-item__arrow" aria-hidden="true">
-                      →
-                    </span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+          <aside className="application-detail-sidebar" aria-label="Contact AeroEdge">
+            <div className="sidebar-card sidebar-card--contact">
+              <p className="sidebar-card__brand">AeroEdge Technologies</p>
+              <h3>Talk to an expert</h3>
+              <p>
+                Custom demos, pilot programs, and mission-specific UAV integration — available
+                across India.
+              </p>
+              <a href="mailto:connect@aeroedgetechnologies.in" className="sidebar-email">
+                connect@aeroedgetechnologies.in
+              </a>
+              <Link to="/contact-us" className="application-detail-cta application-detail-cta--full">
+                Contact us
+              </Link>
+            </div>
+          </aside>
+        </div>
+      </div>
+
+      <section className="application-related-bottom" aria-labelledby="related-apps-heading">
+        <div className="application-related-bottom__inner">
+          <header className="application-related-bottom__header">
+            <h2 id="related-apps-heading">Related applications</h2>
+            <p>Explore more ways AeroEdge supports your mission</p>
+          </header>
+          <ul className="application-related-grid">
+            {related.map((app) => (
+              <li key={app.id}>
+                <Link to={`/applications/${app.id}`} className="related-application-card">
+                  <img src={app.heroImage} alt="" onError={handleImgError} />
+                  <div className="related-application-card__body">
+                    <span className="related-application-card__title">{app.title}</span>
+                    <span className="related-application-card__desc">{app.shortDescription}</span>
+                    <span className="related-application-card__cta">View details →</span>
+                  </div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <div className="application-related-bottom__footer">
             <Link to="/#applications" className="sidebar-view-all">
               View all applications
             </Link>
           </div>
-
-          <div className="sidebar-card sidebar-card--contact">
-            <p className="sidebar-card__brand">AeroEdge Technologies</p>
-            <h3>Talk to an expert</h3>
-            <p>
-              Custom demos, pilot programs, and mission-specific UAV integration — available
-              across India.
-            </p>
-            <a href="mailto:connect@aeroedgetechnologies.in" className="sidebar-email">
-              connect@aeroedgetechnologies.in
-            </a>
-            <Link to="/contact-us" className="application-detail-cta application-detail-cta--full">
-              Contact us
-            </Link>
-          </div>
-          </aside>
         </div>
-      </div>
+      </section>
 
       <ScrollToTopButton />
     </div>

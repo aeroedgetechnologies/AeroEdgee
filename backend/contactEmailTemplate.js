@@ -1,15 +1,15 @@
-/** Medium gray brand palette for contact notification emails */
-const GRAY = {
-  primary: '#6b7280',
-  primaryDark: '#4b5563',
-  primaryLight: '#9ca3af',
-  textOnGray: '#ffffff',
-  textMutedOnGray: '#e5e7eb',
-  bodyBg: '#f3f4f6',
-  cardBg: '#ffffff',
-  text: '#1f2937',
+/**
+ * Corporate transactional email styling — minimal, high trust, low spam signals.
+ */
+const C = {
+  accent: '#475569',
+  text: '#111827',
+  textSecondary: '#374151',
   textMuted: '#6b7280',
   border: '#e5e7eb',
+  surface: '#f9fafb',
+  white: '#ffffff',
+  outer: '#f3f4f6',
 };
 
 function escapeHtml(value) {
@@ -22,83 +22,91 @@ function escapeHtml(value) {
 
 function displayValue(value) {
   const text = String(value ?? '').trim();
-  return text ? escapeHtml(text) : '—';
+  return text ? escapeHtml(text) : '<span style="color:#9ca3af;">Not provided</span>';
+}
+
+function detailRow(label, value) {
+  return `
+    <tr>
+      <td style="padding:10px 0;border-bottom:1px solid ${C.border};color:${C.textMuted};font-size:13px;width:128px;vertical-align:top;font-family:Arial,Helvetica,sans-serif;">${label}</td>
+      <td style="padding:10px 0;border-bottom:1px solid ${C.border};color:${C.text};font-size:14px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">${value}</td>
+    </tr>`;
 }
 
 function buildContactEmailHtml({ name, organization, email, phone, message }) {
   const submittedAt = new Date().toLocaleString('en-IN', {
-    dateStyle: 'medium',
-    timeStyle: 'short',
+    weekday: 'long',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
     timeZone: 'Asia/Kolkata',
   });
 
-  const orgLine = organization
-    ? `<p style="margin:4px 0 0;font-size:13px;color:${GRAY.textMutedOnGray};">${displayValue(organization)}</p>`
-    : '';
+  const emailLink = email
+    ? `<a href="mailto:${escapeHtml(email)}" style="color:${C.accent};text-decoration:none;">${displayValue(email)}</a>`
+    : displayValue(email);
 
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>New contact form submission</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Website contact form — ${escapeHtml(name || 'New submission')}</title>
 </head>
-<body style="margin:0;padding:0;background-color:${GRAY.bodyBg};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;">
-  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="background-color:${GRAY.bodyBg};padding:40px 16px;">
+<body style="margin:0;padding:0;background-color:${C.outer};font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;">
+  <div style="display:none;max-height:0;overflow:hidden;mso-hide:all;">
+    New contact form submission from ${escapeHtml(name || 'a visitor')} via aetechnologies.in
+  </div>
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:${C.outer};">
     <tr>
-      <td align="center">
-        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="max-width:560px;background:${GRAY.cardBg};border-radius:4px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
-          <!-- Header -->
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:600px;background-color:${C.white};border:1px solid ${C.border};">
           <tr>
-            <td style="background-color:${GRAY.primary};padding:28px 32px;text-align:center;">
-              <h1 style="margin:0;font-size:22px;line-height:1.3;color:${GRAY.textOnGray};font-weight:700;">${displayValue(name)}</h1>
-              <p style="margin:8px 0 0;font-size:14px;color:${GRAY.textMutedOnGray};">
-                <a href="mailto:${escapeHtml(email)}" style="color:${GRAY.textOnGray};text-decoration:none;">${displayValue(email)}</a>
+            <td style="height:3px;background-color:${C.accent};font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td style="padding:28px 32px 20px;border-bottom:1px solid ${C.border};">
+              <p style="margin:0 0 4px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:${C.textMuted};font-weight:600;font-family:Arial,Helvetica,sans-serif;">AeroEdge Technologies</p>
+              <h1 style="margin:0;font-size:20px;font-weight:600;color:${C.text};line-height:1.35;font-family:Arial,Helvetica,sans-serif;">Website contact notification</h1>
+              <p style="margin:10px 0 0;font-size:13px;color:${C.textMuted};line-height:1.5;font-family:Arial,Helvetica,sans-serif;">
+                Received ${escapeHtml(submittedAt)} (IST)
               </p>
-              ${orgLine}
             </td>
           </tr>
-          <!-- Body -->
           <tr>
-            <td style="padding:32px 32px 24px;background:${GRAY.cardBg};">
-              <p style="margin:0 0 20px;font-size:15px;color:${GRAY.text};line-height:1.5;">
-                <strong>Subject:</strong> Professional Inquiry — AeroEdge Contact Form
+            <td style="padding:24px 32px;">
+              <p style="margin:0 0 18px;font-size:14px;color:${C.textSecondary};line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
+                The following details were submitted through the contact form on
+                <a href="https://aetechnologies.in/contact-us" style="color:${C.accent};text-decoration:none;">aetechnologies.in</a>.
               </p>
-              <hr style="border:none;border-top:1px solid ${GRAY.border};margin:0 0 24px;" />
-              <p style="margin:0 0 12px;font-size:15px;color:${GRAY.text};line-height:1.5;">Dear AeroEdge Team,</p>
-              <p style="margin:0 0 16px;font-size:14px;color:${GRAY.textMuted};line-height:1.5;">
-                A new enquiry was submitted on <strong style="color:${GRAY.text};">aetechnologies.in</strong> on ${escapeHtml(submittedAt)} (IST).
-              </p>
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" style="margin:0 0 20px;font-size:14px;color:${GRAY.text};">
-                <tr>
-                  <td style="padding:6px 0;color:${GRAY.textMuted};width:110px;vertical-align:top;">Phone</td>
-                  <td style="padding:6px 0;font-weight:600;">${displayValue(phone)}</td>
-                </tr>
-                <tr>
-                  <td style="padding:6px 0;color:${GRAY.textMuted};vertical-align:top;">Organization</td>
-                  <td style="padding:6px 0;font-weight:600;">${displayValue(organization)}</td>
-                </tr>
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:0 0 24px;">
+                ${detailRow('Full name', `<strong style="font-weight:600;">${displayValue(name)}</strong>`)}
+                ${detailRow('Email address', emailLink)}
+                ${detailRow('Organization', displayValue(organization))}
+                ${detailRow('Phone number', displayValue(phone))}
               </table>
-              <p style="margin:0 0 8px;font-size:13px;font-weight:600;color:${GRAY.textMuted};text-transform:uppercase;letter-spacing:0.05em;">Message</p>
-              <p style="margin:0 0 28px;font-size:14px;color:${GRAY.text};line-height:1.7;white-space:pre-wrap;">${displayValue(message)}</p>
-              <table role="presentation" cellspacing="0" cellpadding="0" align="center" style="margin:0 auto;">
+              <p style="margin:0 0 8px;font-size:12px;font-weight:600;color:${C.textMuted};font-family:Arial,Helvetica,sans-serif;">Message</p>
+              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr>
-                  <td align="center" style="border-radius:6px;background-color:${GRAY.primary};">
-                    <a href="mailto:${escapeHtml(email)}?subject=Re%3A%20Your%20AeroEdge%20enquiry" style="display:inline-block;padding:14px 48px;font-size:15px;font-weight:600;color:${GRAY.textOnGray};text-decoration:none;">Reply</a>
+                  <td style="background-color:${C.surface};border:1px solid ${C.border};padding:16px 18px;">
+                    <p style="margin:0;font-size:14px;color:${C.text};line-height:1.65;white-space:pre-wrap;font-family:Arial,Helvetica,sans-serif;">${displayValue(message)}</p>
                   </td>
                 </tr>
               </table>
+              <p style="margin:24px 0 0;font-size:14px;color:${C.textSecondary};line-height:1.5;font-family:Arial,Helvetica,sans-serif;">
+                To respond, use <strong>Reply</strong> in your mail client — your reply will go directly to the sender.
+              </p>
             </td>
           </tr>
-          <!-- Footer -->
           <tr>
-            <td style="background-color:${GRAY.primary};padding:24px 32px;text-align:center;">
-              <p style="margin:0;font-size:16px;font-weight:700;color:${GRAY.textOnGray};">AeroEdge Technologies</p>
-              <p style="margin:6px 0 0;font-size:13px;color:${GRAY.textMutedOnGray};">Defence &amp; Industrial UAV Solutions</p>
-              <p style="margin:12px 0 0;font-size:12px;color:${GRAY.textMutedOnGray};">
-                <a href="https://aetechnologies.in" style="color:${GRAY.textOnGray};text-decoration:underline;">aetechnologies.in</a>
-                &nbsp;·&nbsp;
-                <a href="mailto:connect@aeroedgetechnologies.in" style="color:${GRAY.textOnGray};text-decoration:underline;">connect@aeroedgetechnologies.in</a>
+            <td style="padding:20px 32px 28px;background-color:${C.surface};border-top:1px solid ${C.border};">
+              <p style="margin:0;font-size:12px;color:${C.textMuted};line-height:1.6;font-family:Arial,Helvetica,sans-serif;">
+                AeroEdge Technologies<br />
+                Automated notification · Contact form ·
+                <a href="https://aetechnologies.in" style="color:${C.accent};text-decoration:none;">aetechnologies.in</a>
               </p>
             </td>
           </tr>
@@ -111,21 +119,30 @@ function buildContactEmailHtml({ name, organization, email, phone, message }) {
 }
 
 function buildContactEmailText({ name, organization, email, phone, message }) {
+  const submittedAt = new Date().toLocaleString('en-IN', {
+    dateStyle: 'full',
+    timeStyle: 'short',
+    timeZone: 'Asia/Kolkata',
+  });
+
   return [
-    'AeroEdge Technologies — New contact enquiry',
-    '==========================================',
+    'AEROEDGE TECHNOLOGIES',
+    'Website contact notification',
     '',
-    `Name: ${name || '—'}`,
-    `Email: ${email || '—'}`,
-    `Organization: ${organization || '—'}`,
-    `Phone: ${phone || '—'}`,
+    `Received: ${submittedAt} (IST)`,
     '',
-    'Message:',
-    message || '—',
+    '--- Contact details ---',
+    `Name:         ${name || 'Not provided'}`,
+    `Email:        ${email || 'Not provided'}`,
+    `Organization: ${organization || 'Not provided'}`,
+    `Phone:        ${phone || 'Not provided'}`,
     '',
-    '—',
-    'Reply to the sender from your inbox.',
-    'https://aetechnologies.in',
+    '--- Message ---',
+    message || 'Not provided',
+    '',
+    '---',
+    'Reply to this email to respond directly to the sender.',
+    'Source: https://aetechnologies.in/contact-us',
   ].join('\n');
 }
 

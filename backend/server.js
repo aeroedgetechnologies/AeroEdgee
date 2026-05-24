@@ -97,11 +97,13 @@ if (!process.env.RESEND_API_KEY) {
 async function sendContactNotification({ name, organization, email, phone, message }) {
   const payload = { name, organization, email, phone, message };
 
+  const orgPart = organization ? ` (${organization})` : '';
+
   await resend.emails.send({
-    from: 'AeroEdge Website <onboarding@resend.dev>',
+    from: 'AeroEdge Contact Form <onboarding@resend.dev>',
     to: 'aeroedgetechnologies@gmail.com',
     replyTo: email,
-    subject: `New enquiry from ${name} — AeroEdge Contact Form`,
+    subject: `Website inquiry: ${name}${orgPart}`,
     html: buildContactEmailHtml(payload),
     text: buildContactEmailText(payload),
   });

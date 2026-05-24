@@ -77,6 +77,7 @@ const ApplicationDetail = () => {
       </header>
 
       <div className="application-detail-layout">
+        <div className="application-detail-body">
         <article className="application-detail-main">
           <section className="application-gallery" aria-label="Image gallery">
             <div className="application-gallery__featured">
@@ -158,24 +159,25 @@ const ApplicationDetail = () => {
             </Link>
           </section>
         </article>
-      </div>
 
-      <section className="application-expert-bottom" aria-label="Contact AeroEdge">
-        <div className="application-expert-bottom__inner sidebar-card sidebar-card--contact">
-          <p className="sidebar-card__brand">AeroEdge Technologies</p>
-          <h3>Talk to an expert</h3>
-          <p>
-            Custom demos, pilot programs, and mission-specific UAV integration — available
-            across India.
-          </p>
-          <a href="mailto:connect@aeroedgetechnologies.in" className="sidebar-email">
-            connect@aeroedgetechnologies.in
-          </a>
-          <Link to="/contact-us" className="application-detail-cta application-detail-cta--full">
-            Contact us
-          </Link>
+        <aside className="application-expert-sidebar" aria-label="Contact AeroEdge">
+          <div className="application-expert-sidebar__card sidebar-card sidebar-card--contact">
+            <p className="sidebar-card__brand">AeroEdge Technologies</p>
+            <h3>Talk to an expert</h3>
+            <p>
+              Custom demos, pilot programs, and mission-specific UAV integration — available
+              across India.
+            </p>
+            <a href="mailto:connect@aeroedgetechnologies.in" className="sidebar-email">
+              connect@aeroedgetechnologies.in
+            </a>
+            <Link to="/contact-us" className="application-detail-cta application-detail-cta--full">
+              Contact us
+            </Link>
+          </div>
+        </aside>
         </div>
-      </section>
+      </div>
 
       <section className="application-related-bottom" aria-labelledby="related-apps-heading">
         <div className="application-related-bottom__inner">

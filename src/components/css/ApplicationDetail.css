@@ -137,18 +137,29 @@
   padding: 0.85rem 1.5rem;
 }
 
-/* Desktop: flex row — left column scrolls with page, right sidebar stays stuck */
 .application-detail-layout {
   max-width: min(90rem, 100%);
   margin: 0 auto;
-  padding: 1.75rem 1.5rem 0.5rem;
+  padding: 2rem 1.5rem 1rem;
+}
+
+.application-detail-body {
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 2rem;
   align-items: stretch;
 }
 
+@media (min-width: 1024px) {
+  .application-detail-body {
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+  }
+}
+
 .application-detail-main {
+  flex: 1 1 auto;
   min-width: 0;
   width: 100%;
   background: #fff;
@@ -156,13 +167,13 @@
   box-shadow: 0 4px 24px rgba(15, 23, 42, 0.08);
   border: 1px solid #e2e8f0;
   overflow: visible;
-  padding-bottom: 2.5rem;
+  padding-bottom: 3rem;
   font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 .application-gallery {
-  margin: 2.25rem 2.25rem 0;
-  padding: 1.5rem 1.5rem 1.75rem;
+  margin: 2.5rem 2.5rem 0;
+  padding: 1.75rem 1.75rem 2rem;
   background: linear-gradient(180deg, #f8fafc 0%, #fff 100%);
   border: 1px solid #e2e8f0;
   border-radius: 12px;
@@ -219,8 +230,8 @@
 }
 
 .application-block {
-  margin: 2rem 2.25rem 0;
-  padding: 2rem 2.25rem;
+  margin: 2.75rem 2.5rem 0;
+  padding: 2.25rem 2.5rem;
   background: #fff;
   border: 1px solid #e8edf2;
   border-radius: 12px;
@@ -235,8 +246,8 @@
   font-weight: 700;
   color: var(--aero-text);
   letter-spacing: -0.02em;
-  margin: 0 0 1.25rem;
-  padding-bottom: 0.85rem;
+  margin: 0 0 1.5rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid #e2e8f0;
 }
 
@@ -260,8 +271,8 @@
 
 .application-block p {
   color: #475569;
-  line-height: 1.8;
-  margin: 0 0 1.1rem;
+  line-height: 1.85;
+  margin: 0 0 1.35rem;
   font-size: 1rem;
 }
 
@@ -273,8 +284,8 @@
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   border-left: 4px solid var(--aero-brand);
   box-shadow: none;
-  padding: 2rem 2.25rem;
-  margin-top: 2.25rem;
+  padding: 2.25rem 2.5rem;
+  margin-top: 2.75rem;
 }
 
 .application-block--intro h2 {
@@ -284,9 +295,9 @@
 .application-block--split {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
   padding: 0;
-  margin: 2rem 2.25rem 0;
+  margin: 2.75rem 2.5rem 0;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -294,7 +305,7 @@
 
 .application-block--split > div {
   margin: 0;
-  padding: 1.75rem 2rem;
+  padding: 2rem 2.25rem;
   background: #f8fafc;
   border: 1px solid #e2e8f0;
   border-radius: 12px;
@@ -320,10 +331,10 @@
 
 .application-checklist li {
   position: relative;
-  padding: 0.45rem 0 0.45rem 1.5rem;
-  margin-bottom: 0.25rem;
+  padding: 0.6rem 0 0.6rem 1.5rem;
+  margin-bottom: 0.35rem;
   color: #475569;
-  line-height: 1.5;
+  line-height: 1.55;
   font-size: 0.95rem;
   border-bottom: 1px solid #e8edf2;
 }
@@ -370,8 +381,8 @@
 }
 
 .application-cta-banner {
-  margin: 2.5rem 2.25rem 0;
-  padding: 2.5rem 2.75rem;
+  margin: 3rem 2.5rem 0;
+  padding: 2.75rem 3rem;
   background: linear-gradient(135deg, #1f2937 0%, #374151 100%);
   border-radius: 12px;
   display: flex;
@@ -423,16 +434,38 @@
   background: #f1f5f9;
 }
 
-/* Talk to an expert — full width below main content */
-.application-expert-bottom {
-  max-width: min(90rem, 100%);
-  margin: 0 auto;
-  padding: 2rem 1.5rem 0.5rem;
+/* Talk to an expert — right sidebar on desktop */
+.application-expert-sidebar {
+  flex: 0 0 auto;
+  width: 100%;
 }
 
-.application-expert-bottom__inner {
-  max-width: 42rem;
-  margin: 0 auto;
+@media (min-width: 1024px) {
+  .application-expert-sidebar {
+    flex: 0 0 320px;
+    width: 320px;
+    position: sticky;
+    top: 5.5rem;
+    align-self: flex-start;
+  }
+}
+
+.application-expert-sidebar__card {
+  display: flex;
+  flex-direction: column;
+  min-height: 22rem;
+  padding: 2.5rem 2rem 2.75rem;
+}
+
+@media (min-width: 1024px) {
+  .application-expert-sidebar__card {
+    min-height: 26rem;
+    padding: 2.75rem 2.25rem 3rem;
+  }
+}
+
+.application-expert-sidebar__card p:not(.sidebar-card__brand) {
+  flex: 1;
 }
 
 .sidebar-card {
@@ -694,12 +727,9 @@
     padding: 2rem 1.5rem;
   }
 
-  .application-expert-bottom {
-    padding: 1.75rem 1.25rem 0.5rem;
-  }
-
-  .application-expert-bottom__inner {
-    padding: 1.75rem 1.5rem;
+  .application-expert-sidebar__card {
+    min-height: auto;
+    padding: 2rem 1.5rem 2.25rem;
   }
 }
 
@@ -720,7 +750,13 @@
 
 .sidebar-card--contact h3 {
   color: #0f172a;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+
+.application-expert-sidebar__card .application-detail-cta--full {
+  margin-top: auto;
+  padding: 1rem 1.5rem;
 }
 
 .sidebar-email {

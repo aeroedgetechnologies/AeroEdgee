@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import './css/Navbar.css';
 
 const navItems = [
   { label: 'Home', to: '/' },
@@ -49,8 +50,8 @@ const Navbar = () => {
               isOpen ? 'flex' : 'hidden'
             } md:flex absolute md:static left-0 right-0 top-16 md:top-auto bg-white md:bg-transparent flex-col md:flex-row md:items-center gap-1 md:gap-0 shadow-lg md:shadow-none border-t md:border-0 border-gray-100 py-3 md:py-0 px-4 md:px-0`}
           >
-            {navItems.map((item) => (
-              <li key={item.to}>
+            {navItems.map((item, index) => (
+              <li key={item.to} className="flex items-center md:flex-row flex-col w-full md:w-auto">
                 <NavLink
                   to={item.to}
                   end={item.to === '/'}
@@ -59,6 +60,11 @@ const Navbar = () => {
                 >
                   {item.label}
                 </NavLink>
+                {index < navItems.length - 1 && (
+                  <span className="nav-separator hidden md:inline" aria-hidden="true">
+                    |
+                  </span>
+                )}
               </li>
             ))}
           </ul>

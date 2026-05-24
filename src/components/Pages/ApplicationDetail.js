@@ -78,11 +78,18 @@ const ApplicationDetail = () => {
             </div>
           </section>
 
-          <section className="application-block">
-            <h2>Overview</h2>
+          <section className="application-block application-block--intro">
             <p className="application-lead">{application.shortDescription}</p>
-            <p>{application.overview}</p>
           </section>
+
+          {(application.sections || []).map((section) => (
+            <section className="application-block" key={section.heading}>
+              <h2>{section.heading}</h2>
+              {section.paragraphs.map((paragraph, idx) => (
+                <p key={idx}>{paragraph}</p>
+              ))}
+            </section>
+          ))}
 
           <section className="application-block application-block--split">
             <div>

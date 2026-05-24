@@ -152,4 +152,89 @@ function buildContactEmailText({ name, organization, email, phone, message }) {
   ].join('\n');
 }
 
-module.exports = { buildContactEmailHtml, buildContactEmailText };
+function buildContactAutoReplyHtml({ name }) {
+  const greeting = name ? escapeHtml(name.trim()) : 'there';
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>We received your message — AeroEdge Technologies</title>
+</head>
+<body style="margin:0;padding:0;background-color:${C.outer};font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased;">
+  <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color:${C.outer};">
+    <tr>
+      <td align="center" style="padding:32px 16px;">
+        <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="max-width:560px;background-color:${C.white};border:1px solid ${C.border};">
+          <tr>
+            <td style="height:3px;background-color:${C.accent};font-size:0;line-height:0;">&nbsp;</td>
+          </tr>
+          <tr>
+            <td style="padding:28px 32px 20px;border-bottom:1px solid ${C.border};">
+              <p style="margin:0 0 4px;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:${C.textMuted};font-weight:600;">AeroEdge Technologies</p>
+              <h1 style="margin:0;font-size:20px;font-weight:600;color:${C.text};line-height:1.35;">Thank you for contacting us</h1>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:24px 32px;">
+              <p style="margin:0 0 16px;font-size:15px;color:${C.text};line-height:1.65;">
+                Hi ${greeting},
+              </p>
+              <p style="margin:0 0 16px;font-size:14px;color:${C.textSecondary};line-height:1.65;">
+                We have received your message and our team will review it shortly.
+                <strong> We will contact you soon.</strong>
+              </p>
+              <p style="margin:0 0 16px;font-size:14px;color:${C.textSecondary};line-height:1.65;">
+                For urgent enquiries, you can also reach us at
+                <a href="mailto:connect@aeroedgetechnologies.in" style="color:${C.accent};text-decoration:none;">connect@aeroedgetechnologies.in</a>.
+              </p>
+              <p style="margin:0;font-size:14px;color:${C.textSecondary};line-height:1.65;">
+                Best regards,<br />
+                <strong style="color:${C.text};">AeroEdge Technologies</strong>
+              </p>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:20px 32px 28px;background-color:${C.surface};border-top:1px solid ${C.border};">
+              <p style="margin:0;font-size:12px;color:${C.textMuted};line-height:1.6;">
+                This is an automated confirmation. Please do not reply to this email unless you need to add more details.
+              </p>
+            </td>
+          </tr>
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+}
+
+function buildContactAutoReplyText({ name }) {
+  const greeting = name?.trim() ? name.trim() : 'there';
+
+  return [
+    'AEROEDGE TECHNOLOGIES',
+    'Thank you for contacting us',
+    '',
+    `Hi ${greeting},`,
+    '',
+    'We have received your message and our team will review it shortly.',
+    'We will contact you soon.',
+    '',
+    'For urgent enquiries: connect@aeroedgetechnologies.in',
+    '',
+    'Best regards,',
+    'AeroEdge Technologies',
+    '',
+    '---',
+    'This is an automated confirmation.',
+  ].join('\n');
+}
+
+module.exports = {
+  buildContactEmailHtml,
+  buildContactEmailText,
+  buildContactAutoReplyHtml,
+  buildContactAutoReplyText,
+};

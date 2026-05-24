@@ -10,7 +10,14 @@ const { Resend } = require('resend');
 const {
   buildContactEmailHtml,
   buildContactEmailText,
+  buildContactAutoReplyHtml,
+  buildContactAutoReplyText,
 } = require('./contactEmailTemplate');
+
+const CONTACT_FROM =
+  process.env.CONTACT_FROM || 'AeroEdge Technologies <onboarding@resend.dev>';
+const CONTACT_NOTIFY_TO =
+  process.env.CONTACT_NOTIFY_TO || 'aeroedgetechnologies@gmail.com';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -96,19 +103,30 @@ if (!process.env.RESEND_API_KEY) {
 
 async function sendContactNotification({ name, organization, email, phone, message }) {
   const payload = { name, organization, email, phone, message };
-
   const orgPart = organization ? ` (${organization})` : '';
 
   await resend.emails.send({
-    from: 'AeroEdge Contact Form <onboarding@resend.dev>',
-    to: 'aeroedgetechnologies@gmail.com',
+    from: CONTACT_FROM,
+    to: CONTACT_NOTIFY_TO,
     replyTo: email,
     subject: `Website inquiry: ${name}${orgPart}`,
     html: buildContactEmailHtml(payload),
     text: buildContactEmailText(payload),
   });
-  console.log('Email sent successfully');
+  console.log('Team notification email sent');
 }
+
+async function sendContactAutoReply({ name, email }) {
+  await resend.emails.send({
+    from: CONTACT_FROM,
+    to: email,
+    subject: 'We received your message — AeroEdge Technologies',
+    html: buildContactAutoReplyHtml({ name }),
+    text: buildContactAutoReplyText({ name }),
+  });
+  console.log('Auto-reply email sent to', email);
+}
+
 
 app.get('/', (req, res) => {
   res.send('Welcome to the AeroEdge API!');
@@ -145,6 +163,7 @@ app.post('/api/contact', async (req, res) => {
 
   let saved = false;
   let emailed = false;
+  let autoReplied = false;
 
   if (isMongoConnected()) {
     try {
@@ -160,20 +179,23 @@ app.post('/api/contact', async (req, res) => {
     );
   }
 
-  if (saved && process.env.RESEND_API_KEY) {
+  if (process.env.RESEND_API_KEY) {
+    const emailPayload = { name, organization, email, phone, message };
+
     try {
-      await sendContactNotification({
-        name,
-        organization,
-        email,
-        phone,
-        message,
-      });
+      await sendContactNotification(emailPayload);
       emailed = true;
     } catch (err) {
-      console.error('Email sending error:', err);
+      console.error('Team notification email error:', err);
     }
-  } else if (!process.env.RESEND_API_KEY) {
+
+    try {
+      await sendContactAutoReply({ name, email });
+      autoReplied = true;
+    } catch (err) {
+      console.error('Auto-reply email error:', err);
+    }
+  } else {
     console.warn(
       'Email send skipped: RESEND_API_KEY must be set in environment variables.'
     );
@@ -184,6 +206,7 @@ app.post('/api/contact', async (req, res) => {
       message: 'Message sent successfully!',
       saved,
       emailed,
+      autoReplied,
     });
   }
 

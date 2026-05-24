@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { buildSeoKeywords } from '../data/seoKeywords';
 
 const SITE_URL = 'https://aetechnologies.in';
 const DEFAULT_TITLE = 'AeroEdge Technologies | Drones, Surveillance & Defence Automation';
@@ -38,7 +39,7 @@ export default function Seo({
   useEffect(() => {
     document.title = fullTitle;
     setMeta('description', description);
-    if (keywords) setMeta('keywords', keywords);
+    setMeta('keywords', buildSeoKeywords(keywords));
     setMeta('og:title', fullTitle, 'property');
     setMeta('og:description', description, 'property');
     setMeta('og:url', canonical, 'property');

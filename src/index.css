@@ -20,18 +20,19 @@ code {
 
 body {
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   overflow-y: auto;
   margin: 0;
 }
 
 #root {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 main.scrollable {
   width: 100%;
-  overflow-x: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 

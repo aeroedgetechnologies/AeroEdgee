@@ -7,6 +7,9 @@ import applications3 from '../components/Site Context/Applications Images/pexels
 /** High-res application heroes (public/images/applications/) */
 const appImg = (file) => `${process.env.PUBLIC_URL || ''}/images/applications/${file}`;
 
+/** Hero banner videos (public/videos/applications/, watermark cropped) */
+const appVid = (file) => `${process.env.PUBLIC_URL || ''}/videos/applications/${file}`;
+
 const IMG = {
   disaster: appImg('disaster-relief-coordination.jpg'),
   resource: appImg('resource-extraction-planning.jpg'),
@@ -18,6 +21,17 @@ const IMG = {
   mountain: appImg('mountain-topography-mapping.jpg'),
 };
 
+const VID = {
+  disaster: appVid('disaster-relief-coordination.mp4'),
+  resource: appVid('resource-extraction-planning.mp4'),
+  rail: appVid('rail-system-evaluation.mp4'),
+  agriculture: appVid('advanced-agriculture.mp4'),
+  urban: appVid('urban-planning-strategy.mp4'),
+  construction: appVid('construction-project-management.mp4'),
+  gis: appVid('geographic-information-analysis.mp4'),
+  mountain: appVid('mountain-topography-mapping.mp4'),
+};
+
 export const applicationsList = [
   {
     id: 'disaster-relief-coordination',
@@ -25,6 +39,7 @@ export const applicationsList = [
     shortDescription:
       'Advanced drone platforms and aerial intelligence for rapid-response missions in disaster-prone environments.',
     heroImage: IMG.disaster,
+    heroVideo: VID.disaster,
     gallery: [IMG.disaster, battlefield, medicalDrones, nightVision],
     tagline: 'Mission-critical UAV technology for emergency and public safety agencies.',
     sections: [
@@ -75,6 +90,7 @@ export const applicationsList = [
     shortDescription:
       'High-resolution aerial survey and remote sensing for mining, oil & gas, quarry, and industrial resource planning.',
     heroImage: IMG.resource,
+    heroVideo: VID.resource,
     gallery: [IMG.resource, battlefield, applications2],
     tagline: 'Terrain intelligence before field deployment begins.',
     sections: [
@@ -119,6 +135,7 @@ export const applicationsList = [
     shortDescription:
       'Continuous aerial inspection of tracks, bridges, tunnels, and electrification with AI defect detection.',
     heroImage: IMG.rail,
+    heroVideo: VID.rail,
     gallery: [IMG.rail, applications3, nightVision],
     tagline: 'Predictive maintenance for modern railway infrastructure.',
     sections: [
@@ -163,6 +180,7 @@ export const applicationsList = [
     shortDescription:
       'Precision agriculture UAVs for crop monitoring, irrigation, spraying, and AI-driven field intelligence.',
     heroImage: IMG.agriculture,
+    heroVideo: VID.agriculture,
     gallery: [IMG.agriculture, applications2],
     tagline: 'Data-driven farming from the sky.',
     sections: [
@@ -207,6 +225,7 @@ export const applicationsList = [
     shortDescription:
       'Aerial mapping and geospatial intelligence for smart cities, infrastructure, and sustainable urban development.',
     heroImage: IMG.urban,
+    heroVideo: VID.urban,
     gallery: [IMG.urban, applications2],
     tagline: 'Spatial intelligence for growing cities.',
     sections: [
@@ -251,6 +270,7 @@ export const applicationsList = [
     shortDescription:
       'Aerial progress tracking, 3D modeling, and safety monitoring for large civil and industrial builds.',
     heroImage: IMG.construction,
+    heroVideo: VID.construction,
     gallery: [IMG.construction, applications3],
     tagline: 'Your construction site, documented from above.',
     sections: [
@@ -295,6 +315,7 @@ export const applicationsList = [
     shortDescription:
       'UAV remote sensing and geospatial analytics for precision terrain and infrastructure intelligence.',
     heroImage: IMG.gis,
+    heroVideo: VID.gis,
     gallery: [IMG.gis, IMG.mountain],
     tagline: 'High-precision terrain intelligence at scale.',
     sections: [
@@ -339,6 +360,7 @@ export const applicationsList = [
     shortDescription:
       'High-altitude UAV mapping for rugged terrain, slope stability, and remote reconnaissance.',
     heroImage: IMG.mountain,
+    heroVideo: VID.mountain,
     gallery: [IMG.mountain, IMG.gis, nightVision],
     tagline: 'Precision mapping where conventional survey cannot reach.',
     sections: [

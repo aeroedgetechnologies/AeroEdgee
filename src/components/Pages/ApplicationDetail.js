@@ -37,10 +37,26 @@ const ApplicationDetail = () => {
         keywords={`AeroEdge, ${application.title}, drone applications, aerial survey India`}
       />
 
-      <header
-        className="application-detail-hero"
-        style={{ backgroundImage: `url(${application.heroImage})` }}
-      >
+      <header className="application-detail-hero">
+        {application.heroVideo ? (
+          <video
+            className="application-detail-hero__video"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={application.heroImage}
+            aria-hidden="true"
+          >
+            <source src={application.heroVideo} type="video/mp4" />
+          </video>
+        ) : (
+          <div
+            className="application-detail-hero__fallback"
+            style={{ backgroundImage: `url(${application.heroImage})` }}
+            aria-hidden="true"
+          />
+        )}
         <div className="application-detail-hero__overlay">
           <div className="application-detail-hero__content">
             <nav className="application-breadcrumb" aria-label="Breadcrumb">
@@ -143,8 +159,8 @@ const ApplicationDetail = () => {
           </section>
         </article>
 
-        <div className="application-detail-sidebar-wrap">
-        <aside className="application-detail-sidebar" aria-label="Related applications">
+        <div className="application-detail-sidebar-column">
+          <aside className="application-detail-sidebar" aria-label="Related applications">
           <div className="sidebar-card">
             <h3>Related applications</h3>
             <p className="sidebar-card__hint">Explore more ways AeroEdge supports your mission</p>
@@ -183,7 +199,7 @@ const ApplicationDetail = () => {
               Contact us
             </Link>
           </div>
-        </aside>
+          </aside>
         </div>
       </div>
 

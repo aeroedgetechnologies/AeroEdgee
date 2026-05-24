@@ -7,6 +7,10 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
 const { Resend } = require('resend');
+const {
+  buildContactEmailHtml,
+  buildContactEmailText,
+} = require('./contactEmailTemplate');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -91,18 +95,15 @@ if (!process.env.RESEND_API_KEY) {
 }
 
 async function sendContactNotification({ name, organization, email, phone, message }) {
+  const payload = { name, organization, email, phone, message };
+
   await resend.emails.send({
-    from: 'onboarding@resend.dev',
+    from: 'AeroEdge Website <onboarding@resend.dev>',
     to: 'aeroedgetechnologies@gmail.com',
-    subject: 'New Contact Form Submission',
-    html: `
-    <h2>New Contact Submission</h2>
-    <p><strong>Name:</strong> ${name}</p>
-    <p><strong>Organization:</strong> ${organization}</p>
-    <p><strong>Email:</strong> ${email}</p>
-    <p><strong>Phone:</strong> ${phone}</p>
-    <p><strong>Message:</strong> ${message}</p>
-  `,
+    replyTo: email,
+    subject: `New enquiry from ${name} — AeroEdge Contact Form`,
+    html: buildContactEmailHtml(payload),
+    text: buildContactEmailText(payload),
   });
   console.log('Email sent successfully');
 }

@@ -11,8 +11,6 @@ const nodemailer = require('nodemailer');
 const app = express();
 const PORT = process.env.PORT || 10000;
 const MONGO_URI = process.env.MONGO_URI || process.env.MONGODB_URI;
-const NOTIFY_EMAIL =
-  process.env.NOTIFY_EMAIL || 'aeroedgetechnologies@gmail.com';
 
 const allowedOrigins = [
   'https://aetechnologies.in',
@@ -85,62 +83,39 @@ const contactSchema = new mongoose.Schema({
 const Contact = mongoose.model('Contact', contactSchema);
 
 const transporter = nodemailer.createTransport({
-  service: 'gmail',
+  host: 'smtp.gmail.com',
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
+  connectionTimeout: 10000,
+  greetingTimeout: 10000,
+  socketTimeout: 10000,
 });
 
-if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
-  transporter.verify((err) => {
-    if (err) {
-      console.error('Email transporter verification failed:', err);
-    } else {
-      console.log('Email transporter ready');
-    }
-  });
-} else {
+if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
   console.warn(
     'EMAIL_USER or EMAIL_PASS not set — contact form emails will not send until configured.'
   );
 }
 
-function buildContactEmailContent({ name, organization, email, phone, message }) {
-  const lines = [
-    'New contact form submission',
-    '',
-    `Name: ${name}`,
-    `Organization: ${organization || 'N/A'}`,
-    `Email: ${email}`,
-    `Phone: ${phone || 'N/A'}`,
-    '',
-    'Message:',
-    message,
-  ];
-
-  return {
-    subject: `AeroEdge contact form: ${name}`,
-    text: lines.join('\n'),
-    html: lines
-      .map((line) => (line === '' ? '<br>' : `<p>${line}</p>`))
-      .join(''),
-  };
-}
-
-async function sendContactNotification(formData) {
-  const { subject, text, html } = buildContactEmailContent(formData);
-
+async function sendContactNotification({ name, organization, email, phone, message }) {
   await transporter.sendMail({
     from: process.env.EMAIL_USER,
-    to: NOTIFY_EMAIL,
-    replyTo: formData.email,
-    subject,
-    text,
-    html,
+    to: process.env.EMAIL_USER,
+    subject: 'New Contact Form Submission',
+    html: `
+    <h2>New Contact Submission</h2>
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Organization:</strong> ${organization}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Phone:</strong> ${phone}</p>
+    <p><strong>Message:</strong> ${message}</p>
+  `,
   });
-
-  console.log('Email sent successfully to', NOTIFY_EMAIL);
+  console.log('Email sent successfully');
 }
 
 app.get('/', (req, res) => {
@@ -189,8 +164,8 @@ app.post('/api/contact', async (req, res) => {
         message,
       });
       emailed = true;
-    } catch (error) {
-      console.error('Email send error:', error);
+    } catch (err) {
+      console.error('Email sending error:', err);
     }
   } else {
     console.error(

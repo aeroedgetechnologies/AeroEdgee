@@ -28,8 +28,14 @@ function displayValue(value) {
 function detailRow(label, value) {
   return `
     <tr>
-      <td style="padding:10px 0;border-bottom:1px solid ${C.border};color:${C.textMuted};font-size:13px;width:128px;vertical-align:top;font-family:Arial,Helvetica,sans-serif;">${label}</td>
-      <td style="padding:10px 0;border-bottom:1px solid ${C.border};color:${C.text};font-size:14px;line-height:1.5;font-family:Arial,Helvetica,sans-serif;">${value}</td>
+      <td style="padding:10px 0;border-bottom:1px solid ${C.border};font-family:Arial,Helvetica,sans-serif;">
+        <table role="presentation" cellspacing="0" cellpadding="0" border="0">
+          <tr>
+            <td style="color:${C.textMuted};font-size:13px;white-space:nowrap;vertical-align:top;padding:0 10px 0 0;line-height:1.5;">${label}:</td>
+            <td style="color:${C.text};font-size:14px;vertical-align:top;padding:0;line-height:1.5;">${value}</td>
+          </tr>
+        </table>
+      </td>
     </tr>`;
 }
 
@@ -82,11 +88,11 @@ function buildContactEmailHtml({ name, organization, email, phone, message }) {
                 The following details were submitted through the contact form on
                 <a href="https://aetechnologies.in/contact-us" style="color:${C.accent};text-decoration:none;">aetechnologies.in</a>.
               </p>
-              <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin:0 0 24px;">
+              <table role="presentation" cellspacing="0" cellpadding="0" border="0" style="margin:0 0 24px;">
                 ${detailRow('Full name', `<strong style="font-weight:600;">${displayValue(name)}</strong>`)}
-                ${detailRow('Email address', emailLink)}
+                ${detailRow('Email', emailLink)}
                 ${detailRow('Organization', displayValue(organization))}
-                ${detailRow('Phone number', displayValue(phone))}
+                ${detailRow('Phone', displayValue(phone))}
               </table>
               <p style="margin:0 0 8px;font-size:12px;font-weight:600;color:${C.textMuted};font-family:Arial,Helvetica,sans-serif;">Message</p>
               <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0">

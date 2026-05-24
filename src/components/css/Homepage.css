@@ -20,12 +20,33 @@
 }
 
 .homepage-section {
-  background-image: url('../../Images/photo_2025-10-11_13-39-40.jpg');
+  position: relative;
+  background-image: url('/images/homepage-banner.png');
   background-size: cover;
-  background-position: center;
-  min-height: clamp(360px, 50vh, 700px);
+  background-position: center 45%;
+  background-repeat: no-repeat;
+  min-height: clamp(380px, 52vh, 720px);
   display: flex;
   align-items: center;
+}
+
+.homepage-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(255, 255, 255, 0.72) 38%,
+    rgba(255, 255, 255, 0.15) 100%
+  );
+  pointer-events: none;
+}
+
+.homepage-section__inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
 }
 
 .Contactussection-background {

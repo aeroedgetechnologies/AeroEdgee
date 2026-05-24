@@ -120,22 +120,21 @@ const scrollToTop = () => {
       keywords="AeroEdge, drones India, surveillance systems, defence technology, anti-UAV, aerial mapping"
     />
     {/* Products Section */}
-    <section className="homepage-section">
-{/* <img src={logoss} alt="Logo" className="mr-2 rounded h-10 w-[110px]" /> */}
-
-  <div className="flex justify-start items-center h-full ml-10"> {/* Align to the left */}
-    <div className="p-8 rounded-lg mx-4 my-10 text-left"> {/* Change to text-left */}
-      {/* <h1 className="text-7xl font-bold text-blue-300 mb-2">SNAP-M</h1>
-      <h2 className="text-2xl text-gray-200">Survey Grade Drone for Aerial Mapping</h2> */}
-      <p className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-700 mb-4">
-{/* {renderLetters(text)} */}
-        {/* I n n o v a t i o n s */}
-        {/* h i g h {" "}  m a i n t a i n a n c e */}
-<p>d&nbsp;e&nbsp;f&nbsp;e&nbsp;n&nbsp;c&nbsp;e&nbsp;&nbsp;&nbsp;&amp;&nbsp;&nbsp;&nbsp;e&nbsp;n&nbsp;e&nbsp;r&nbsp;g&nbsp;y</p>
-      </p>
-    </div>
-  </div>
-</section>
+    <section className="homepage-section" aria-label="AeroEdge hero banner">
+      <div className="homepage-section__inner flex justify-start items-center h-full">
+        <div className="px-6 md:px-10 lg:px-16 py-10 md:py-14 text-left max-w-2xl">
+          <p className="text-xs md:text-sm font-semibold tracking-[0.2em] uppercase text-slate-500 mb-3">
+            AeroEdge Technologies
+          </p>
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-slate-800 leading-tight mb-3">
+            Advanced engineering for defence &amp; energy
+          </h1>
+          <p className="text-base md:text-lg text-slate-600 leading-relaxed">
+            Military-grade drones, surveillance systems, and precision manufacturing for mission-critical applications.
+          </p>
+        </div>
+      </div>
+    </section>
       {/* Services Section */}
       <section className="page-section flex flex-col lg:flex-row bg-white gap-8 lg:gap-12">
   <div className="lg:w-1/2 w-full px-4 lg:px-8">

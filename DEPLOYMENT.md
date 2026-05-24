@@ -13,6 +13,22 @@ The error `querySrv ENOTFOUND _mongodb._tcp....mongodb.net` means the cluster ho
 4. URL-encode special characters in the password (`@` → `%40`, `#` → `%23`, etc.).
 5. Under **Network Access**, allow `0.0.0.0/0` (or Render’s outbound IPs) so Render can connect.
 
+### Render (required for contact form leads)
+
+In **Render Dashboard → your service → Environment**, add:
+
+| Key | Example / notes |
+|-----|-----------------|
+| `MONGO_URI` | Full Atlas SRV string (copy from Atlas Connect) |
+| `EMAIL_USER` | Gmail address used to send mail |
+| `EMAIL_PASS` | Gmail [App Password](https://myaccount.google.com/apppasswords) |
+| `NOTIFY_EMAIL` | `aeroedgetechnologies@gmail.com` |
+| `PORT` | `10000` (Render sets this automatically; optional) |
+
+After saving, click **Manual Deploy**. Check logs for `MongoDB Connected` and `Email transporter ready`.
+
+Test: `https://aeroedgee.onrender.com/api/health` should show `"mongoConnected": true` and `"emailConfigured": true`.
+
 Set in `backend/.env` locally and in **Render → Environment**:
 
 - `MONGO_URI`

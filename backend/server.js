@@ -36,6 +36,12 @@ app.use(
 );
 app.use(express.json());
 
+mongoose.set('bufferCommands', false);
+
+function isMongoConnected() {
+  return mongoose.connection.readyState === 1;
+}
+
 if (!MONGO_URI) {
   console.error(
     'MongoDB connection error: MONGO_URI (or MONGODB_URI) is not set in environment variables.'
@@ -144,7 +150,9 @@ app.get('/', (req, res) => {
 app.get('/api/health', (req, res) => {
   res.json({
     status: 'ok',
+    mongoConnected: isMongoConnected(),
     mongoState: mongoose.connection.readyState,
+    emailConfigured: Boolean(process.env.EMAIL_USER && process.env.EMAIL_PASS),
     timestamp: new Date().toISOString(),
   });
 });
@@ -190,12 +198,18 @@ app.post('/api/contact', async (req, res) => {
     );
   }
 
-  try {
-    await contact.save();
-    saved = true;
-    console.log('MongoDB save successful');
-  } catch (error) {
-    console.error('MongoDB save error:', error);
+  if (isMongoConnected()) {
+    try {
+      await contact.save();
+      saved = true;
+      console.log('MongoDB save successful');
+    } catch (error) {
+      console.error('MongoDB save error:', error);
+    }
+  } else {
+    console.warn(
+      'MongoDB not connected — skipping database save. Set MONGO_URI on Render and allow Atlas access.'
+    );
   }
 
   if (saved || emailed) {

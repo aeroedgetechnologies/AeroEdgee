@@ -23,7 +23,13 @@ import logoss from '../../Images/sidebar_page-0001 (2).jpg';
 // import homepageImage from '../../Images/Homepage drone image.jpg'; 
 import { Link } from 'react-router-dom';
 import { applicationsList } from '../../data/applicationsData';
-import battlefieldss from '../../Images/anemometer-wind-speed-measurement-small-weather-station-anemometer-blue-sky_347372-911.avif';
+import ReadMoreLess from '../ReadMoreLess';
+
+const WHAT_WE_ARE_TEXT = `We are at the forefront of advancing automation and surveillance systems that redefine security and operational efficiency. By harnessing cutting-edge technologies such as artificial intelligence and machine learning, our solutions enable real-time analysis of vast data streams, ensuring rapid identification of potential threats and streamlined responses. Our smart surveillance systems, equipped with facial recognition and predictive analytics, are designed to detect unusual behaviors and deliver timely alerts for proactive intervention. While we are committed to enhancing public safety and productivity, we also prioritize ethical considerations regarding privacy and data management. We believe in a future where innovative technology and civil liberties coexist, and we are dedicated to leading the way.
+
+The landscape of surveillance technology has evolved dramatically over the past decade. Traditional systems often relied on passive monitoring, requiring human operators to sift through hours of footage to identify potential incidents. However, with advancements in artificial intelligence (AI) and machine learning, we have revolutionized this approach. Our automated surveillance systems are capable of real-time data analysis, recognizing patterns, and detecting anomalies with unparalleled accuracy.
+
+For instance, our smart cameras are equipped with advanced facial recognition capabilities, enabling organizations to enhance their security protocols effectively. By leveraging AI algorithms, these systems can swiftly identify individuals in crowded environments, allowing for prompt responses to potential threats.`;
 
 const HomePage = () => {
   const [animate, setAnimate] = useState(false);
@@ -145,13 +151,7 @@ const scrollToTop = () => {
     {/* Text at the top */}
     <div>
       <h2 className="text-3xl font-bold mb-4">What We Are</h2>
-      {/* <p className="text-lg mb-2">Survey of India qualified PPK drone for high precision aerial mapping.</p>
-      <p className="text-lg mb-2">Industry-leading flight time with maximum possible area coverage.</p> */}
-      <p className="text-lg mb-4">We are at the forefront of advancing automation and surveillance systems that redefine security and operational efficiency. By harnessing cutting-edge technologies such as artificial intelligence and machine learning, our solutions enable real-time analysis of vast data streams, ensuring rapid identification of potential threats and streamlined responses. Our smart surveillance systems, equipped with facial recognition and predictive analytics, are designed to detect unusual behaviors and deliver timely alerts for proactive intervention. While we are committed to enhancing public safety and productivity, we also prioritize ethical considerations regarding privacy and data management. We believe in a future where innovative technology and civil liberties coexist, and we are dedicated to leading the way.
-      The landscape of surveillance technology has evolved dramatically over the past decade. Traditional systems often relied on passive monitoring, requiring human operators to sift through hours of footage to identify potential incidents. However, with advancements in artificial intelligence (AI) and machine learning, we have revolutionized this approach. Our automated surveillance systems are capable of real-time data analysis, recognizing patterns, and detecting anomalies with unparalleled accuracy.
-
-For instance, our smart cameras are equipped with advanced facial recognition capabilities, enabling organizations to enhance their security protocols effectively. By leveraging AI algorithms, these systems can swiftly identify individuals in crowded environments, allowing for prompt responses to potential threats.
-      </p>
+      <ReadMoreLess previewChars={380}>{WHAT_WE_ARE_TEXT}</ReadMoreLess>
     </div>
 
     {/* Button positioned at the bottom right */}
@@ -175,8 +175,8 @@ For instance, our smart cameras are equipped with advanced facial recognition ca
             Surveillance Systems
           </h2>
           <div className="surveillance-image-grid">
-            <img src={battlefields} alt="Battlefield surveillance drone deployment" className="surveillance-image surveillance-image--wide" loading="lazy" />
-            <img src={battlefieldss} alt="Weather monitoring for drone operations" className="surveillance-image" loading="lazy" />
+            <img src={battlefields} alt="Battlefield surveillance drone deployment" className="surveillance-image" loading="lazy" />
+            <img src={eyessdrones} alt="Advanced optical surveillance system" className="surveillance-image" loading="lazy" />
             <img src={medicaldroness} alt="Medical delivery drone system" className="surveillance-image" loading="lazy" />
             <img src={nightvision} alt="Night vision surveillance capability" className="surveillance-image" loading="lazy" />
           </div>

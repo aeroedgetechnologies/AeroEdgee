@@ -19,7 +19,14 @@ const ApplicationDetail = () => {
   }
 
   const related = getRelatedApplications(application.id, 5);
-  const gallery = application.gallery || [application.heroImage];
+  const gallery = (application.gallery || [application.heroImage]).filter(Boolean);
+  const heroFallback = application.heroImage;
+
+  const handleImgError = (e) => {
+    if (heroFallback && e.target.src !== heroFallback) {
+      e.target.src = heroFallback;
+    }
+  };
 
   return (
     <div className="application-detail-page">
@@ -58,8 +65,9 @@ const ApplicationDetail = () => {
           <section className="application-gallery" aria-label="Image gallery">
             <div className="application-gallery__featured">
               <img
-                src={gallery[activeImage]}
+                src={gallery[activeImage] || heroFallback}
                 alt={`${application.title} — view ${activeImage + 1}`}
+                onError={handleImgError}
               />
             </div>
             <div className="application-gallery__thumbs">
@@ -72,7 +80,7 @@ const ApplicationDetail = () => {
                   aria-label={`Show image ${index + 1}`}
                   aria-pressed={index === activeImage}
                 >
-                  <img src={img} alt="" />
+                  <img src={img} alt="" onError={handleImgError} />
                 </button>
               ))}
             </div>
@@ -135,6 +143,7 @@ const ApplicationDetail = () => {
           </section>
         </article>
 
+        <div className="application-detail-sidebar-wrap">
         <aside className="application-detail-sidebar" aria-label="Related applications">
           <div className="sidebar-card">
             <h3>Related applications</h3>
@@ -143,7 +152,7 @@ const ApplicationDetail = () => {
               {related.map((app) => (
                 <li key={app.id}>
                   <Link to={`/applications/${app.id}`} className="related-application-item">
-                    <img src={app.heroImage} alt="" />
+                    <img src={app.heroImage} alt="" onError={handleImgError} />
                     <div>
                       <span className="related-application-item__title">{app.title}</span>
                       <span className="related-application-item__desc">{app.shortDescription}</span>
@@ -161,8 +170,12 @@ const ApplicationDetail = () => {
           </div>
 
           <div className="sidebar-card sidebar-card--contact">
+            <p className="sidebar-card__brand">AeroEdge Technologies</p>
             <h3>Talk to an expert</h3>
-            <p>Custom demos and pilot programs available across India.</p>
+            <p>
+              Custom demos, pilot programs, and mission-specific UAV integration — available
+              across India.
+            </p>
             <a href="mailto:connect@aeroedgetechnologies.in" className="sidebar-email">
               connect@aeroedgetechnologies.in
             </a>
@@ -171,6 +184,7 @@ const ApplicationDetail = () => {
             </Link>
           </div>
         </aside>
+        </div>
       </div>
 
       <ScrollToTopButton />

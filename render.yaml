@@ -15,9 +15,5 @@ services:
         sync: false
       - key: MONGODB_URI
         sync: false
-      - key: EMAIL_USER
+      - key: RESEND_API_KEY
         sync: false
-      - key: EMAIL_PASS
-        sync: false
-      - key: NOTIFY_EMAIL
-        value: aeroedgetechnologies@gmail.com

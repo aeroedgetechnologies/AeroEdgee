@@ -6,7 +6,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 const app = express();
 const PORT = process.env.PORT || 10000;
@@ -82,29 +84,16 @@ const contactSchema = new mongoose.Schema({
 
 const Contact = mongoose.model('Contact', contactSchema);
 
-const transporter = nodemailer.createTransport({
-  host: 'smtp.gmail.com',
-  port: 465,
-  secure: true,
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-  connectionTimeout: 10000,
-  greetingTimeout: 10000,
-  socketTimeout: 10000,
-});
-
-if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+if (!process.env.RESEND_API_KEY) {
   console.warn(
-    'EMAIL_USER or EMAIL_PASS not set — contact form emails will not send until configured.'
+    'RESEND_API_KEY not set — contact form emails will not send until configured.'
   );
 }
 
 async function sendContactNotification({ name, organization, email, phone, message }) {
-  await transporter.sendMail({
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
+  await resend.emails.send({
+    from: 'onboarding@resend.dev',
+    to: 'aeroedgetechnologies@gmail.com',
     subject: 'New Contact Form Submission',
     html: `
     <h2>New Contact Submission</h2>
@@ -127,7 +116,7 @@ app.get('/api/health', (req, res) => {
     status: 'ok',
     mongoConnected: isMongoConnected(),
     mongoState: mongoose.connection.readyState,
-    emailConfigured: Boolean(process.env.EMAIL_USER && process.env.EMAIL_PASS),
+    emailConfigured: Boolean(process.env.RESEND_API_KEY),
     timestamp: new Date().toISOString(),
   });
 });
@@ -154,7 +143,21 @@ app.post('/api/contact', async (req, res) => {
   let saved = false;
   let emailed = false;
 
-  if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+  if (isMongoConnected()) {
+    try {
+      await contact.save();
+      saved = true;
+      console.log('MongoDB save successful');
+    } catch (error) {
+      console.error('MongoDB save error:', error);
+    }
+  } else {
+    console.warn(
+      'MongoDB not connected — skipping database save. Set MONGO_URI on Render and allow Atlas access.'
+    );
+  }
+
+  if (saved && process.env.RESEND_API_KEY) {
     try {
       await sendContactNotification({
         name,
@@ -167,23 +170,9 @@ app.post('/api/contact', async (req, res) => {
     } catch (err) {
       console.error('Email sending error:', err);
     }
-  } else {
-    console.error(
-      'Email send skipped: EMAIL_USER and EMAIL_PASS must be set in environment variables.'
-    );
-  }
-
-  if (isMongoConnected()) {
-    try {
-      await contact.save();
-      saved = true;
-      console.log('MongoDB save successful');
-    } catch (error) {
-      console.error('MongoDB save error:', error);
-    }
-  } else {
+  } else if (!process.env.RESEND_API_KEY) {
     console.warn(
-      'MongoDB not connected — skipping database save. Set MONGO_URI on Render and allow Atlas access.'
+      'Email send skipped: RESEND_API_KEY must be set in environment variables.'
     );
   }
 

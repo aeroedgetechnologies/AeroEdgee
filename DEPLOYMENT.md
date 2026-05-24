@@ -20,12 +20,10 @@ In **Render Dashboard → your service → Environment**, add:
 | Key | Example / notes |
 |-----|-----------------|
 | `MONGO_URI` | Full Atlas SRV string (copy from Atlas Connect) |
-| `EMAIL_USER` | Gmail address used to send mail |
-| `EMAIL_PASS` | Gmail [App Password](https://myaccount.google.com/apppasswords) |
-| `NOTIFY_EMAIL` | `aeroedgetechnologies@gmail.com` |
+| `RESEND_API_KEY` | API key from [Resend](https://resend.com/api-keys) |
 | `PORT` | `10000` (Render sets this automatically; optional) |
 
-After saving, click **Manual Deploy**. Check logs for `MongoDB Connected` and `Email transporter ready`.
+After saving, click **Manual Deploy**. Check logs for `MongoDB Connected`, `MongoDB save successful`, and `Email sent successfully`.
 
 Test: `https://aeroedgee.onrender.com/api/health` should show `"mongoConnected": true` and `"emailConfigured": true`.
 
@@ -33,9 +31,7 @@ Set in `backend/.env` locally and in **Render → Environment**:
 
 - `MONGO_URI`
 - `PORT=10000`
-- `EMAIL_USER` (Gmail address used to send mail)
-- `EMAIL_PASS` (Gmail [App Password](https://myaccount.google.com/apppasswords), not your normal login password)
-- `NOTIFY_EMAIL=aeroedgetechnologies@gmail.com` (optional; this is the default)
+- `RESEND_API_KEY` (from [Resend](https://resend.com/api-keys); do not commit the real key)
 
 ## Render
 
